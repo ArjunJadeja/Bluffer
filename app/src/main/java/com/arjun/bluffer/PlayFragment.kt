@@ -52,8 +52,7 @@ class PlayFragment : Fragment() {
         val randomIndex = Random.nextInt(playerList.size);
         val randomElement = playerList[randomIndex]
         val selectedPlayer = randomElement.toString()
-
-
+        
         playButton.setOnClickListener {
             playButton.visibility = View.GONE
             playerNamesCV.visibility = View.VISIBLE

@@ -48,7 +48,7 @@ https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
 ## Architecture
 Pokedex is based on the MVC architecture and the Repository pattern.
 
-![architecture](https://www.figma.com/file/oi07Cbmqe6CyA8dPGLasSb/MVC-Architecture?node-id=0%3A1)
+![architecture](MVC Architecture.png)
 
 ## Open API
 

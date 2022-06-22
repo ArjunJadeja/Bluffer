@@ -34,7 +34,7 @@ https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
   - LiveData - LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services.
   - ViewBinding - Binds UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
 - Architecture
-  - MVC Architecture (View - ViewModel - Network)
+  - MVVM Architecture (View - ViewModel - Network)
 - [Retrofit2](https://github.com/square/retrofit) - Construct the REST APIs.
 - [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
 - [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines
@@ -51,9 +51,9 @@ https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
 
 
 ## Architecture
-Bluffer is based on the MVC architecture pattern.
+Bluffer is based on the MVVM architecture pattern.
 
-<img width="908" alt="MVC Architecture" src="https://user-images.githubusercontent.com/81246797/175071864-a292e851-c8d7-49de-a871-887cf14d6cd2.png">
+<img width="936" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/175111562-b1810235-3e5e-403e-a6c2-d917b56ca45b.png">
 
 
 ## Open API

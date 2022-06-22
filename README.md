@@ -1,92 +1,72 @@
-# Bluffer
-Two-Player Android Game
-
 <h1 align="center">Bluffer</h1>
 
-<p align="center">
-  <a href="https://devlibrary.withgoogle.com/products/android/repos/skydoves-pokedex"><img alt="Google" src="https://skydoves.github.io/badges/google-devlib.svg"/></a><br>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
-  <a href="https://android-arsenal.com/api?level=21"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
-  <a href="https://github.com/skydoves/Pokedex/actions"><img alt="Build Status" src="https://github.com/skydoves/Pokedex/workflows/Android%20CI/badge.svg"/></a> 
-  <a href="https://proandroiddev.com/exploring-dagger-hilt-and-whats-main-differences-with-dagger-android-c8c54cd92f18"><img alt="Medium" src="https://skydoves.github.io/badges/Story-Medium.svg"/></a>
-  <a href="https://github.com/skydoves"><img alt="Profile" src="https://skydoves.github.io/badges/skydoves.svg"/></a> 
-</p>
-
 <p align="center">  
-🗡️ Pokedex demonstrates modern Android development with Hilt, Coroutines, Flow, Jetpack (Room, ViewModel), and Material Design based on MVVM architecture.
+Bluffer demonstrates modern Android development with Coroutines, Jetpack Libraries, and Material Design based on MVVM architecture.
 </p>
 </br>
 
-<p align="center">
-<img src="/previews/screenshot.png"/>
-</p>
-
-## Download
-Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download the latest APK.
-
-<img src="/previews/preview.gif" align="right" width="32%"/>
 
 ## Tech stack & Open-source libraries
 - Minimum SDK level 21
-- [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous.
-- [Hilt](https://dagger.dev/hilt/) for dependency injection.
+- [Kotlin](https://kotlinlang.org/) - Modern, concise and safe programming language
+- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) - A concurrency design pattern to execute code asynchronously.
 - Jetpack
   - Lifecycle - Observe Android lifecycles and handle UI states upon the lifecycle changes.
   - ViewModel - Manages UI-related data holder and lifecycle aware. Allows data to survive configuration changes such as screen rotations.
-  - DataBinding - Binds UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
-  - Room Persistence - Constructs Database by providing an abstraction layer over SQLite to allow fluent database access.
+  - LiveData - LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services.
+  - ViewBinding - Binds UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
 - Architecture
-  - MVVM Architecture (View - DataBinding - ViewModel - Model)
-  - [Bindables](https://github.com/skydoves/bindables) - Android DataBinding kit for notifying data changes to UI layers.
-  - Repository Pattern
-- [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - Construct the REST APIs.
-- [Sandwich](https://github.com/skydoves/Sandwich) - Construct a lightweight and modern response interface to handle network payload for Android.
+  - MVVM Architecture (View - ViewModel - Network)
+- [Retrofit2](https://github.com/square/retrofit) - Construct the REST APIs.
 - [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
-- [Glide](https://github.com/bumptech/glide), [GlidePalette](https://github.com/florent37/GlidePalette) - Loading images from network.
-- [TransformationLayout](https://github.com/skydoves/transformationlayout) - implementing transformation motion animations.
-- [WhatIf](https://github.com/skydoves/whatif) - Check nullable objects and empty collections more fluently.
-- [Bundler](https://github.com/skydoves/bundler) - Android Intent & Bundle extensions, which insert and retrieve values elegantly.
-- [Timber](https://github.com/JakeWharton/timber) - A logger with a small, extensible API.
-- [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building ripple animation, and CardView.
-- [Turbine](https://github.com/cashapp/turbine) - A small testing library for kotlinx.coroutines Flow.
-- Custom Views
-  - [Rainbow](https://github.com/skydoves/rainbow) - An easy way to apply gradations and tinting for Android.
-  - [AndroidRibbon](https://github.com/skydoves/androidribbon) - A simple way to implement a  beautiful ribbon with the shimmering on Android.
-  - [ProgressView](https://github.com/skydoves/progressview) - A polished and flexible ProgressView, fully customizable with animations.
+- [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines
+- [SoundPool](https://developer.android.com/reference/android/media/SoundPool) - Manages and plays audio resources for applications.
+- [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
 
-## MAD Score
-![summary](https://user-images.githubusercontent.com/24237865/102366914-84f6b000-3ffc-11eb-8d49-b20694239782.png)
-![kotlin](https://user-images.githubusercontent.com/24237865/102366932-8a53fa80-3ffc-11eb-8131-fd6745a6f079.png)
 
 ## Architecture
-Pokedex is based on the MVVM architecture and the Repository pattern.
+Bluffer is based on the MVVM architecture pattern.
 
-![architecture](https://user-images.githubusercontent.com/24237865/77502018-f7d36000-6e9c-11ea-92b0-1097240c8689.png)
+<img width="936" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/175111562-b1810235-3e5e-403e-a6c2-d917b56ca45b.png">
+
+
+## MAD Score
+
+![summary](https://user-images.githubusercontent.com/81246797/175074332-21e64a45-88b6-4ec0-a005-92e7969e6035.png)
+
+![kotlin](https://user-images.githubusercontent.com/81246797/175074396-c2b31794-d699-4ad7-b65a-a322f9824683.png)
+
+![jetpack](https://user-images.githubusercontent.com/81246797/175074250-5938a9f0-766d-4b2f-9965-f8fdce09d207.png)
+
 
 ## Open API
 
-<img src="https://user-images.githubusercontent.com/24237865/83422649-d1b1d980-a464-11ea-8c91-a24fdf89cd6b.png" align="right" width="21%"/>
+- Bluffer using the [SubredditApi](https://meme-api.herokuapp.com/gimme/hmmm) for constructing RESTful API.<br>
 
-Pokedex using the [PokeAPI](https://pokeapi.co/) for constructing RESTful API.<br>
-PokeAPI provides a RESTful API interface to highly detailed objects built from thousands of lines of data related to Pokémon.
+- This API provides a RESTful API interface for any subreddit. All the data is fetched from [/hmmm](https://www.reddit.com/r/hmmm/) subreddit.
 
-## Find this repository useful? :heart:
-Support it by joining __[stargazers](https://github.com/skydoves/Pokedex/stargazers)__ for this repository. :star: <br>
-Also, __[follow me](https://github.com/skydoves)__ on GitHub for my next creations! 🤩
+- Github repository of author - [Github](https://github.com/D3vd/Meme_Api)
 
-# License
-```xml
-Designed and developed by 2020 skydoves (Jaewoong Eum)
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
+## Download
 
-   http://www.apache.org/licenses/LICENSE-2.0
+- Click on the link Here👇 to download
+https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
 
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
-```
+- Click "View Raw". It will automatically start downloading file
+
+- After the file is downloaded, double click on it.
+
+- Click Continue.
+
+- Congrats🥳 You have installed this game. Don't forget to share with your friends!! 
+
+
+## Contribution
+
+Contributions are always welcome! You are just a pull request away.
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

@@ -1,28 +1,10 @@
 <h1 align="center">Bluffer</h1>
 
 <p align="center">  
-🗡️ Pokedex demonstrates modern Android development with Hilt, Coroutines, Flow, Jetpack (Room, ViewModel), and Material Design based on MVVM architecture.
+🗡️ Bluffer demonstrates modern Android development with Coroutines, Jetpack Libraries, and Material Design based on MVVM architecture.
 </p>
 </br>
 
-<!-- <p align="center">
-<img src="/previews/screenshot.png"/>
-</p> -->
-
-## Download
-
-- Click on the link Here👇 to download
-https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
-
-- Click "View Raw". It will automatically start downloading file
-
-- After the file is downloaded, double click on it.
-
-- Click Continue.
-
-- Congrats🥳 You have installed this game. Don't forget to share with your friends!! 
-
-<!-- <img src="/previews/preview.gif" align="right" width="32%"/> -->
 
 ## Tech stack & Open-source libraries
 - Minimum SDK level 21
@@ -41,6 +23,13 @@ https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
 - [SoundPool](https://developer.android.com/reference/android/media/SoundPool) - Manages and plays audio resources for applications.
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
 
+
+## Architecture
+Bluffer is based on the MVVM architecture pattern.
+
+<img width="936" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/175111562-b1810235-3e5e-403e-a6c2-d917b56ca45b.png">
+
+
 ## MAD Score
 
 ![summary](https://user-images.githubusercontent.com/81246797/175074332-21e64a45-88b6-4ec0-a005-92e7969e6035.png)
@@ -48,12 +37,6 @@ https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
 ![kotlin](https://user-images.githubusercontent.com/81246797/175074396-c2b31794-d699-4ad7-b65a-a322f9824683.png)
 
 ![jetpack](https://user-images.githubusercontent.com/81246797/175074250-5938a9f0-766d-4b2f-9965-f8fdce09d207.png)
-
-
-## Architecture
-Bluffer is based on the MVVM architecture pattern.
-
-<img width="936" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/175111562-b1810235-3e5e-403e-a6c2-d917b56ca45b.png">
 
 
 ## Open API
@@ -64,9 +47,25 @@ Bluffer is based on the MVVM architecture pattern.
 
 - Github repository of author - [Github](https://github.com/D3vd/Meme_Api)
 
+
+## Download
+
+- Click on the link Here👇 to download
+https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
+
+- Click "View Raw". It will automatically start downloading file
+
+- After the file is downloaded, double click on it.
+
+- Click Continue.
+
+- Congrats🥳 You have installed this game. Don't forget to share with your friends!! 
+
+
 ## Contribution
 
 Contributions are always welcome! You are just a pull request away.
+
 
 ## License
 

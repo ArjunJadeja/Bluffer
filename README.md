@@ -1,30 +1,28 @@
-# Bluffer
-Two-Player Android Game
-
 <h1 align="center">Bluffer</h1>
-
-<p align="center">
-  <a href="https://devlibrary.withgoogle.com/products/android/repos/skydoves-pokedex"><img alt="Google" src="https://skydoves.github.io/badges/google-devlib.svg"/></a><br>
-  <a href="https://opensource.org/licenses/Apache-2.0"><img alt="License" src="https://img.shields.io/badge/License-Apache%202.0-blue.svg"/></a>
-  <a href="https://android-arsenal.com/api?level=21"><img alt="API" src="https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat"/></a>
-  <a href="https://github.com/skydoves/Pokedex/actions"><img alt="Build Status" src="https://github.com/skydoves/Pokedex/workflows/Android%20CI/badge.svg"/></a> 
-  <a href="https://proandroiddev.com/exploring-dagger-hilt-and-whats-main-differences-with-dagger-android-c8c54cd92f18"><img alt="Medium" src="https://skydoves.github.io/badges/Story-Medium.svg"/></a>
-  <a href="https://github.com/skydoves"><img alt="Profile" src="https://skydoves.github.io/badges/skydoves.svg"/></a> 
-</p>
 
 <p align="center">  
 🗡️ Pokedex demonstrates modern Android development with Hilt, Coroutines, Flow, Jetpack (Room, ViewModel), and Material Design based on MVVM architecture.
 </p>
 </br>
 
-<p align="center">
+<!-- <p align="center">
 <img src="/previews/screenshot.png"/>
-</p>
+</p> -->
 
 ## Download
-Go to the [Releases](https://github.com/skydoves/Pokedex/releases) to download the latest APK.
 
-<img src="/previews/preview.gif" align="right" width="32%"/>
+1. Click on the link Here👇 to download
+https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
+
+2. Click "View Raw". It will automatically start downloading file
+
+3. After the file is downloaded, double click on it.
+
+4. Click Continue.
+
+5. Congrats🥳 You have installed this game. Don't forget to share with your friends!! 
+
+<!-- <img src="/previews/preview.gif" align="right" width="32%"/> -->
 
 ## Tech stack & Open-source libraries
 - Minimum SDK level 21
@@ -76,7 +74,6 @@ Also, __[follow me](https://github.com/skydoves)__ on GitHub for my next creatio
 
 # License
 ```xml
-Designed and developed by 2020 skydoves (Jaewoong Eum)
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

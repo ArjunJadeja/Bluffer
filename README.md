@@ -46,9 +46,10 @@ https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
 ![kotlin](https://user-images.githubusercontent.com/24237865/102366932-8a53fa80-3ffc-11eb-8131-fd6745a6f079.png)
 
 ## Architecture
-Bluffer is based on the MVC architecture and the Repository pattern.
+Bluffer is based on the MVC architecture pattern.
 
-<img width="800" alt="MVC Architecture" src="https://user-images.githubusercontent.com/81246797/175067239-3c5ddda1-6ce6-4975-95a0-2a7ef92c0a70.png">
+<img width="908" alt="MVC Architecture" src="https://user-images.githubusercontent.com/81246797/175071864-a292e851-c8d7-49de-a871-887cf14d6cd2.png">
+
 
 ## Open API
 

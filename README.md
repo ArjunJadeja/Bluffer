@@ -52,10 +52,9 @@ Pokedex is based on the MVC architecture and the Repository pattern.
 
 ## Open API
 
-<img src="https://user-images.githubusercontent.com/24237865/83422649-d1b1d980-a464-11ea-8c91-a24fdf89cd6b.png" align="right" width="21%"/>
-
-Bluffer using the [SubredditApi](https://meme-api.herokuapp.com/) for constructing RESTful API.<br>
-This API provides a RESTful API interface for any subreddit.
+Bluffer using the [SubredditApi](https://meme-api.herokuapp.com/gimme/hmmm) for constructing RESTful API.<br>
+This API provides a RESTful API interface for any subreddit. All the data is fetched from [/hmmm](https://www.reddit.com/r/hmmm/) subreddit.
+Github repository of author - [Github](https://github.com/D3vd/Meme_Api)
 
 ## Contribution
 

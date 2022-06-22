@@ -42,8 +42,13 @@ https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
 
 ## MAD Score
-![summary](https://user-images.githubusercontent.com/24237865/102366914-84f6b000-3ffc-11eb-8d49-b20694239782.png)
-![kotlin](https://user-images.githubusercontent.com/24237865/102366932-8a53fa80-3ffc-11eb-8131-fd6745a6f079.png)
+
+![summary](https://user-images.githubusercontent.com/81246797/175074332-21e64a45-88b6-4ec0-a005-92e7969e6035.png)
+
+![kotlin](https://user-images.githubusercontent.com/81246797/175074396-c2b31794-d699-4ad7-b65a-a322f9824683.png)
+
+![jetpack](https://user-images.githubusercontent.com/81246797/175074250-5938a9f0-766d-4b2f-9965-f8fdce09d207.png)
+
 
 ## Architecture
 Bluffer is based on the MVC architecture pattern.

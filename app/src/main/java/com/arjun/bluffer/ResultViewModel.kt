@@ -18,7 +18,7 @@ class ResultViewModel : ViewModel() {
     }
 
     val result =
-        if (explained == guessed) "Lost"
-        else "Won"
+        if (explained == guessed) "Won"
+        else "Lost"
 
 }

@@ -20,7 +20,7 @@ class GameViewModel: ViewModel() {
     val finished: LiveData<Boolean> = _finished
 
     fun startTimer(){
-        timer = object : CountDownTimer(45000,1000) {
+        timer = object : CountDownTimer(30000,1000) {
 
             override fun onTick(p0: Long) {
                 val timeLeft = p0/1000

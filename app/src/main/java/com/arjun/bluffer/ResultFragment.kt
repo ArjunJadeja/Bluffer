@@ -42,7 +42,8 @@ class ResultFragment : Fragment() {
             viewModel.checkResult(explain,guess)
             binding.greetText.text = viewModel.result
             binding.greetText.visibility = View.VISIBLE
-            binding.button.visibility = View.VISIBLE
+            binding.playAgainButton.visibility = View.VISIBLE
+            binding.exitButton.visibility = View.VISIBLE
         }
         binding.guesserTruthButton.setOnClickListener {
             guess = true
@@ -50,7 +51,11 @@ class ResultFragment : Fragment() {
             viewModel.checkResult(explain,guess)
             binding.greetText.text = viewModel.result
             binding.greetText.visibility = View.VISIBLE
-            binding.button.visibility = View.VISIBLE
+            binding.playAgainButton.visibility = View.VISIBLE
+            binding.exitButton.visibility = View.VISIBLE
+        }
+        binding.exitButton.setOnClickListener {
+            System.exit(0)
         }
     }
 

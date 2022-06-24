@@ -1,7 +1,7 @@
 <h1 align="center">Bluffer</h1>
 
 <p align="center">  
-🗡️ Bluffer demonstrates modern Android development with Coroutines, Jetpack Libraries, and Material Design based on MVVM architecture.
+Bluffer demonstrates modern Android development with Coroutines, Jetpack Libraries, and Material Design based on MVVM architecture.
 </p>
 </br>
 

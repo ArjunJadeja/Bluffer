@@ -48,20 +48,6 @@ Bluffer is based on the MVVM architecture pattern.
 - Github repository of author - [Github](https://github.com/D3vd/Meme_Api)
 
 
-## Download
-
-- Click on the link Here👇 to download
-https://github.com/ArjunJadeja/CoinManGame/blob/main/CoinMan.apk
-
-- Click "View Raw". It will automatically start downloading file
-
-- After the file is downloaded, double click on it.
-
-- Click Continue.
-
-- Congrats🥳 You have installed this game. Don't forget to share with your friends!! 
-
-
 ## Contribution
 
 Contributions are always welcome! You are just a pull request away.

@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.arjun.bluffer.databinding.FragmentResultBinding
+import kotlin.system.exitProcess
 
 class ResultFragment : Fragment() {
 
@@ -54,8 +56,23 @@ class ResultFragment : Fragment() {
             binding.playAgainButton.visibility = View.VISIBLE
             binding.exitButton.visibility = View.VISIBLE
         }
+        binding.playAgainButton.setOnClickListener {
+            findNavController().navigate(R.id.action_resultFragment_to_playFragment)
+        }
         binding.exitButton.setOnClickListener {
-            System.exit(0)
+            binding.greetText.visibility =View.GONE
+            binding.playAgainButton.visibility = View.GONE
+            binding.exitButton.visibility = View.GONE
+            binding.exitCardView.visibility = View.VISIBLE
+        }
+        binding.cancelButton.setOnClickListener {
+            binding.greetText.visibility = View.VISIBLE
+            binding.playAgainButton.visibility = View.VISIBLE
+            binding.exitButton.visibility = View.VISIBLE
+            binding.exitCardView.visibility = View.GONE
+        }
+        binding.yesButton.setOnClickListener {
+            exitProcess(0)
         }
     }
 

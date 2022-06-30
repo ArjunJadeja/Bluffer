@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.arjun.bluffer.databinding.FragmentGameBinding
 
-private const val TIMER_VALUE = 30000L
+private const val TIMER_VALUE = 15000L
 
 class GameFragment : Fragment() {
 

@@ -18,4 +18,6 @@
     <string name="exit">EXIT</string>
     <string name="yes">Yes</string>
     <string name="resume_text">Resume ?</string>
+    <string name="cancel">Cancel</string>
+    <string name="ask_to_exit">DO YOU WANT TO EXIT GAME ?</string>
 </resources>

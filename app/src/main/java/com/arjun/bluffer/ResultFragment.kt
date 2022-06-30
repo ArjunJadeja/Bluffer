@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -14,7 +15,8 @@ class ResultFragment : Fragment() {
 
     private lateinit var binding: FragmentResultBinding
     private val viewModel: ResultViewModel by viewModels()
-//    private val sharedViewModel: SharedViewModel by activityViewModels()
+
+    //    private val sharedViewModel: SharedViewModel by activityViewModels()
     private var explain = false
     private var guess = false
 
@@ -30,6 +32,14 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResultBinding.bind(view)
 
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    findNavController().navigate(R.id.action_resultFragment_to_playFragment)
+                }
+            })
+
         binding.explainerBluffButton.setOnClickListener {
             binding.card.visibility = View.GONE
             binding.otherPlayerGuess.visibility = View.VISIBLE
@@ -41,7 +51,7 @@ class ResultFragment : Fragment() {
         }
         binding.guesserBluffButton.setOnClickListener {
             binding.otherPlayerGuess.visibility = View.GONE
-            viewModel.checkResult(explain,guess)
+            viewModel.checkResult(explain, guess)
             binding.greetText.text = viewModel.result
             binding.greetText.visibility = View.VISIBLE
             binding.playAgainButton.visibility = View.VISIBLE
@@ -50,7 +60,7 @@ class ResultFragment : Fragment() {
         binding.guesserTruthButton.setOnClickListener {
             guess = true
             binding.otherPlayerGuess.visibility = View.GONE
-            viewModel.checkResult(explain,guess)
+            viewModel.checkResult(explain, guess)
             binding.greetText.text = viewModel.result
             binding.greetText.visibility = View.VISIBLE
             binding.playAgainButton.visibility = View.VISIBLE
@@ -60,7 +70,7 @@ class ResultFragment : Fragment() {
             findNavController().navigate(R.id.action_resultFragment_to_playFragment)
         }
         binding.exitButton.setOnClickListener {
-            binding.greetText.visibility =View.GONE
+            binding.greetText.visibility = View.GONE
             binding.playAgainButton.visibility = View.GONE
             binding.exitButton.visibility = View.GONE
             binding.exitCardView.visibility = View.VISIBLE

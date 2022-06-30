@@ -4,14 +4,12 @@ import android.os.CountDownTimer
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.arjun.bluffer.network.MemeImage
-import com.arjun.bluffer.network.MemeImageApi
-import kotlinx.coroutines.launch
 
 class GameViewModel: ViewModel() {
 
     private lateinit var timer: CountDownTimer
+
+    var timerValue = MutableLiveData<Long>()
 
     private val _seconds = MutableLiveData<Int>()
     val seconds: LiveData<Int> = _seconds
@@ -20,7 +18,7 @@ class GameViewModel: ViewModel() {
     val finished: LiveData<Boolean> = _finished
 
     fun startTimer(){
-        timer = object : CountDownTimer(30000,1000) {
+        timer = object : CountDownTimer(timerValue.value!!.toLong(),1000) {
 
             override fun onTick(p0: Long) {
                 val timeLeft = p0/1000
@@ -32,7 +30,7 @@ class GameViewModel: ViewModel() {
 
         }.start()
     }
-    fun stopTimer(){
+    fun stopTimer() {
         timer.cancel()
     }
 

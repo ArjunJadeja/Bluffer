@@ -16,4 +16,6 @@
     <string name="play_again">PLAY AGAIN</string>
     <string name="image">Image</string>
     <string name="exit">EXIT</string>
+    <string name="yes">Yes</string>
+    <string name="resume_text">Resume ?</string>
 </resources>

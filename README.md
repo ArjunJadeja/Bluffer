@@ -3,7 +3,6 @@
 <p align="center">  
 Bluffer demonstrates modern Android development with Coroutines, Jetpack Libraries, and Material Design based on MVVM architecture.
 </p>
-</br>
 
 
 ## Tech stack & Open-source libraries

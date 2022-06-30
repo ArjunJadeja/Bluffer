@@ -13,6 +13,8 @@ import androidx.navigation.fragment.findNavController
 import coil.load
 import com.arjun.bluffer.databinding.FragmentGameBinding
 
+private const val TIMER_VALUE = 30000L
+
 class GameFragment : Fragment() {
 
     private lateinit var binding: FragmentGameBinding
@@ -33,7 +35,10 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentGameBinding.bind(view)
 
-        val playerList = listOf(sharedViewModel.playerOne.value.toString(), sharedViewModel.playerTwo.value.toString())
+        val playerList = listOf(
+            sharedViewModel.playerOne.value.toString(),
+            sharedViewModel.playerTwo.value.toString()
+        )
         val selectedPlayer = selectedPlayer(playerList)
 
         binding.selectedPlayerName.text = "$selectedPlayer will explain the context in the image"
@@ -54,12 +59,31 @@ class GameFragment : Fragment() {
             binding.selectedPlayerCardView.visibility = View.GONE
             binding.timer.visibility = View.VISIBLE
             binding.imageView.visibility = View.VISIBLE
+            viewModel.timerValue.value = TIMER_VALUE
+            viewModel.startTimer()
+        }
+        binding.resumeButton.setOnClickListener {
+            binding.resumeCardView.visibility = View.GONE
+            binding.imageView.visibility = View.VISIBLE
             viewModel.startTimer()
         }
     }
+
+    override fun onPause() {
+        super.onPause()
+        viewModel.seconds.observe(viewLifecycleOwner) {
+            viewModel.timerValue.value = 1000*it.toLong()
+        }
+        viewModel.stopTimer()
+        binding.imageView.visibility = View.GONE
+        binding.resumeCardView.visibility = View.VISIBLE
+    }
+
+
     private fun selectedPlayer(playerList: List<String>): String {
         return playerList.random()
     }
+
     private fun loadImage() {
         sharedViewModel.memeImage.observe(viewLifecycleOwner) {
             val imgUri = it.imageUrl!!.toUri().buildUpon().scheme("https").build()

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -44,7 +45,7 @@ class GameFragment : Fragment() {
         binding.selectedPlayerName.text = "$selectedPlayer will explain the context in the image"
 
         viewModel.seconds.observe(viewLifecycleOwner) {
-            binding.timer.text = it.toString()
+            binding.timer.text = "00 : $it"
             if (it.equals(10)) {
                 Toast.makeText(activity, "$it sec remaining", Toast.LENGTH_SHORT).show()
             }
@@ -57,7 +58,7 @@ class GameFragment : Fragment() {
 
         binding.startButton.setOnClickListener {
             binding.selectedPlayerCardView.visibility = View.GONE
-            binding.timer.visibility = View.VISIBLE
+            binding.timerCard.visibility = View.VISIBLE
             binding.imageView.visibility = View.VISIBLE
             viewModel.timerValue.value = TIMER_VALUE
             viewModel.startTimer()
@@ -67,12 +68,21 @@ class GameFragment : Fragment() {
             binding.imageView.visibility = View.VISIBLE
             viewModel.startTimer()
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    findNavController().navigate(R.id.action_gameFragment_to_playFragment)
+                }
+            })
+
     }
 
     override fun onPause() {
         super.onPause()
         viewModel.seconds.observe(viewLifecycleOwner) {
-            viewModel.timerValue.value = 1000*it.toLong()
+            viewModel.timerValue.value = 1000 * it.toLong()
         }
         viewModel.stopTimer()
         binding.imageView.visibility = View.GONE

@@ -2,7 +2,6 @@
 
 <p align="center">  
 Bluffer demonstrates modern Android development with Coroutines, Jetpack Libraries, and Material Design based on MVVM architecture.
-
 </p>
 
 
@@ -30,7 +29,7 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 ## Architecture
 Bluffer is based on the MVVM architecture pattern.
 
-<img width="936" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/176947096-e1ba74e8-0bbf-4a8a-a530-363f08d9fd25.png">
+<img width="500" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/176947096-e1ba74e8-0bbf-4a8a-a530-363f08d9fd25.png">
 
 
 ## MAD Score

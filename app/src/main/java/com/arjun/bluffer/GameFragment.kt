@@ -13,6 +13,8 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.arjun.bluffer.databinding.FragmentGameBinding
+import java.util.*
+import kotlin.concurrent.schedule
 
 private const val TIMER_VALUE = 15000L
 
@@ -35,6 +37,9 @@ class GameFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentGameBinding.bind(view)
+
+        binding.progressBar.visibility = View.GONE
+        binding.selectedPlayerCardView.visibility = View.VISIBLE
 
         val playerList = listOf(
             sharedViewModel.playerOne.value.toString(),

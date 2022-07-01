@@ -10,7 +10,7 @@
         <entry key="app/src/main/res/drawable/splash_screen.xml" value="0.119" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13647830474268416" />
         <entry key="app/src/main/res/layout/fragment_game.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_play.xml" value="0.1684982299804688" />
+        <entry key="app/src/main/res/layout/fragment_play.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_result.xml" value="0.25" />
       </map>
     </option>

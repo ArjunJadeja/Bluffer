@@ -32,10 +32,17 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
+                    binding.exitCardView.visibility = View.VISIBLE
                     exitProcess(0)
                 }
             })
 
+        binding.cancelButton.setOnClickListener {
+            binding.exitCardView.visibility = View.GONE
+        }
+        binding.exitButton.setOnClickListener {
+            exitProcess(0)
+        }
         binding.playButton.setOnClickListener {
             binding.playButton.visibility = View.GONE
             binding.playerNamesCardView.visibility = View.VISIBLE

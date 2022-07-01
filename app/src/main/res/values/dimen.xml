@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--    Fonts   -->
+    <dimen name="font_small">16sp</dimen>
+    <dimen name="font_medium">24sp</dimen>
+    <dimen name="font_big">32sp</dimen>
+
+    <!--    Margins -->
+    <dimen name="margin_much_smaller">8dp</dimen>
+    <dimen name="margin_small">12dp</dimen>
+    <dimen name="margin_medium">16dp</dimen>
+    <dimen name="margin_big">24dp</dimen>
+    <dimen name="margin_bigger">32dp</dimen>
+    <dimen name="margin_too_big">64dp</dimen>
+
+    <!--    Padding -->
+    <dimen name="padding_medium">12dp</dimen>
+
+    <!--    Elevation   -->
+    <dimen name="elevation_small">8dp</dimen>
+    <dimen name="elevation_medium">12dp</dimen>
+    <dimen name="elevation_big">16dp</dimen>
+
+    <!--    Stroke  -->
+    <dimen name="stroke">1dp</dimen>
+
+    <!--    Corner Radius   -->
+    <dimen name="corner_small">8dp</dimen>
+    <dimen name="corner_medium">12dp</dimen>
+    <dimen name="corner_big">20dp</dimen>
+
+    <!--    Custom Button  -->
+    <dimen name="button_width">250dp</dimen>
+    <dimen name="button_height">80dp</dimen>
+
+    <!--    Image Attributes    -->
+    <dimen name="image_height">300dp</dimen>
+
+    <!--    Free width and height-->
+    <dimen name="width_zero">0dp</dimen>
+    <dimen name="height_zero">0dp</dimen>
+
+    <!--    Weight-->
+    <integer name="weight_equal">1</integer>
+
+</resources>

@@ -4,17 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#538EF7"
     tools:context=".ResultFragment">
 
     <!--    Player 1 Remarks-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card"
+        android:id="@+id/explainer_card_view"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_margin="@dimen/margin_big"
         android:backgroundTint="@color/yellow"
+        app:cardCornerRadius="@dimen/corner_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/check_result_1"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
@@ -42,8 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/green"
-                android:text="@string/bluff"
-                android:textColor="@color/black" />
+                android:text="@string/bluff" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/explainer_truth_button"
@@ -51,10 +50,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:backgroundTint="@color/green"
-                android:text="@string/truth"
-                android:textColor="@color/black" />
+                android:text="@string/truth" />
 
         </LinearLayout>
 
@@ -62,13 +60,14 @@
 
     <!--    Player 2 remarks-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/result_card"
+        android:id="@+id/guesser_card_view"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_margin="@dimen/margin_big"
         android:backgroundTint="@color/yellow"
         android:visibility="gone"
+        app:cardCornerRadius="@dimen/corner_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -84,7 +83,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/check_result_2"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
@@ -96,8 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/green"
-                android:text="@string/bluff"
-                android:textColor="@color/black" />
+                android:text="@string/bluff" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/guesser_truth_button"
@@ -105,24 +103,25 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:backgroundTint="@color/green"
-                android:text="@string/truth"
-                android:textColor="@color/black" />
+                android:text="@string/truth" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
+    <!--    Winner-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/congo_card"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:layout_marginTop="64dp"
+        android:layout_margin="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_too_big"
         android:backgroundTint="@color/yellow"
         android:visibility="gone"
+        app:cardCornerRadius="@dimen/corner_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -138,11 +137,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/winner"
                 android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textSize="24sp" />
+                android:textSize="@dimen/font_medium" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/play_again_button"
@@ -150,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:backgroundTint="@color/green"
                 android:text="@string/play_again" />
 
@@ -158,31 +157,30 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <!--    Exit Button-->
     <Button
         android:id="@+id/exit_button"
         style="@style/button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="@dimen/margin_bigger"
         android:backgroundTint="@color/red"
         android:text="@string/exit"
-        android:textColor="@color/black"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/congo_card" />
 
-
-    <!--        Exit Game-->
+    <!--        Exit Game CardView-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/exit_card_view"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
+        android:layout_margin="@dimen/margin_big"
         android:backgroundTint="@color/yellow"
-        app:cardCornerRadius="12dp"
         android:visibility="gone"
+        app:cardCornerRadius="@dimen/corner_medium"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -199,7 +197,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="16dp"
+                android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/ask_to_exit"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
@@ -211,12 +209,12 @@
                 android:orientation="horizontal">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/yes_button"
+                    android:id="@+id/exit_confirm_button"
                     style="@style/button_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:layout_weight="@integer/weight_equal"
                     android:backgroundTint="@color/red"
                     android:text="@string/exit"
                     android:textColor="@color/black" />
@@ -224,10 +222,10 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/cancel_button"
                     style="@style/button_style"
-                    android:layout_width="0dp"
+                    android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
-                    android:layout_margin="12dp"
-                    android:layout_weight="1"
+                    android:layout_margin="@dimen/margin_small"
+                    android:layout_weight="@integer/weight_equal"
                     android:backgroundTint="@color/green"
                     android:text="@string/cancel"
                     android:textColor="@color/black" />

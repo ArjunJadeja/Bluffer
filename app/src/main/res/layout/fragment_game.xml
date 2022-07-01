@@ -10,9 +10,11 @@
     <!--        Selected Player-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/selected_player_card_view"
+        style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,20 +27,23 @@
 
             <TextView
                 android:id="@+id/selected_player_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/selected_player"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="24sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/start_button"
+                style="@style/button_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="16dp"
-                android:text="@string/selected_player"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/start_button"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
+                android:backgroundTint="@color/green"
                 android:text="@string/start" />
 
         </LinearLayout>
@@ -51,54 +56,53 @@
         android:id="@+id/timer_card"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="24dp"
-        android:paddingLeft="4dp"
-        android:paddingRight="4dp"
-        android:paddingTop="2dp"
-        android:paddingBottom="2dp"
+        android:layout_margin="32dp"
+        android:backgroundTint="@color/red"
+        app:cardCornerRadius="10dp"
+        style="@style/card_style"
         android:visibility="gone"
-        android:backgroundTint="@color/yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toTopOf="@id/imageView">
 
         <TextView
             android:id="@+id/timer"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_margin="32dp"
             android:textColor="@color/black"
-            android:textSize="32sp"
-            tools:text="30" />
+            android:textSize="24sp"
+            tools:text="00:30" />
 
     </com.google.android.material.card.MaterialCardView>
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:layout_gravity="center"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="256dp"
-        android:scaleType="fitCenter"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:contentDescription="@string/image"
+        android:scaleType="fitXY"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/timer_card"
-        tools:src="@mipmap/ic_launcher_adaptive_fore"
-        android:contentDescription="@string/image" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@mipmap/ic_launcher_adaptive_fore" />
 
-<!--    Resume Button -->
+    <!--    Resume Button -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/resume_card_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
-        android:paddingTop="24dp"
-        android:paddingBottom="24dp"
+        style="@style/card_style"
+        app:cardCornerRadius="12dp"
+        android:backgroundTint="@color/yellow"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -111,7 +115,8 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:gravity="center"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="16dp"
@@ -120,11 +125,12 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/resume_button"
-                style="?attr/borderlessButtonStyle"
+                style="@style/button_style"
+                android:backgroundTint="@color/green"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
+                android:layout_margin="16dp"
                 android:text="@string/yes" />
 
         </LinearLayout>

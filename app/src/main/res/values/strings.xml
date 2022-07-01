@@ -22,4 +22,5 @@
     <string name="cancel">Cancel</string>
     <string name="ask_to_exit">DO YOU WANT TO EXIT GAME ?</string>
     <string name="help_button">How to play guide</string>
+    <string name="timer_dummy">00:30</string>
 </resources>

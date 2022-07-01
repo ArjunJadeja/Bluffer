@@ -16,7 +16,6 @@ class ResultFragment : Fragment() {
     private lateinit var binding: FragmentResultBinding
     private val viewModel: ResultViewModel by viewModels()
 
-    //    private val sharedViewModel: SharedViewModel by activityViewModels()
     private var explain = false
     private var guess = false
 
@@ -41,16 +40,16 @@ class ResultFragment : Fragment() {
             })
 
         binding.explainerBluffButton.setOnClickListener {
-            binding.card.visibility = View.GONE
-            binding.resultCard.visibility = View.VISIBLE
+            binding.explainerCardView.visibility = View.GONE
+            binding.guesserCardView.visibility = View.VISIBLE
         }
         binding.explainerTruthButton.setOnClickListener {
             explain = true
-            binding.card.visibility = View.GONE
-            binding.resultCard.visibility = View.VISIBLE
+            binding.explainerCardView.visibility = View.GONE
+            binding.guesserCardView.visibility = View.VISIBLE
         }
         binding.guesserBluffButton.setOnClickListener {
-            binding.resultCard.visibility = View.GONE
+            binding.guesserCardView.visibility = View.GONE
             viewModel.checkResult(explain, guess)
             binding.greetText.text = viewModel.result
             binding.congoCard.visibility = View.VISIBLE
@@ -58,7 +57,7 @@ class ResultFragment : Fragment() {
         }
         binding.guesserTruthButton.setOnClickListener {
             guess = true
-            binding.resultCard.visibility = View.GONE
+            binding.guesserCardView.visibility = View.GONE
             viewModel.checkResult(explain, guess)
             binding.greetText.text = viewModel.result
             binding.congoCard.visibility = View.VISIBLE
@@ -77,7 +76,7 @@ class ResultFragment : Fragment() {
             binding.exitButton.visibility = View.VISIBLE
             binding.exitCardView.visibility = View.GONE
         }
-        binding.yesButton.setOnClickListener {
+        binding.exitConfirmButton.setOnClickListener {
             exitProcess(0)
         }
     }

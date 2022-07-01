@@ -36,10 +36,6 @@ Bluffer is based on the MVVM architecture pattern.
 
 ![summary](https://user-images.githubusercontent.com/81246797/175074332-21e64a45-88b6-4ec0-a005-92e7969e6035.png)
 
-![kotlin](https://user-images.githubusercontent.com/81246797/175074396-c2b31794-d699-4ad7-b65a-a322f9824683.png)
-
-![jetpack](https://user-images.githubusercontent.com/81246797/175074250-5938a9f0-766d-4b2f-9965-f8fdce09d207.png)
-
 
 ## Open API
 

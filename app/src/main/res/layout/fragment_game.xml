@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".GameFragment">
 
+    <!--    Toss ProgressBar-->
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <!--    Selected Player   -->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/selected_player_card_view"
@@ -14,6 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_big"
         android:backgroundTint="@color/yellow"
+        android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

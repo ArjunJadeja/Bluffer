@@ -28,21 +28,6 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPlayBinding.bind(view)
 
-        requireActivity().onBackPressedDispatcher.addCallback(
-            viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    binding.exitCardView.visibility = View.VISIBLE
-                    exitProcess(0)
-                }
-            })
-
-        binding.cancelButton.setOnClickListener {
-            binding.exitCardView.visibility = View.GONE
-        }
-        binding.exitButton.setOnClickListener {
-            exitProcess(0)
-        }
         binding.playButton.setOnClickListener {
             binding.playButton.visibility = View.GONE
             binding.playerNamesCardView.visibility = View.VISIBLE
@@ -50,7 +35,6 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
         binding.nextButton.setOnClickListener {
             sharedViewModel.playersName(binding.playerOneName.editText!!.text.toString(), binding.playerTwoName.editText!!.text.toString())
             binding.playerNamesCardView.visibility = View.GONE
-            binding.progressBar.visibility = View.VISIBLE
             Navigation.findNavController(view).navigate(R.id.action_playFragment_to_gameFragment)
         }
     }

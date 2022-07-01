@@ -5,6 +5,9 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 </p>
 
 
+![Bluffer_Poster](https://user-images.githubusercontent.com/81246797/176945231-e672db11-78c7-4a76-bae5-2705f62241d2.png)
+
+
 ## Tech stack & Open-source libraries
 - Minimum SDK level 21
 - [Kotlin](https://kotlinlang.org/) - Modern, concise and safe programming language
@@ -26,7 +29,7 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 ## Architecture
 Bluffer is based on the MVVM architecture pattern.
 
-<img width="936" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/175111562-b1810235-3e5e-403e-a6c2-d917b56ca45b.png">
+<img width="500" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/176947096-e1ba74e8-0bbf-4a8a-a530-363f08d9fd25.png">
 
 
 ## MAD Score

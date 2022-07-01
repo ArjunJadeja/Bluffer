@@ -42,42 +42,38 @@ class ResultFragment : Fragment() {
 
         binding.explainerBluffButton.setOnClickListener {
             binding.card.visibility = View.GONE
-            binding.otherPlayerGuess.visibility = View.VISIBLE
+            binding.resultCard.visibility = View.VISIBLE
         }
         binding.explainerTruthButton.setOnClickListener {
             explain = true
             binding.card.visibility = View.GONE
-            binding.otherPlayerGuess.visibility = View.VISIBLE
+            binding.resultCard.visibility = View.VISIBLE
         }
         binding.guesserBluffButton.setOnClickListener {
-            binding.otherPlayerGuess.visibility = View.GONE
+            binding.resultCard.visibility = View.GONE
             viewModel.checkResult(explain, guess)
             binding.greetText.text = viewModel.result
-            binding.greetText.visibility = View.VISIBLE
-            binding.playAgainButton.visibility = View.VISIBLE
+            binding.congoCard.visibility = View.VISIBLE
             binding.exitButton.visibility = View.VISIBLE
         }
         binding.guesserTruthButton.setOnClickListener {
             guess = true
-            binding.otherPlayerGuess.visibility = View.GONE
+            binding.resultCard.visibility = View.GONE
             viewModel.checkResult(explain, guess)
             binding.greetText.text = viewModel.result
-            binding.greetText.visibility = View.VISIBLE
-            binding.playAgainButton.visibility = View.VISIBLE
+            binding.congoCard.visibility = View.VISIBLE
             binding.exitButton.visibility = View.VISIBLE
         }
         binding.playAgainButton.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_playFragment)
         }
         binding.exitButton.setOnClickListener {
-            binding.greetText.visibility = View.GONE
-            binding.playAgainButton.visibility = View.GONE
+            binding.congoCard.visibility = View.GONE
             binding.exitButton.visibility = View.GONE
             binding.exitCardView.visibility = View.VISIBLE
         }
         binding.cancelButton.setOnClickListener {
-            binding.greetText.visibility = View.VISIBLE
-            binding.playAgainButton.visibility = View.VISIBLE
+            binding.congoCard.visibility = View.VISIBLE
             binding.exitButton.visibility = View.VISIBLE
             binding.exitCardView.visibility = View.GONE
         }

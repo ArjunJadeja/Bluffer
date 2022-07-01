@@ -4,10 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.arjun.bluffer.databinding.FragmentPlayBinding
+import kotlin.system.exitProcess
 
 class PlayFragment : Fragment(R.layout.fragment_play) {
 
@@ -24,6 +27,14 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPlayBinding.bind(view)
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    exitProcess(0)
+                }
+            })
 
         binding.playButton.setOnClickListener {
             binding.playButton.visibility = View.GONE

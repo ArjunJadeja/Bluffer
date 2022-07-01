@@ -10,9 +10,11 @@
     <!--    Player 1 Remarks-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/card"
+        style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:backgroundTint="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,33 +23,38 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:text="@string/did_you_bluffed"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/check_result_1"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/explainer_bluff_button"
-                style="?attr/borderlessButtonStyle"
+                style="@style/button_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:text="@string/bluff" />
+                android:backgroundTint="@color/green"
+                android:text="@string/bluff"
+                android:textColor="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/explainer_truth_button"
-                style="?attr/borderlessButtonStyle"
+                style="@style/button_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:text="@string/truth" />
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/green"
+                android:text="@string/truth"
+                android:textColor="@color/black" />
 
         </LinearLayout>
 
@@ -55,10 +62,66 @@
 
     <!--    Player 2 remarks-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/other_player_guess"
+        android:id="@+id/result_card"
+        style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:backgroundTint="@color/yellow"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/check_result_2"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/guesser_bluff_button"
+                style="@style/button_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:backgroundTint="@color/green"
+                android:text="@string/bluff"
+                android:textColor="@color/black" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/guesser_truth_button"
+                style="@style/button_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/green"
+                android:text="@string/truth"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/congo_card"
+        style="@style/card_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:layout_marginTop="64dp"
+        android:backgroundTint="@color/yellow"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -71,60 +134,33 @@
             android:orientation="vertical">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/greet_text"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="8dp"
-                android:text="WHAT DID OTHER PLAYER SAY ?"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:layout_margin="16dp"
+                android:gravity="center"
+                android:text="@string/winner"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="24sp" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/guesser_bluff_button"
-                style="?attr/borderlessButtonStyle"
+                android:id="@+id/play_again_button"
+                style="@style/button_style"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:text="@string/bluff" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/guesser_truth_button"
-                style="?attr/borderlessButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:text="@string/truth" />
+                android:layout_margin="16dp"
+                android:backgroundTint="@color/green"
+                android:text="@string/play_again" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
-    <TextView
-        android:id="@+id/greet_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/winner"
-        android:textColor="@color/white"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/play_again_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="@string/play_again"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/greet_text" />
-
     <Button
         android:id="@+id/exit_button"
+        style="@style/button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -134,15 +170,18 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/play_again_button" />
+        app:layout_constraintTop_toBottomOf="@id/congo_card" />
 
 
     <!--        Exit Game-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/exit_card_view"
+        style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
+        android:backgroundTint="@color/yellow"
+        app:cardCornerRadius="12dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -152,14 +191,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/exit_text_view"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="16dp"
+                android:gravity="center"
                 android:text="@string/ask_to_exit"
                 android:textAppearance="?attr/textAppearanceHeadline6" />
 
@@ -171,21 +212,25 @@
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/yes_button"
-                    style="?attr/borderlessButtonStyle"
+                    style="@style/button_style"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_margin="12dp"
                     android:layout_weight="1"
-                    android:text="@string/exit" />
+                    android:backgroundTint="@color/red"
+                    android:text="@string/exit"
+                    android:textColor="@color/black" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/cancel_button"
-                    style="?attr/borderlessButtonStyle"
+                    style="@style/button_style"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_margin="12dp"
                     android:layout_weight="1"
-                    android:text="@string/cancel" />
+                    android:backgroundTint="@color/green"
+                    android:text="@string/cancel"
+                    android:textColor="@color/black" />
 
             </LinearLayout>
 

@@ -6,19 +6,17 @@ import androidx.lifecycle.ViewModel
 
 class ResultViewModel : ViewModel() {
 
-    private val _explained = MutableLiveData<Boolean>()
-    val explained: LiveData<Boolean> = _explained
+    private val explained = MutableLiveData<Boolean>()
 
-    private val _guessed = MutableLiveData<Boolean>()
-    val guessed: LiveData<Boolean> = _guessed
+    private val guessed = MutableLiveData<Boolean>()
 
     fun checkResult (playerOneName: Boolean, playerTwoName: Boolean) {
-        _explained.value = explained.value
-        _guessed.value = guessed.value
+        explained.value = playerOneName
+        guessed.value = playerTwoName
     }
 
     val result =
-        if (explained == guessed) "Won"
+        if (explained == guessed) "Lost"
         else "Lost"
 
 }

@@ -1,4 +1,4 @@
-package com.arjun.bluffer
+package com.arjun.bluffer.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,9 @@ import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentResultBinding
+import com.arjun.bluffer.viewmodel.ResultViewModel
 import kotlin.system.exitProcess
 
 class ResultFragment : Fragment() {

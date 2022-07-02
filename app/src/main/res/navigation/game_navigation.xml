@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/playFragment"
-        android:name="com.arjun.bluffer.PlayFragment"
+        android:name="com.arjun.bluffer.view.PlayFragment"
         android:label="fragment_play"
         tools:layout="@layout/fragment_play" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.arjun.bluffer.ResultFragment"
+        android:name="com.arjun.bluffer.view.ResultFragment"
         android:label="fragment_result"
         tools:layout="@layout/fragment_result" >
         <action

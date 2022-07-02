@@ -50,7 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
                 android:backgroundTint="@color/green"
                 android:text="@string/truth" />
 
@@ -103,7 +103,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
                 android:backgroundTint="@color/green"
                 android:text="@string/truth" />
 
@@ -149,7 +149,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
                 android:backgroundTint="@color/green"
                 android:text="@string/play_again" />
 
@@ -214,7 +214,9 @@
                     style="@style/button_style"
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_small"
+                    android:layout_marginStart="@dimen/margin_big"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_medium"
                     android:layout_weight="@integer/weight_equal"
                     android:backgroundTint="@color/red"
                     android:text="@string/exit"
@@ -225,7 +227,9 @@
                     style="@style/button_style"
                     android:layout_width="@dimen/width_zero"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/margin_small"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_medium"
                     android:layout_weight="@integer/weight_equal"
                     android:backgroundTint="@color/green"
                     android:text="@string/cancel" />

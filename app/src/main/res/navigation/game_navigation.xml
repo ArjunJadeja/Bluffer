@@ -9,7 +9,7 @@
         android:id="@+id/playFragment"
         android:name="com.arjun.bluffer.view.PlayFragment"
         android:label="fragment_play"
-        tools:layout="@layout/fragment_play" >
+        tools:layout="@layout/fragment_play">
         <action
             android:id="@+id/action_playFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
@@ -18,7 +18,7 @@
         android:id="@+id/gameFragment"
         android:name="com.arjun.bluffer.view.GameFragment"
         android:label="fragment_game"
-        tools:layout="@layout/fragment_game" >
+        tools:layout="@layout/fragment_game">
         <action
             android:id="@+id/action_gameFragment_to_resultFragment"
             app:destination="@id/resultFragment" />
@@ -30,7 +30,7 @@
         android:id="@+id/resultFragment"
         android:name="com.arjun.bluffer.view.ResultFragment"
         android:label="fragment_result"
-        tools:layout="@layout/fragment_result" >
+        tools:layout="@layout/fragment_result">
         <action
             android:id="@+id/action_resultFragment_to_playFragment"
             app:destination="@id/playFragment" />

@@ -166,6 +166,7 @@
         android:layout_marginTop="@dimen/margin_bigger"
         android:backgroundTint="@color/red"
         android:text="@string/exit"
+        android:textColor="@color/white"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -217,7 +218,7 @@
                     android:layout_weight="@integer/weight_equal"
                     android:backgroundTint="@color/red"
                     android:text="@string/exit"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/white" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/cancel_button"
@@ -227,8 +228,7 @@
                     android:layout_margin="@dimen/margin_small"
                     android:layout_weight="@integer/weight_equal"
                     android:backgroundTint="@color/green"
-                    android:text="@string/cancel"
-                    android:textColor="@color/black" />
+                    android:text="@string/cancel" />
 
             </LinearLayout>
 

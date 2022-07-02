@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.arjun.bluffer.GameFragment"
+        android:name="com.arjun.bluffer.view.GameFragment"
         android:label="fragment_game"
         tools:layout="@layout/fragment_game" >
         <action

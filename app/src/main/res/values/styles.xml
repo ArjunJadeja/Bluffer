@@ -3,16 +3,17 @@
 
     <style name="button_style">
         <item name="android:textColor">@color/black</item>
-        <item name="cornerRadius">@dimen/corner_small</item>
-        <item name="strokeWidth">@dimen/stroke</item>
-        <item name="elevation">@dimen/elevation_medium</item>
         <item name="strokeColor">@color/black</item>
+        <item name="strokeWidth">@dimen/stroke</item>
+        <item name="cornerRadius">@dimen/corner_small</item>
+        <item name="elevation">@dimen/elevation_medium</item>
+        <item name="android:padding">@dimen/padding_medium</item>
     </style>
 
     <style name="card_style">
         <item name="strokeWidth">@dimen/stroke</item>
-        <item name="cardElevation">@dimen/elevation_medium</item>
         <item name="strokeColor">@color/black</item>
+        <item name="cardElevation">@dimen/elevation_medium</item>
     </style>
 
 </resources>

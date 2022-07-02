@@ -13,11 +13,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import com.arjun.bluffer.R
-import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.databinding.FragmentGameBinding
+import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
-private const val TIMER_VALUE = 15000L
+private const val TIMER_VALUE = 20000L
 
 class GameFragment : Fragment() {
 
@@ -48,7 +48,8 @@ class GameFragment : Fragment() {
         )
         val selectedPlayer = selectedPlayer(playerList)
 
-        binding.selectedPlayerName.text = "$selectedPlayer will hold the phone and explain the context in the image"
+        binding.selectedPlayerName.text =
+            "$selectedPlayer will hold the phone and explain the context in the image"
 
         viewModel.seconds.observe(viewLifecycleOwner) {
             binding.timer.text = "00:$it"

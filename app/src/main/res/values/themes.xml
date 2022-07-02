@@ -12,16 +12,16 @@
         <item name="colorSecondaryVariant">@color/green</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >@color/blue</item>
+        <item name="android:statusBarColor">@color/blue</item>
         <!-- Font family -->
         <item name="android:fontFamily">@font/roboto</item>
-        
+
     </style>
-    
+
     <style name="SplashScreenTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Background color. -->
         <item name="android:windowBackground">@drawable/splash_screen</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >@color/blue</item>
+        <item name="android:statusBarColor">@color/blue</item>
     </style>
 </resources>

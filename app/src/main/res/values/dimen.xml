@@ -17,6 +17,9 @@
     <!--    Padding -->
     <dimen name="padding_medium">12dp</dimen>
 
+    <!--    Line Spacing-->
+    <dimen name="line_spacing">4dp</dimen>
+
     <!--    Elevation   -->
     <dimen name="elevation_small">8dp</dimen>
     <dimen name="elevation_medium">12dp</dimen>
@@ -41,7 +44,7 @@
     <dimen name="width_zero">0dp</dimen>
     <dimen name="height_zero">0dp</dimen>
 
-    <!--    Weight-->
+    <!--    Integers-->
     <integer name="weight_equal">1</integer>
 
 </resources>

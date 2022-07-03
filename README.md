@@ -14,6 +14,7 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) - A concurrency design pattern to execute code asynchronously.
 - Jetpack
   - Lifecycle - Observe Android lifecycles and handle UI states upon the lifecycle changes.
+  - Navigation - Implements navigation from simple button clicks to more complex patterns.
   - ViewModel - Manages UI-related data holder and lifecycle aware. Allows data to survive configuration changes such as screen rotations.
   - LiveData - LiveData is lifecycle-aware, meaning it respects the lifecycle of other app components, such as activities, fragments, or services.
   - ViewBinding - Binds UI components in your layouts to data sources in your app using a declarative format rather than programmatically.
@@ -22,7 +23,6 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 - [Retrofit2](https://github.com/square/retrofit) - Construct the REST APIs.
 - [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
 - [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines
-- [SoundPool](https://developer.android.com/reference/android/media/SoundPool) - Manages and plays audio resources for applications.
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
 
 

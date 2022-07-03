@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -44,7 +45,7 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
             if (binding.playerOneName.editText?.text.toString()
                     .isEmpty() || binding.playerTwoName.editText?.text.toString().isEmpty()
             ) {
-                Toast.makeText(activity, "Enter valid names!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(activity, "Enter Names!", Toast.LENGTH_SHORT).show()
             } else {
                 sharedViewModel.playersName(
                     binding.playerOneName.editText!!.text.toString(),
@@ -69,12 +70,31 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
             binding.helperCardView.visibility = View.GONE
             binding.playButton.visibility = View.VISIBLE
         }
+        binding.cancelButton.setOnClickListener {
+            binding.playButton.visibility = View.VISIBLE
+            binding.helpButton.visibility = View.VISIBLE
+            binding.exitCardView.visibility = View.GONE
+        }
+        binding.exitConfirmButton.setOnClickListener {
+            exitProcess(0)
+        }
 
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    exitProcess(0)
+                    if (binding.playerNamesCardView.isVisible) {
+                        binding.playerNamesCardView.visibility = View.GONE
+                        binding.playButton.visibility = View.VISIBLE
+                        binding.helpButton.visibility = View.VISIBLE
+                    } else if (binding.helperCardView.isVisible) {
+                        binding.helperCardView.visibility = View.GONE
+                        binding.playButton.visibility = View.VISIBLE
+                    } else {
+                        binding.playButton.visibility = View.GONE
+                        binding.helpButton.visibility = View.GONE
+                        binding.exitCardView.visibility = View.VISIBLE
+                    }
                 }
             })
 

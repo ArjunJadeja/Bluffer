@@ -14,6 +14,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentGameBinding
 import com.arjun.bluffer.viewmodel.GameViewModel
@@ -111,7 +112,11 @@ class GameFragment : Fragment() {
     private fun loadImage() {
         sharedViewModel.memeImage.observe(viewLifecycleOwner) {
             val imgUri = it.imageUrl!!.toUri().buildUpon().scheme("https").build()
-            binding.imageView.load(imgUri)
+            binding.imageView.load(imgUri) {
+                crossfade(true)
+                crossfade(500)
+                transformations(RoundedCornersTransformation(50f))
+            }
             binding.progressBar.visibility = View.GONE
         }
     }

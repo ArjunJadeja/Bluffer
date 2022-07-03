@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.Navigation
@@ -11,6 +13,7 @@ import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentPlayBinding
 import com.arjun.bluffer.utils.Helper
 import com.arjun.bluffer.viewmodel.SharedViewModel
+import kotlin.system.exitProcess
 
 class PlayFragment : Fragment(R.layout.fragment_play) {
 
@@ -38,16 +41,20 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
             binding.playerNamesCardView.visibility = View.VISIBLE
         }
         binding.nextButton.setOnClickListener {
-//            if (checkNames()) {
+            if (binding.playerOneName.editText?.text.toString()
+                    .isEmpty() || binding.playerTwoName.editText?.text.toString().isEmpty()
+            ) {
+                Toast.makeText(activity, "Enter valid names!", Toast.LENGTH_SHORT).show()
+            } else {
                 sharedViewModel.playersName(
                     binding.playerOneName.editText!!.text.toString(),
                     binding.playerTwoName.editText!!.text.toString()
                 )
-//            } else {
-//                Toast.makeText(activity, "Enter valid names!", Toast.LENGTH_SHORT).show()
-//            }
-            binding.playerNamesCardView.visibility = View.GONE
-            Navigation.findNavController(view).navigate(R.id.action_playFragment_to_gameFragment)
+                binding.playerNamesCardView.visibility = View.GONE
+                Navigation.findNavController(view)
+                    .navigate(R.id.action_playFragment_to_gameFragment)
+            }
+
         }
         binding.helpButton.setOnClickListener {
             if (binding.helperCardView.visibility == View.GONE) {
@@ -62,9 +69,15 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
             binding.helperCardView.visibility = View.GONE
             binding.playButton.visibility = View.VISIBLE
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    exitProcess(0)
+                }
+            })
+
     }
-//    private fun checkNames(): Boolean {
-//        return binding.playerOneName.editText != null && binding.playerTwoName.editText != null
-//    }
 
 }

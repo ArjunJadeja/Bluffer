@@ -139,19 +139,40 @@
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
-                android:text="@string/winner"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textSize="@dimen/font_medium" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/play_again_button"
-                style="@style/button_style"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="@dimen/margin_medium"
-                android:backgroundTint="@color/green"
-                android:text="@string/play_again" />
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/play_again_button"
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big"
+                    android:layout_marginEnd="@dimen/margin_medium"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:layout_weight="@integer/weight_equal"
+                    android:backgroundTint="@color/green"
+                    android:text="@string/replay" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/new_game_button"
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_medium"
+                    android:layout_marginEnd="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:layout_weight="@integer/weight_equal"
+                    android:backgroundTint="@color/green"
+                    android:text="@string/new_game" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

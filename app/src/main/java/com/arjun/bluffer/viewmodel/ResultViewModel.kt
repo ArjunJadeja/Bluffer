@@ -1,6 +1,5 @@
 package com.arjun.bluffer.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
@@ -17,6 +16,6 @@ class ResultViewModel : ViewModel() {
 
     val result =
         if (explained == guessed) "Lost"
-        else "Lost"
+        else "Won"
 
 }

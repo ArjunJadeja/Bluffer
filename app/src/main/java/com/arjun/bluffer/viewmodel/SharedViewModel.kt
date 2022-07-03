@@ -7,26 +7,30 @@ import androidx.lifecycle.viewModelScope
 import com.arjun.bluffer.network.MemeImage
 import com.arjun.bluffer.network.MemeImageApi
 import kotlinx.coroutines.launch
+import okio.IOException
 
 class SharedViewModel : ViewModel() {
 
     private val _memeImage = MutableLiveData<MemeImage>()
     val memeImage: LiveData<MemeImage> = _memeImage
 
-    init {
-        getNewImage()
-    }
+    private val _status = MutableLiveData<String>()
+    val status: LiveData<String> = _status
 
-    private fun getNewImage() {
+    fun getNewImage() {
         viewModelScope.launch {
-            _memeImage.value = MemeImageApi.retrofitService.getRandomPhoto()
+            try {
+                _memeImage.value = MemeImageApi.retrofitService.getRandomPhoto()
+            } catch (e: IOException) {
+                _status.value = e.toString()
+            }
         }
     }
 
-    private var _playerOne = MutableLiveData("Player One")
+    private var _playerOne = MutableLiveData("")
     val playerOne: LiveData<String> = _playerOne
 
-    private var _playerTwo = MutableLiveData("Player Two")
+    private var _playerTwo = MutableLiveData("")
     val playerTwo: LiveData<String> = _playerTwo
 
     fun playersName(playerOneName: String, playerTwoName: String) {

@@ -5,9 +5,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
+private const val MILLIS = 1000L
+
 class GameViewModel: ViewModel() {
 
-    private lateinit var timer: CountDownTimer
+    private var timer: CountDownTimer? = null
 
     var timerValue = MutableLiveData<Long>()
 
@@ -18,10 +20,10 @@ class GameViewModel: ViewModel() {
     val finished: LiveData<Boolean> = _finished
 
     fun startTimer(){
-        timer = object : CountDownTimer(timerValue.value!!.toLong(),1000) {
+        timer = object : CountDownTimer(timerValue.value!!.toLong(), MILLIS) {
 
             override fun onTick(p0: Long) {
-                val timeLeft = p0/1000
+                val timeLeft = p0 / MILLIS
                 _seconds.value = timeLeft.toInt()
             }
             override fun onFinish() {
@@ -31,7 +33,7 @@ class GameViewModel: ViewModel() {
         }.start()
     }
     fun stopTimer() {
-        timer.cancel()
+        timer?.cancel()
     }
 
 }

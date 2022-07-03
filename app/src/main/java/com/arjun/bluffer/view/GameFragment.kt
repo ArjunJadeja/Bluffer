@@ -1,6 +1,8 @@
 package com.arjun.bluffer.view
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +20,7 @@ import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
 private const val TIMER_VALUE = 20000L
+private const val DELAY_TIME = 500L
 
 class GameFragment : Fragment() {
 
@@ -31,7 +34,6 @@ class GameFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        loadImage()
         return inflater.inflate(R.layout.fragment_game, container, false)
     }
 
@@ -39,8 +41,13 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentGameBinding.bind(view)
 
-        binding.progressBar.visibility = View.GONE
-        binding.selectedPlayerCardView.visibility = View.VISIBLE
+        sharedViewModel.getNewImage()
+        loadImage()
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.progressBar.visibility = View.GONE
+            binding.selectedPlayerCardView.visibility = View.VISIBLE
+        }, DELAY_TIME)
 
         val playerList = listOf(
             sharedViewModel.playerOne.value.toString(),
@@ -65,6 +72,7 @@ class GameFragment : Fragment() {
 
         binding.startButton.setOnClickListener {
             binding.selectedPlayerCardView.visibility = View.GONE
+            binding.progressBar.visibility = View.VISIBLE
             binding.timerCard.visibility = View.VISIBLE
             binding.imageView.visibility = View.VISIBLE
             viewModel.timerValue.value = TIMER_VALUE
@@ -96,7 +104,6 @@ class GameFragment : Fragment() {
         binding.resumeCardView.visibility = View.VISIBLE
     }
 
-
     private fun selectedPlayer(playerList: List<String>): String {
         return playerList.random()
     }
@@ -105,6 +112,7 @@ class GameFragment : Fragment() {
         sharedViewModel.memeImage.observe(viewLifecycleOwner) {
             val imgUri = it.imageUrl!!.toUri().buildUpon().scheme("https").build()
             binding.imageView.load(imgUri)
+            binding.progressBar.visibility = View.GONE
         }
     }
 

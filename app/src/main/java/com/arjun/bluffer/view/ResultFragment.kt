@@ -66,6 +66,9 @@ class ResultFragment : Fragment() {
             binding.exitButton.visibility = View.VISIBLE
         }
         binding.playAgainButton.setOnClickListener {
+            findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
+        }
+        binding.newGameButton.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_playFragment)
         }
         binding.exitButton.setOnClickListener {

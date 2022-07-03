@@ -19,8 +19,8 @@
     <string name="bluff">BLUFF</string>
     <string name="check_result_1">DID YOU BLUFFED ?</string>
     <string name="check_result_2">WHAT DID OTHER PLAYER SAY ?</string>
-    <string name="winner">Congratulations!</string>
-    <string name="play_again">PLAY AGAIN</string>
+    <string name="replay">Replay</string>
+    <string name="new_game">New Game</string>
     <string name="exit">EXIT</string>
     <string name="ask_to_exit">DO YOU WANT TO EXIT GAME ?</string>
     <string name="yes">Yes</string>

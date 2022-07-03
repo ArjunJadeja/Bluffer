@@ -184,5 +184,72 @@
 
     </com.google.android.material.card.MaterialCardView>
 
+    <!--        Exit Game CardView-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/exit_card_view"
+        style="@style/card_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_big"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/corner_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/exit_text_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_medium"
+                android:gravity="center"
+                android:text="@string/ask_to_exit"
+                android:textAppearance="?attr/textAppearanceHeadline6" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/exit_confirm_button"
+                    style="@style/button_style"
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big"
+                    android:layout_marginEnd="@dimen/margin_small"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:layout_weight="@integer/weight_equal"
+                    android:backgroundTint="@color/red"
+                    android:text="@string/exit"
+                    android:textColor="@color/white" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/cancel_button"
+                    style="@style/button_style"
+                    android:layout_width="@dimen/width_zero"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_small"
+                    android:layout_marginEnd="@dimen/margin_big"
+                    android:layout_marginBottom="@dimen/margin_medium"
+                    android:layout_weight="@integer/weight_equal"
+                    android:backgroundTint="@color/green"
+                    android:text="@string/cancel" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

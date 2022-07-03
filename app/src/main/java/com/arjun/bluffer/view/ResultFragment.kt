@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -32,14 +33,6 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResultBinding.bind(view)
-
-        requireActivity().onBackPressedDispatcher.addCallback(
-            viewLifecycleOwner,
-            object : OnBackPressedCallback(true) {
-                override fun handleOnBackPressed() {
-                    findNavController().navigate(R.id.action_resultFragment_to_playFragment)
-                }
-            })
 
         binding.explainerBluffButton.setOnClickListener {
             binding.explainerCardView.visibility = View.GONE
@@ -84,6 +77,21 @@ class ResultFragment : Fragment() {
         binding.exitConfirmButton.setOnClickListener {
             exitProcess(0)
         }
+
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (binding.exitCardView.isVisible) {
+                        binding.congoCard.visibility = View.VISIBLE
+                        binding.exitButton.visibility = View.VISIBLE
+                        binding.exitCardView.visibility = View.GONE
+                    } else {
+                        findNavController().navigate(R.id.action_resultFragment_to_playFragment)
+                    }
+                }
+            })
+
     }
 
 }

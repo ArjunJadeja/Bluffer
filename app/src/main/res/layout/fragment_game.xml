@@ -47,6 +47,7 @@
                 android:gravity="center"
                 android:text="@string/selected_player"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_medium" />
 
             <com.google.android.material.button.MaterialButton
@@ -114,8 +115,8 @@
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_big"
-        android:backgroundTint="@color/yellow"
+        android:layout_margin="@dimen/margin_bigger"
+        android:padding="@dimen/padding_medium"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_medium"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -132,7 +133,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_margin="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/resume_text"
                 android:textAppearance="?attr/textAppearanceHeadline6" />

@@ -4,7 +4,8 @@
     <!--    Fonts   -->
     <dimen name="font_small">16sp</dimen>
     <dimen name="font_medium">24sp</dimen>
-    <dimen name="font_big">32sp</dimen>
+    <dimen name="font_big">28sp</dimen>
+    <dimen name="font_bigger">32sp</dimen>
 
     <!--    Margins -->
     <dimen name="margin_much_smaller">8dp</dimen>
@@ -38,7 +39,7 @@
     <dimen name="button_height">80dp</dimen>
 
     <!--    Image Attributes    -->
-    <dimen name="image_height">300dp</dimen>
+    <dimen name="image_height">400dp</dimen>
 
     <!--    Free width and height-->
     <dimen name="width_zero">0dp</dimen>

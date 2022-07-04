@@ -61,7 +61,7 @@ class GameFragment : Fragment() {
 
 
         binding.selectedPlayerName.text =
-            "$explainer you will hold the phone and explain the context in the image"
+            "$explainer you will hold the phone and explain the context in the image to $guesser"
 
         viewModel.seconds.observe(viewLifecycleOwner) {
             binding.timer.text = "00:$it"
@@ -106,7 +106,7 @@ class GameFragment : Fragment() {
             viewModel.timerValue.value = 1000 * it.toLong()
         }
         viewModel.stopTimer()
-        binding.imageView.visibility = View.GONE
+        binding.imageView.visibility = View.INVISIBLE
         binding.resumeCardView.visibility = View.VISIBLE
     }
 

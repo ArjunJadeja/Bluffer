@@ -10,11 +10,12 @@
     <Button
         android:id="@+id/play_button"
         style="@style/button_style"
-        android:layout_width="@dimen/button_width"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/button_height"
+        android:layout_margin="@dimen/margin_too_big"
         android:backgroundTint="@color/green"
         android:text="@string/play"
-        android:textSize="@dimen/font_big"
+        android:textSize="@dimen/font_bigger"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,7 +26,8 @@
         android:id="@+id/help_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_medium"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_medium"
         android:backgroundTint="@color/green"
         android:contentDescription="@string/help_button"
         android:src="@drawable/ic_question_mark"
@@ -184,13 +186,13 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!--        Exit Game CardView-->
+    <!--    Exit Game CardView-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/exit_card"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_big"
+        android:layout_margin="@dimen/margin_bigger"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_medium"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -250,6 +252,5 @@
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

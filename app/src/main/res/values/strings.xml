@@ -13,6 +13,7 @@
     <string name="player_2">Player 2</string>
     <string name="selected_player">selected player</string>
     <string name="timer_dummy">00:30</string>
+    <string name="increase_time">+30 sec</string>
     <string name="image">Image</string>
     <string name="resume_text">Resume Game ?</string>
     <string name="truth">TRUTH</string>

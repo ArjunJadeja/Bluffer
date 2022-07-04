@@ -20,7 +20,7 @@ import com.arjun.bluffer.databinding.FragmentGameBinding
 import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
-private const val TIMER_VALUE = 45000L
+private const val TIMER_VALUE = 30000L
 private const val ERROR_DELAY = 1000L
 private const val INITIAL_DELAY = 1500L
 
@@ -30,6 +30,8 @@ class GameFragment : Fragment() {
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
     private val viewModel: GameViewModel by viewModels()
+
+    private var timeIncreased = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -80,6 +82,10 @@ class GameFragment : Fragment() {
         viewModel.seconds.observe(viewLifecycleOwner) {
             binding.timer.text = "00:$it"
             if (it.equals(10)) {
+                if (!timeIncreased) {
+                    timeIncreased = true
+                    binding.increaseTimeButton.visibility = View.VISIBLE
+                }
                 Toast.makeText(activity, "$it sec remaining", Toast.LENGTH_SHORT).show()
             }
         }
@@ -101,6 +107,12 @@ class GameFragment : Fragment() {
         binding.resumeButton.setOnClickListener {
             binding.resumeCardView.visibility = View.GONE
             binding.imageView.visibility = View.VISIBLE
+            viewModel.startTimer()
+        }
+        binding.increaseTimeButton.setOnClickListener {
+            binding.increaseTimeButton.visibility = View.GONE
+            viewModel.stopTimer()
+            viewModel.timerValue.value = (1000 * viewModel.seconds.value!!.toLong()) + TIMER_VALUE
             viewModel.startTimer()
         }
 

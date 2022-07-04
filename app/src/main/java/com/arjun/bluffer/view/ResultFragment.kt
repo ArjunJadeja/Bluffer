@@ -7,20 +7,28 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentResultBinding
 import com.arjun.bluffer.viewmodel.ResultViewModel
+import com.arjun.bluffer.viewmodel.SharedViewModel
 import kotlin.system.exitProcess
 
 class ResultFragment : Fragment() {
 
     private lateinit var binding: FragmentResultBinding
     private val viewModel: ResultViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     private var explain = false
     private var guess = false
+
+    private lateinit var explainer: String
+    private lateinit var guesser: String
+
+    private lateinit var winner: String
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,29 +42,34 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResultBinding.bind(view)
 
+        sharedViewModel.guesser.observe(viewLifecycleOwner) {
+            binding.guesserQuestion.text = "WHAT DID ${it.uppercase()} SAY ?"
+            guesser = it.uppercase()
+        }
+        sharedViewModel.explainer.observe(viewLifecycleOwner) {
+            explainer = it.uppercase()
+        }
+        viewModel.result.observe(viewLifecycleOwner) {
+            winner = if (it == true) {
+                guesser
+            } else {
+                explainer
+            }
+        }
+
         binding.explainerBluffButton.setOnClickListener {
-            binding.explainerCardView.visibility = View.GONE
-            binding.guesserCardView.visibility = View.VISIBLE
+            explainerCardGone()
         }
         binding.explainerTruthButton.setOnClickListener {
             explain = true
-            binding.explainerCardView.visibility = View.GONE
-            binding.guesserCardView.visibility = View.VISIBLE
+            explainerCardGone()
         }
         binding.guesserBluffButton.setOnClickListener {
-            binding.guesserCardView.visibility = View.GONE
-            viewModel.checkResult(explain, guess)
-            binding.greetText.text = viewModel.result
-            binding.congoCard.visibility = View.VISIBLE
-            binding.exitButton.visibility = View.VISIBLE
+            guesserCardGone()
         }
         binding.guesserTruthButton.setOnClickListener {
             guess = true
-            binding.guesserCardView.visibility = View.GONE
-            viewModel.checkResult(explain, guess)
-            binding.greetText.text = viewModel.result
-            binding.congoCard.visibility = View.VISIBLE
-            binding.exitButton.visibility = View.VISIBLE
+            guesserCardGone()
         }
         binding.playAgainButton.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
@@ -65,14 +78,10 @@ class ResultFragment : Fragment() {
             findNavController().navigate(R.id.action_resultFragment_to_playFragment)
         }
         binding.exitButton.setOnClickListener {
-            binding.congoCard.visibility = View.GONE
-            binding.exitButton.visibility = View.GONE
-            binding.exitCardView.visibility = View.VISIBLE
+            showExitCard()
         }
         binding.cancelButton.setOnClickListener {
-            binding.congoCard.visibility = View.VISIBLE
-            binding.exitButton.visibility = View.VISIBLE
-            binding.exitCardView.visibility = View.GONE
+            hideExitCard()
         }
         binding.exitConfirmButton.setOnClickListener {
             exitProcess(0)
@@ -82,16 +91,39 @@ class ResultFragment : Fragment() {
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    if (binding.exitCardView.isVisible) {
-                        binding.congoCard.visibility = View.VISIBLE
-                        binding.exitButton.visibility = View.VISIBLE
-                        binding.exitCardView.visibility = View.GONE
+                    if (binding.exitCard.isVisible) {
+                        hideExitCard()
                     } else {
                         findNavController().navigate(R.id.action_resultFragment_to_playFragment)
                     }
                 }
             })
 
+    }
+
+    private fun explainerCardGone() {
+        binding.explainerCardView.visibility = View.GONE
+        binding.guesserCardView.visibility = View.VISIBLE
+    }
+
+    private fun guesserCardGone() {
+        binding.guesserCardView.visibility = View.GONE
+        binding.congoCard.visibility = View.VISIBLE
+        binding.exitButton.visibility = View.VISIBLE
+        viewModel.playerResponse(explain, guess)
+        binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
+    }
+
+    private fun showExitCard() {
+        binding.congoCard.visibility = View.GONE
+        binding.exitButton.visibility = View.GONE
+        binding.exitCard.visibility = View.VISIBLE
+    }
+
+    private fun hideExitCard() {
+        binding.exitCard.visibility = View.GONE
+        binding.congoCard.visibility = View.VISIBLE
+        binding.exitButton.visibility = View.VISIBLE
     }
 
 }

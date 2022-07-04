@@ -70,7 +70,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:layout_marginRight="@dimen/margin_medium"
-                android:backgroundTint="@color/gray"
                 android:hint="@string/player_1">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -86,7 +85,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_medium"
-                android:backgroundTint="@color/gray"
                 android:hint="@string/player_2">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -188,7 +186,7 @@
 
     <!--        Exit Game CardView-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/exit_card_view"
+        android:id="@+id/exit_card"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

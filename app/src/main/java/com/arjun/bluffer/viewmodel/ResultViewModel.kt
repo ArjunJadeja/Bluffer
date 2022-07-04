@@ -1,21 +1,16 @@
 package com.arjun.bluffer.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ResultViewModel : ViewModel() {
 
-    private val explained = MutableLiveData<Boolean>()
+    private var _result = MutableLiveData<Boolean>()
+    val result:LiveData<Boolean> = _result
 
-    private val guessed = MutableLiveData<Boolean>()
-
-    fun checkResult (playerOneName: Boolean, playerTwoName: Boolean) {
-        explained.value = playerOneName
-        guessed.value = playerTwoName
+    fun playerResponse(explainerResponse: Boolean, guesserResponse: Boolean) {
+        _result.value = explainerResponse == guesserResponse
     }
-
-    val result =
-        if (explained == guessed) "Lost"
-        else "Won"
 
 }

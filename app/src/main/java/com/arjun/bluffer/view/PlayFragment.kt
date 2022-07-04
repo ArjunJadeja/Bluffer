@@ -73,7 +73,7 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
         binding.cancelButton.setOnClickListener {
             binding.playButton.visibility = View.VISIBLE
             binding.helpButton.visibility = View.VISIBLE
-            binding.exitCardView.visibility = View.GONE
+            binding.exitCard.visibility = View.GONE
         }
         binding.exitConfirmButton.setOnClickListener {
             exitProcess(0)
@@ -93,7 +93,7 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
                     } else {
                         binding.playButton.visibility = View.GONE
                         binding.helpButton.visibility = View.GONE
-                        binding.exitCardView.visibility = View.VISIBLE
+                        binding.exitCard.visibility = View.VISIBLE
                     }
                 }
             })

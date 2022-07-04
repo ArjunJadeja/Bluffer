@@ -20,8 +20,9 @@ import com.arjun.bluffer.databinding.FragmentGameBinding
 import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
-private const val TIMER_VALUE = 20000L
-private const val DELAY_TIME = 500L
+private const val TIMER_VALUE = 45000L
+private const val ERROR_DELAY = 1000L
+private const val INITIAL_DELAY = 1500L
 
 class GameFragment : Fragment() {
 
@@ -42,13 +43,27 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentGameBinding.bind(view)
 
-        sharedViewModel.getNewImage()
         loadImage()
+
+        sharedViewModel.status.observe(viewLifecycleOwner) {
+            if (it == false) {
+                Handler(Looper.getMainLooper()).postDelayed(
+                    {
+                        Toast.makeText(
+                            activity,
+                            "Unknown Error Occurred\nCheck Network Connection",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        findNavController().navigate(R.id.action_gameFragment_to_playFragment)
+                    }, ERROR_DELAY
+                )
+            }
+        }
 
         Handler(Looper.getMainLooper()).postDelayed({
             binding.progressBar.visibility = View.GONE
             binding.selectedPlayerCardView.visibility = View.VISIBLE
-        }, DELAY_TIME)
+        }, INITIAL_DELAY)
 
         val playerList = listOf(
             sharedViewModel.playerOne.value.toString(),
@@ -58,7 +73,6 @@ class GameFragment : Fragment() {
         val guesser = if (playerList.first() == explainer) {
             playerList.last()
         } else playerList.first()
-
 
         binding.selectedPlayerName.text =
             "$explainer you will hold the phone and explain the context in the image to $guesser"

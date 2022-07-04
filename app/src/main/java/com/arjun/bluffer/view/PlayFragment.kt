@@ -47,6 +47,7 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
             ) {
                 Toast.makeText(activity, "Enter Names!", Toast.LENGTH_SHORT).show()
             } else {
+                sharedViewModel.getNewImage()
                 sharedViewModel.playersName(
                     binding.playerOneName.editText!!.text.toString(),
                     binding.playerTwoName.editText!!.text.toString()

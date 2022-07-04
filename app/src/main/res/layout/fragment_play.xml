@@ -60,6 +60,7 @@
                 android:gravity="center"
                 android:text="@string/player_names"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_medium" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -69,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:layout_marginRight="@dimen/margin_medium"
+                android:backgroundTint="@color/gray"
                 android:hint="@string/player_1">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -84,6 +86,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_medium"
+                android:backgroundTint="@color/gray"
                 android:hint="@string/player_2">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -114,7 +117,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_big"
-        android:backgroundTint="@color/white"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_big"
         app:layout_constraintEnd_toEndOf="parent"

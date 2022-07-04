@@ -14,15 +14,15 @@ class SharedViewModel : ViewModel() {
     private val _memeImage = MutableLiveData<MemeImage>()
     val memeImage: LiveData<MemeImage> = _memeImage
 
-    private val _status = MutableLiveData<String>()
-    val status: LiveData<String> = _status
+    private val _status = MutableLiveData<Boolean>()
+    val status: LiveData<Boolean> = _status
 
     fun getNewImage() {
         viewModelScope.launch {
             try {
                 _memeImage.value = MemeImageApi.retrofitService.getRandomPhoto()
             } catch (e: IOException) {
-                _status.value = e.toString()
+                _status.value = false
             }
         }
     }

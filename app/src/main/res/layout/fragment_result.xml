@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".view.ResultFragment">
 
-    <!--    Player 1 Remarks-->
+    <!--    Explainer Remarks-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/explainer_card_view"
         style="@style/card_style"
@@ -43,7 +43,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:backgroundTint="@color/green"
-                android:text="@string/bluff" />
+                android:text="@string/yes" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/explainer_truth_button"
@@ -53,13 +53,13 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/margin_medium"
                 android:backgroundTint="@color/green"
-                android:text="@string/truth" />
+                android:text="@string/no" />
 
         </LinearLayout>
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!--    Player 2 remarks-->
+    <!--    Guesser remarks-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/guesser_card_view"
         style="@style/card_style"
@@ -81,12 +81,12 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/guesser_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
-                android:text="@string/check_result_2"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textColor="@color/black" />
 
@@ -196,7 +196,7 @@
 
     <!--    Exit Game CardView-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/exit_card_view"
+        android:id="@+id/exit_card"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

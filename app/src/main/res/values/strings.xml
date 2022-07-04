@@ -16,13 +16,14 @@
     <string name="image">Image</string>
     <string name="resume_text">Resume Game ?</string>
     <string name="truth">TRUTH</string>
-    <string name="bluff">BLUFF</string>
-    <string name="check_result_1">DID YOU BLUFFED ?</string>
-    <string name="check_result_2">WHAT DID OTHER PLAYER SAY ?</string>
+    <string name="bluff">BLUFFED</string>
+    <string name="check_result_1">DID YOU BLUFF ?</string>
+    <string name="check_result_2">WHAT DID THE OTHER PLAYER SAY ?</string>
     <string name="replay">Replay</string>
     <string name="new_game">New Game</string>
     <string name="exit">EXIT</string>
     <string name="ask_to_exit">DO YOU WANT TO EXIT GAME ?</string>
     <string name="yes">Yes</string>
+    <string name="no">NO</string>
     <string name="cancel">Cancel</string>
 </resources>

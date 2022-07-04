@@ -54,10 +54,14 @@ class GameFragment : Fragment() {
             sharedViewModel.playerOne.value.toString(),
             sharedViewModel.playerTwo.value.toString()
         )
-        val selectedPlayer = selectedPlayer(playerList)
+        val explainer = selectedPlayer(playerList)
+        val guesser = if (playerList.first() == explainer) {
+            playerList.last()
+        } else playerList.first()
+
 
         binding.selectedPlayerName.text =
-            "$selectedPlayer will hold the phone and explain the context in the image"
+            "$explainer you will hold the phone and explain the context in the image"
 
         viewModel.seconds.observe(viewLifecycleOwner) {
             binding.timer.text = "00:$it"
@@ -72,6 +76,7 @@ class GameFragment : Fragment() {
         }
 
         binding.startButton.setOnClickListener {
+            sharedViewModel.playersRole(explainer, guesser)
             binding.selectedPlayerCardView.visibility = View.GONE
             binding.progressBar.visibility = View.VISIBLE
             binding.timerCard.visibility = View.VISIBLE

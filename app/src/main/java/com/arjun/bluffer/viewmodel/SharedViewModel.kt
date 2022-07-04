@@ -27,6 +27,7 @@ class SharedViewModel : ViewModel() {
         }
     }
 
+    //    Player Names
     private var _playerOne = MutableLiveData("")
     val playerOne: LiveData<String> = _playerOne
 
@@ -36,6 +37,18 @@ class SharedViewModel : ViewModel() {
     fun playersName(playerOneName: String, playerTwoName: String) {
         _playerOne.value = playerOneName
         _playerTwo.value = playerTwoName
+    }
+
+    //    Explainer and Guesser
+    private var _explainer = MutableLiveData("")
+    val explainer: LiveData<String> = _explainer
+
+    private var _guesser = MutableLiveData("")
+    val guesser: LiveData<String> = _guesser
+
+    fun playersRole(explainer: String, guesser: String) {
+        _explainer.value = explainer
+        _guesser.value = guesser
     }
 
 }

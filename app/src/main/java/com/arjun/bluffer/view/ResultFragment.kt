@@ -58,6 +58,7 @@ class ResultFragment : Fragment() {
         }
 
         binding.explainerBluffButton.setOnClickListener {
+            explain = false
             explainerCardGone()
         }
         binding.explainerTruthButton.setOnClickListener {
@@ -65,6 +66,7 @@ class ResultFragment : Fragment() {
             explainerCardGone()
         }
         binding.guesserBluffButton.setOnClickListener {
+            guess = false
             guesserCardGone()
         }
         binding.guesserTruthButton.setOnClickListener {
@@ -93,12 +95,21 @@ class ResultFragment : Fragment() {
                 override fun handleOnBackPressed() {
                     if (binding.exitCard.isVisible) {
                         hideExitCard()
-                    } else {
+                    } else if (binding.guesserCardView.isVisible) {
+                        showExplainerCard()
+                    } else if (binding.explainerCardView.isVisible) {
                         findNavController().navigate(R.id.action_resultFragment_to_playFragment)
+                    } else {
+                        showExitCard()
                     }
                 }
             })
 
+    }
+
+    private fun showExplainerCard() {
+        binding.guesserCardView.visibility = View.GONE
+        binding.explainerCardView.visibility = View.VISIBLE
     }
 
     private fun explainerCardGone() {
@@ -109,21 +120,18 @@ class ResultFragment : Fragment() {
     private fun guesserCardGone() {
         binding.guesserCardView.visibility = View.GONE
         binding.congoCard.visibility = View.VISIBLE
-        binding.exitButton.visibility = View.VISIBLE
         viewModel.playerResponse(explain, guess)
         binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
     }
 
     private fun showExitCard() {
         binding.congoCard.visibility = View.GONE
-        binding.exitButton.visibility = View.GONE
         binding.exitCard.visibility = View.VISIBLE
     }
 
     private fun hideExitCard() {
         binding.exitCard.visibility = View.GONE
         binding.congoCard.visibility = View.VISIBLE
-        binding.exitButton.visibility = View.VISIBLE
     }
 
 }

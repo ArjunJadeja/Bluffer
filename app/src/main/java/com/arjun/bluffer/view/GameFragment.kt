@@ -21,8 +21,7 @@ import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
 private const val TIMER_VALUE = 30000L
-private const val ERROR_DELAY = 1000L
-private const val INITIAL_DELAY = 1500L
+private const val INITIAL_DELAY = 1000L
 
 class GameFragment : Fragment() {
 
@@ -32,6 +31,7 @@ class GameFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
 
     private var timeIncreased = false
+    private var statusOk = true
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -45,27 +45,8 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentGameBinding.bind(view)
 
+        checkNetwork()
         loadImage()
-
-        sharedViewModel.status.observe(viewLifecycleOwner) {
-            if (it == false) {
-                Handler(Looper.getMainLooper()).postDelayed(
-                    {
-                        Toast.makeText(
-                            activity,
-                            "Unknown Error Occurred\nCheck Network Connection",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        findNavController().navigate(R.id.action_gameFragment_to_playFragment)
-                    }, ERROR_DELAY
-                )
-            }
-        }
-
-        Handler(Looper.getMainLooper()).postDelayed({
-            binding.progressBar.visibility = View.GONE
-            binding.selectedPlayerCardView.visibility = View.VISIBLE
-        }, INITIAL_DELAY)
 
         val playerList = listOf(
             sharedViewModel.playerOne.value.toString(),
@@ -134,6 +115,28 @@ class GameFragment : Fragment() {
         viewModel.stopTimer()
         binding.imageView.visibility = View.INVISIBLE
         binding.resumeCardView.visibility = View.VISIBLE
+    }
+
+    private fun checkNetwork() {
+
+        sharedViewModel.status.observe(viewLifecycleOwner) {
+            if (it == false) statusOk = false
+        }
+
+        Handler(Looper.getMainLooper()).postDelayed({
+            if (!statusOk) {
+                Toast.makeText(
+                    activity,
+                    "Unknown Error Occurred\nCheck Network Connection",
+                    Toast.LENGTH_LONG
+                ).show()
+                findNavController().navigate(R.id.action_gameFragment_to_playFragment)
+            } else {
+                binding.progressBar.visibility = View.GONE
+                binding.selectedPlayerCardView.visibility = View.VISIBLE
+            }
+        }, INITIAL_DELAY)
+
     }
 
     private fun selectedPlayer(playerList: List<String>): String {

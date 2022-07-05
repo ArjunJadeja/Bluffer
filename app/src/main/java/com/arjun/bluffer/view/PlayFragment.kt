@@ -9,7 +9,7 @@ import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentPlayBinding
 import com.arjun.bluffer.utils.Helper
@@ -19,8 +19,10 @@ import kotlin.system.exitProcess
 class PlayFragment : Fragment(R.layout.fragment_play) {
 
     private lateinit var binding: FragmentPlayBinding
-    private val rules: Helper = Helper()
+
     private val sharedViewModel: SharedViewModel by activityViewModels()
+
+    private val helper: Helper = Helper()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,72 +35,113 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPlayBinding.bind(view)
 
-        binding.aboutGame.text = rules.aboutGame
-        binding.rulesList.text = rules.rulesList
+        binding.aboutGame.text = helper.aboutGame
+        binding.rulesList.text = helper.rulesList
 
         binding.playButton.setOnClickListener {
-            binding.playButton.visibility = View.GONE
-            binding.helpButton.visibility = View.GONE
-            binding.playerNamesCardView.visibility = View.VISIBLE
+            showPlayerNamesCard()
         }
-        binding.nextButton.setOnClickListener {
-            if (binding.playerOneName.editText?.text.toString()
-                    .isEmpty() || binding.playerTwoName.editText?.text.toString().isEmpty()
-            ) {
-                Toast.makeText(activity, "Enter Names!", Toast.LENGTH_SHORT).show()
-            } else {
-                sharedViewModel.getNewImage()
-                sharedViewModel.playersName(
-                    binding.playerOneName.editText!!.text.toString(),
-                    binding.playerTwoName.editText!!.text.toString()
-                )
-                binding.playerNamesCardView.visibility = View.GONE
-                Navigation.findNavController(view)
-                    .navigate(R.id.action_playFragment_to_gameFragment)
-            }
 
-        }
         binding.helpButton.setOnClickListener {
-            if (binding.helperCardView.visibility == View.GONE) {
-                binding.playButton.visibility = View.GONE
-                binding.helperCardView.visibility = View.VISIBLE
+            if (helperCardVisible()) {
+                hideHelperCard()
             } else {
-                binding.helperCardView.visibility = View.GONE
-                binding.playButton.visibility = View.VISIBLE
+                showHelperCard()
             }
         }
+
+        binding.nextButton.setOnClickListener {
+            if (invalidPlayerNames()) {
+                Toast.makeText(activity, R.string.toast_enter_names, Toast.LENGTH_SHORT).show()
+            } else {
+                startGame()
+            }
+        }
+
         binding.closeButton.setOnClickListener {
-            binding.helperCardView.visibility = View.GONE
-            binding.playButton.visibility = View.VISIBLE
+            hideHelperCard()
         }
+
         binding.cancelButton.setOnClickListener {
-            binding.playButton.visibility = View.VISIBLE
-            binding.helpButton.visibility = View.VISIBLE
-            binding.exitCard.visibility = View.GONE
+            hideExitCard()
         }
+
         binding.exitConfirmButton.setOnClickListener {
-            exitProcess(0)
+            exitProcess(R.dimen.integer_zero)
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    if (binding.playerNamesCardView.isVisible) {
-                        binding.playerNamesCardView.visibility = View.GONE
-                        binding.playButton.visibility = View.VISIBLE
-                        binding.helpButton.visibility = View.VISIBLE
-                    } else if (binding.helperCardView.isVisible) {
-                        binding.helperCardView.visibility = View.GONE
-                        binding.playButton.visibility = View.VISIBLE
+                    if (playerNamesCardVisible()) {
+                        hidePlayerNamesCard()
+                    } else if (helperCardVisible()) {
+                        hideHelperCard()
                     } else {
-                        binding.playButton.visibility = View.GONE
-                        binding.helpButton.visibility = View.GONE
-                        binding.exitCard.visibility = View.VISIBLE
+                        showExitCard()
                     }
                 }
             })
+    }
 
+    private fun helperCardVisible(): Boolean {
+        return binding.helperCardView.isVisible
+    }
+
+    private fun playerNamesCardVisible(): Boolean {
+        return binding.playerNamesCardView.isVisible
+    }
+
+    private fun invalidPlayerNames(): Boolean {
+        return binding.playerOneName.editText?.text?.trim().toString().isEmpty() ||
+                binding.playerTwoName.editText?.text?.trim().toString().isEmpty()
+    }
+
+    private fun showHelperCard() {
+        binding.playButton.visibility = View.GONE
+        binding.helperCardView.visibility = View.VISIBLE
+    }
+
+    private fun hideHelperCard() {
+        binding.helperCardView.visibility = View.GONE
+        binding.playButton.visibility = View.VISIBLE
+    }
+
+    private fun showPlayerNamesCard() {
+        binding.playButton.visibility = View.GONE
+        binding.helpButton.visibility = View.GONE
+        binding.playerNamesCardView.visibility = View.VISIBLE
+    }
+
+    private fun hidePlayerNamesCard() {
+        binding.playerNamesCardView.visibility = View.GONE
+        binding.playButton.visibility = View.VISIBLE
+        binding.helpButton.visibility = View.VISIBLE
+    }
+
+    private fun showExitCard() {
+        binding.playButton.visibility = View.GONE
+        binding.helpButton.visibility = View.GONE
+        binding.exitCard.visibility = View.VISIBLE
+    }
+
+    private fun hideExitCard() {
+        binding.playButton.visibility = View.VISIBLE
+        binding.helpButton.visibility = View.VISIBLE
+        binding.exitCard.visibility = View.GONE
+    }
+
+    private fun startGame() {
+        sharedViewModel.getNewImage()
+        sharedViewModel.playersNames(
+            listOf(
+                binding.playerOneName.editText!!.text.toString().trim(),
+                binding.playerTwoName.editText!!.text.toString().trim()
+            )
+        )
+        binding.playerNamesCardView.visibility = View.GONE
+        findNavController().navigate(R.id.action_playFragment_to_gameFragment)
     }
 
 }

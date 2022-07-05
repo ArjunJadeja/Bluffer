@@ -27,4 +27,5 @@
     <string name="yes">Yes</string>
     <string name="no">NO</string>
     <string name="cancel">Cancel</string>
+    <string name="toast_enter_names">Enter Player Names!</string>
 </resources>

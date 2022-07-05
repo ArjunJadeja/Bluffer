@@ -17,9 +17,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    Selected Player   -->
+    <!--    Player Roles  -->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/selected_player_card_view"
+        android:id="@+id/player_roles_card_view"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

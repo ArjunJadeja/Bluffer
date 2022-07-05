@@ -46,6 +46,7 @@
     <dimen name="height_zero">0dp</dimen>
 
     <!--    Integers-->
+    <dimen name="integer_zero">0</dimen>
     <integer name="weight_equal">1</integer>
 
 </resources>

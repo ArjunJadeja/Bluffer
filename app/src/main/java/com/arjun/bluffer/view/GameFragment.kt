@@ -20,15 +20,16 @@ import com.arjun.bluffer.databinding.FragmentGameBinding
 import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
-private const val TIMER_VALUE = 30000L
+private const val TIMER_VALUE = 30
+private const val MILLIS = 1000L
 private const val INITIAL_DELAY = 1000L
 
 class GameFragment : Fragment() {
 
     private lateinit var binding: FragmentGameBinding
 
-    private val sharedViewModel: SharedViewModel by activityViewModels()
     private val viewModel: GameViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     private var timeIncreased = false
     private var statusOk = true
@@ -46,22 +47,12 @@ class GameFragment : Fragment() {
         binding = FragmentGameBinding.bind(view)
 
         checkNetwork()
+        loadPlayersRole()
         loadImage()
 
-        val playerList = listOf(
-            sharedViewModel.playerOne.value.toString(),
-            sharedViewModel.playerTwo.value.toString()
-        )
-        val explainer = selectedPlayer(playerList)
-        val guesser = if (playerList.first() == explainer) {
-            playerList.last()
-        } else playerList.first()
-
-        binding.selectedPlayerName.text =
-            "$explainer you will hold the phone and explain the context in the image to $guesser"
-
         viewModel.seconds.observe(viewLifecycleOwner) {
-            binding.timer.text = "00:$it"
+            val time = it.toString().padStart(2, '0')
+            binding.timer.text = "00:$time"
             if (it.equals(10)) {
                 if (!timeIncreased) {
                     timeIncreased = true
@@ -70,6 +61,7 @@ class GameFragment : Fragment() {
                 Toast.makeText(activity, "$it sec remaining", Toast.LENGTH_SHORT).show()
             }
         }
+
         viewModel.finished.observe(viewLifecycleOwner) {
             if (it) {
                 findNavController().navigate(R.id.action_gameFragment_to_resultFragment)
@@ -77,24 +69,19 @@ class GameFragment : Fragment() {
         }
 
         binding.startButton.setOnClickListener {
-            sharedViewModel.playersRole(explainer, guesser)
-            binding.selectedPlayerCardView.visibility = View.GONE
-            binding.progressBar.visibility = View.VISIBLE
-            binding.timerCard.visibility = View.VISIBLE
-            binding.imageView.visibility = View.VISIBLE
-            viewModel.timerValue.value = TIMER_VALUE
+            loadGame()
+            viewModel.timerValue.value = TIMER_VALUE * MILLIS
             viewModel.startTimer()
         }
+
         binding.resumeButton.setOnClickListener {
-            binding.resumeCardView.visibility = View.GONE
-            binding.imageView.visibility = View.VISIBLE
+            hideResumeCard()
             viewModel.startTimer()
         }
+
         binding.increaseTimeButton.setOnClickListener {
             binding.increaseTimeButton.visibility = View.GONE
-            viewModel.stopTimer()
-            viewModel.timerValue.value = (1000 * viewModel.seconds.value!!.toLong()) + TIMER_VALUE
-            viewModel.startTimer()
+            increaseTime()
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(
@@ -110,19 +97,16 @@ class GameFragment : Fragment() {
     override fun onPause() {
         super.onPause()
         viewModel.seconds.observe(viewLifecycleOwner) {
-            viewModel.timerValue.value = 1000 * it.toLong()
+            viewModel.timerValue.value = it * MILLIS
         }
         viewModel.stopTimer()
-        binding.imageView.visibility = View.INVISIBLE
-        binding.resumeCardView.visibility = View.VISIBLE
+        showResumeCard()
     }
 
     private fun checkNetwork() {
-
         sharedViewModel.status.observe(viewLifecycleOwner) {
             if (it == false) statusOk = false
         }
-
         Handler(Looper.getMainLooper()).postDelayed({
             if (!statusOk) {
                 Toast.makeText(
@@ -133,18 +117,13 @@ class GameFragment : Fragment() {
                 findNavController().navigate(R.id.action_gameFragment_to_playFragment)
             } else {
                 binding.progressBar.visibility = View.GONE
-                binding.selectedPlayerCardView.visibility = View.VISIBLE
+                binding.playerRolesCardView.visibility = View.VISIBLE
             }
         }, INITIAL_DELAY)
-
-    }
-
-    private fun selectedPlayer(playerList: List<String>): String {
-        return playerList.random()
     }
 
     private fun loadImage() {
-        sharedViewModel.memeImage.observe(viewLifecycleOwner) {
+        sharedViewModel.image.observe(viewLifecycleOwner) {
             val imgUri = it.imageUrl!!.toUri().buildUpon().scheme("https").build()
             binding.imageView.load(imgUri) {
                 crossfade(true)
@@ -153,6 +132,34 @@ class GameFragment : Fragment() {
             }
             binding.progressBar.visibility = View.GONE
         }
+    }
+
+    private fun loadPlayersRole() {
+        binding.selectedPlayerName.text =
+            "${sharedViewModel.explainer.value.toString()} you will hold the phone and explain the context in the image to ${sharedViewModel.guesser.value.toString()}"
+    }
+
+    private fun loadGame() {
+        binding.playerRolesCardView.visibility = View.GONE
+        binding.progressBar.visibility = View.VISIBLE
+        binding.timerCard.visibility = View.VISIBLE
+        binding.imageView.visibility = View.VISIBLE
+    }
+
+    private fun increaseTime() {
+        viewModel.stopTimer()
+        viewModel.timerValue.value = (viewModel.seconds.value!! + TIMER_VALUE) * MILLIS
+        viewModel.startTimer()
+    }
+
+    private fun showResumeCard() {
+        binding.imageView.visibility = View.INVISIBLE
+        binding.resumeCardView.visibility = View.VISIBLE
+    }
+
+    private fun hideResumeCard() {
+        binding.resumeCardView.visibility = View.GONE
+        binding.imageView.visibility = View.VISIBLE
     }
 
 }

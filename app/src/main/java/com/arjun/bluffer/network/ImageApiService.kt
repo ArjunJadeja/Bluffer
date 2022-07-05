@@ -17,13 +17,13 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface MemeImageApiService {
+interface ImageApiService {
     @GET("hmmm")
-    suspend fun getRandomPhoto(): MemeImage
+    suspend fun getRandomPhoto(): Image
 }
 
-object MemeImageApi {
-    val retrofitService: MemeImageApiService by lazy {
-        retrofit.create((MemeImageApiService::class.java))
+object ImageApi {
+    val retrofitService: ImageApiService by lazy {
+        retrofit.create((ImageApiService::class.java))
     }
 }

@@ -19,11 +19,12 @@ import kotlin.system.exitProcess
 class ResultFragment : Fragment() {
 
     private lateinit var binding: FragmentResultBinding
+
     private val viewModel: ResultViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
-    private var explain = false
-    private var guess = false
+    private var explainedCorrectly = false
+    private var guessedCorrectly = false
 
     private lateinit var explainer: String
     private lateinit var guesser: String
@@ -42,13 +43,15 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResultBinding.bind(view)
 
-        sharedViewModel.guesser.observe(viewLifecycleOwner) {
-            binding.guesserQuestion.text = "WHAT DID ${it.uppercase()} SAY ?"
-            guesser = it.uppercase()
-        }
         sharedViewModel.explainer.observe(viewLifecycleOwner) {
             explainer = it.uppercase()
         }
+
+        sharedViewModel.guesser.observe(viewLifecycleOwner) {
+            guesser = it.uppercase()
+            binding.guesserQuestion.text = "WHAT DID $guesser SAY ?"
+        }
+
         viewModel.result.observe(viewLifecycleOwner) {
             winner = if (it == true) {
                 guesser
@@ -58,35 +61,43 @@ class ResultFragment : Fragment() {
         }
 
         binding.explainerBluffButton.setOnClickListener {
-            explain = false
+            explainedCorrectly = false
             explainerCardGone()
         }
+
         binding.explainerTruthButton.setOnClickListener {
-            explain = true
+            explainedCorrectly = true
             explainerCardGone()
         }
+
         binding.guesserBluffButton.setOnClickListener {
-            guess = false
+            guessedCorrectly = false
             guesserCardGone()
         }
+
         binding.guesserTruthButton.setOnClickListener {
-            guess = true
+            guessedCorrectly = true
             guesserCardGone()
         }
+
         binding.playAgainButton.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
         }
+
         binding.newGameButton.setOnClickListener {
             findNavController().navigate(R.id.action_resultFragment_to_playFragment)
         }
+
         binding.exitButton.setOnClickListener {
             showExitCard()
         }
+
         binding.cancelButton.setOnClickListener {
             hideExitCard()
         }
+
         binding.exitConfirmButton.setOnClickListener {
-            exitProcess(0)
+            exitProcess(R.dimen.integer_zero)
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(
@@ -120,7 +131,7 @@ class ResultFragment : Fragment() {
     private fun guesserCardGone() {
         binding.guesserCardView.visibility = View.GONE
         binding.congoCard.visibility = View.VISIBLE
-        viewModel.playerResponse(explain, guess)
+        viewModel.playerResponse(explainedCorrectly, guessedCorrectly)
         binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
     }
 

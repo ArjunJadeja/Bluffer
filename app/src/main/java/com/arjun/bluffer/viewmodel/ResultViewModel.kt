@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class ResultViewModel : ViewModel() {
 
     private var _result = MutableLiveData<Boolean>()
-    val result:LiveData<Boolean> = _result
+    val result: LiveData<Boolean> = _result
 
     fun playerResponse(explainerResponse: Boolean, guesserResponse: Boolean) {
         _result.value = explainerResponse == guesserResponse

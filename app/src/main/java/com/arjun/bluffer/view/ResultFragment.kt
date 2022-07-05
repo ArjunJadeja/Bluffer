@@ -130,19 +130,19 @@ class ResultFragment : Fragment() {
 
     private fun guesserCardGone() {
         binding.guesserCardView.visibility = View.GONE
-        binding.congoCard.visibility = View.VISIBLE
+        binding.winnerCard.visibility = View.VISIBLE
         viewModel.playerResponse(explainedCorrectly, guessedCorrectly)
         binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
     }
 
     private fun showExitCard() {
-        binding.congoCard.visibility = View.GONE
+        binding.winnerCard.visibility = View.GONE
         binding.exitCard.visibility = View.VISIBLE
     }
 
     private fun hideExitCard() {
         binding.exitCard.visibility = View.GONE
-        binding.congoCard.visibility = View.VISIBLE
+        binding.winnerCard.visibility = View.VISIBLE
     }
 
 }

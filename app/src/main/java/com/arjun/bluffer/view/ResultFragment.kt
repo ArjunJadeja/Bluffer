@@ -97,7 +97,7 @@ class ResultFragment : Fragment() {
         }
 
         binding.exitConfirmButton.setOnClickListener {
-            exitProcess(R.dimen.integer_zero)
+            exitProcess(R.integer.integer_zero)
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(

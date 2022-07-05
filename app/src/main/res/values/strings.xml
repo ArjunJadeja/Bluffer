@@ -9,8 +9,9 @@
     <string name="about">About Game</string>
     <string name="close_button">CLOSE</string>
     <string name="player_names">Player Names</string>
-    <string name="player_1">Player 1</string>
-    <string name="player_2">Player 2</string>
+    <string name="required">Required*</string>
+    <string name="player_one">Player 1</string>
+    <string name="player_two">Player 2</string>
     <string name="selected_player">selected player</string>
     <string name="timer_dummy">00:30</string>
     <string name="increase_time">+30 sec</string>

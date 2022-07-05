@@ -11,7 +11,7 @@ import okio.IOException
 
 class SharedViewModel : ViewModel() {
 
-    //    Loading Image Data
+    //    Image Data
     private val _image = MutableLiveData<Image>()
     val image: LiveData<Image> = _image
 

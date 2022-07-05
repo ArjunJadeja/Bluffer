@@ -129,6 +129,7 @@ class GameFragment : Fragment() {
                 crossfade(true)
                 crossfade(500)
                 transformations(RoundedCornersTransformation(50f))
+                error(R.drawable.ic_broken_image)
             }
             binding.progressBar.visibility = View.GONE
         }

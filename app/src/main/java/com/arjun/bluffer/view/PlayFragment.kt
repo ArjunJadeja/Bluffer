@@ -67,7 +67,7 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
         }
 
         binding.exitConfirmButton.setOnClickListener {
-            exitProcess(R.dimen.integer_zero)
+            exitProcess(R.integer.integer_zero)
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(

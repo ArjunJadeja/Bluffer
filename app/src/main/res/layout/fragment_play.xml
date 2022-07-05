@@ -34,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!--    PLayer Names-->
+    <!--    Player Names-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/player_names_card_view"
         style="@style/card_style"
@@ -72,11 +72,23 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/margin_medium"
                 android:layout_marginRight="@dimen/margin_medium"
-                android:hint="@string/player_1">
+                android:hint="@string/player_one"
+                android:textColorHint="@color/black"
+                app:boxBackgroundColor="@color/gray"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/max_length"
+                app:counterTextColor="@color/black"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="@integer/max_length"
+                    android:maxLines="@integer/max_lines"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/font_small" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -87,11 +99,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_medium"
-                android:hint="@string/player_2">
+                android:hint="@string/player_two"
+                android:textColorHint="@color/black"
+                app:boxBackgroundColor="@color/gray"
+                app:counterEnabled="true"
+                app:counterMaxLength="@integer/max_length"
+                app:counterTextColor="@color/black"
+                app:endIconMode="clear_text"
+                app:endIconTint="@color/black"
+                app:helperText="@string/required"
+                app:helperTextTextColor="@color/black">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLength="@integer/max_length"
+                    android:maxLines="@integer/max_lines"
+                    android:textColor="@color/black"
                     android:textSize="@dimen/font_small" />
 
             </com.google.android.material.textfield.TextInputLayout>

@@ -43,11 +43,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginEnd="@dimen/margin_big"
+                android:layout_marginStart="@dimen/margin_bigger"
+                android:layout_marginEnd="@dimen/margin_bigger"
                 android:backgroundTint="@color/green"
-                android:text="@string/yes"
-                android:textSize="@dimen/font_small" />
+                android:text="@string/yes" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/explainer_truth_button"
@@ -55,12 +54,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginEnd="@dimen/margin_big"
+                android:layout_marginStart="@dimen/margin_bigger"
+                android:layout_marginEnd="@dimen/margin_bigger"
                 android:layout_marginBottom="@dimen/margin_big"
                 android:backgroundTint="@color/green"
-                android:text="@string/no"
-                android:textSize="@dimen/font_small" />
+                android:text="@string/no" />
 
         </LinearLayout>
 
@@ -104,11 +102,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginEnd="@dimen/margin_big"
+                android:layout_marginStart="@dimen/margin_bigger"
+                android:layout_marginEnd="@dimen/margin_bigger"
                 android:backgroundTint="@color/green"
-                android:text="@string/bluff"
-                android:textSize="@dimen/font_small" />
+                android:text="@string/bluff" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/guesser_truth_button"
@@ -116,12 +113,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginEnd="@dimen/margin_big"
+                android:layout_marginStart="@dimen/margin_bigger"
+                android:layout_marginEnd="@dimen/margin_bigger"
                 android:layout_marginBottom="@dimen/margin_big"
                 android:backgroundTint="@color/green"
-                android:text="@string/truth"
-                android:textSize="@dimen/font_small" />
+                android:text="@string/truth" />
 
         </LinearLayout>
 
@@ -129,12 +125,13 @@
 
     <!--    Winner-->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/congo_card"
+        android:id="@+id/winner_card"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_big"
         android:layout_marginTop="@dimen/margin_too_big"
+        android:backgroundTint="@color/light_blue"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_big"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -155,6 +152,7 @@
                 android:layout_margin="@dimen/margin_big"
                 android:gravity="center"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_medium" />
 
             <LinearLayout

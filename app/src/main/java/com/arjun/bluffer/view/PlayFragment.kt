@@ -134,11 +134,9 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
 
     private fun startGame() {
         sharedViewModel.getNewImage()
-        sharedViewModel.playersNames(
-            listOf(
-                binding.playerOneName.editText!!.text.toString().trim(),
-                binding.playerTwoName.editText!!.text.toString().trim()
-            )
+        sharedViewModel.playersName(
+            binding.playerOneName.editText!!.text.toString(),
+            binding.playerTwoName.editText!!.text.toString()
         )
         binding.playerNamesCardView.visibility = View.GONE
         findNavController().navigate(R.id.action_playFragment_to_gameFragment)

@@ -65,30 +65,23 @@
     </com.google.android.material.card.MaterialCardView>
 
     <!--    Timer   -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/timer_card"
-        style="@style/card_style"
+    <Button
+        android:id="@+id/timer"
+        style="@style/button_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/red"
+        android:elevation="@dimen/elevation_small"
+        android:gravity="center"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/font_medium"
         android:visibility="gone"
-        app:cardCornerRadius="@dimen/corner_small"
         app:layout_constraintBottom_toTopOf="@id/imageView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="@string/timer_dummy" />
 
-        <TextView
-            android:id="@+id/timer"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:padding="@dimen/padding_medium"
-            android:textSize="@dimen/font_medium"
-            tools:text="@string/timer_dummy" />
-
-    </com.google.android.material.card.MaterialCardView>
 
     <!--    ImageView   -->
     <ImageView
@@ -114,8 +107,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/green"
-        android:padding="@dimen/padding_medium"
         android:text="@string/increase_time"
+        android:textSize="@dimen/font_medium"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

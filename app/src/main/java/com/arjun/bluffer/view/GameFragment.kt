@@ -31,8 +31,13 @@ class GameFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
+    private lateinit var explainer: String
+    private lateinit var guesser: String
+
     private var timeIncreased = false
     private var statusOk = true
+
+    private var gameStarted = false
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -47,15 +52,13 @@ class GameFragment : Fragment() {
         binding = FragmentGameBinding.bind(view)
 
         checkNetwork()
-        loadPlayersRole()
         loadImage()
+        loadPlayerRoles()
 
         viewModel.seconds.observe(viewLifecycleOwner) {
             val time = it.toString().padStart(2, '0')
             binding.timer.text = "00:$time"
-            if (it.equals(10)) {
-                Toast.makeText(activity, "$it sec remaining", Toast.LENGTH_SHORT).show()
-            } else if (it <= 10) {
+            if (it <= 10) {
                 if (!timeIncreased) {
                     binding.increaseTimeButton.visibility = View.VISIBLE
                 }
@@ -69,7 +72,9 @@ class GameFragment : Fragment() {
         }
 
         binding.startButton.setOnClickListener {
+            sharedViewModel.playersRole(explainer, guesser)
             loadGame()
+            gameStarted = true
             viewModel.timerValue.value = TIMER_VALUE * MILLIS
             viewModel.startTimer()
         }
@@ -98,8 +103,10 @@ class GameFragment : Fragment() {
 
     override fun onPause() {
         super.onPause()
-        pauseTimer()
-        showResumeCard()
+        if (gameStarted) {
+            pauseTimer()
+            showResumeCard()
+        }
     }
 
     private fun checkNetwork() {
@@ -134,15 +141,28 @@ class GameFragment : Fragment() {
         }
     }
 
-    private fun loadPlayersRole() {
+    private fun loadPlayerRoles() {
+        val playerList = listOf(
+            sharedViewModel.playerOne.value.toString(),
+            sharedViewModel.playerTwo.value.toString()
+        )
+        explainer = selectedPlayer(playerList)
+        guesser = if (playerList.first() == explainer) {
+            playerList.last()
+        } else playerList.first()
+
         binding.selectedPlayerName.text =
-            "${sharedViewModel.explainer.value.toString()} you will hold the phone and explain the context in the image to ${sharedViewModel.guesser.value.toString()}"
+            "$explainer you will hold the phone and explain the context in the image to $guesser"
+    }
+
+    private fun selectedPlayer(playerList: List<String>): String {
+        return playerList.random()
     }
 
     private fun loadGame() {
         binding.playerRolesCardView.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
-        binding.timerCard.visibility = View.VISIBLE
+        binding.timer.visibility = View.VISIBLE
         binding.imageView.visibility = View.VISIBLE
     }
 

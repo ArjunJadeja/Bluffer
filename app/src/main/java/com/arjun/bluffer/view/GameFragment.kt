@@ -117,7 +117,7 @@ class GameFragment : Fragment() {
             if (!statusOk) {
                 Toast.makeText(
                     activity,
-                    "Unknown Error Occurred\nCheck Network Connection",
+                    "Network Error!\ntry again later",
                     Toast.LENGTH_LONG
                 ).show()
                 findNavController().navigate(R.id.action_gameFragment_to_playFragment)

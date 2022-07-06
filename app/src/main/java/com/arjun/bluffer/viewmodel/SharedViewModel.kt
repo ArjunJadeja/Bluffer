@@ -28,24 +28,28 @@ class SharedViewModel : ViewModel() {
         }
     }
 
-    //    Player Roles
+    //    Player Names
+    private var _playerOne = MutableLiveData("")
+    val playerOne: LiveData<String> = _playerOne
+
+    private var _playerTwo = MutableLiveData("")
+    val playerTwo: LiveData<String> = _playerTwo
+
+    fun playersName(playerOneName: String, playerTwoName: String) {
+        _playerOne.value = playerOneName
+        _playerTwo.value = playerTwoName
+    }
+
+    //    Explainer and Guesser
     private var _explainer = MutableLiveData("")
     val explainer: LiveData<String> = _explainer
 
     private var _guesser = MutableLiveData("")
     val guesser: LiveData<String> = _guesser
 
-    fun playersNames(playerList: List<String>) {
-
-        _explainer.value = playerList.random()
-
-        _guesser.value =
-            if (playerList.first().equals(explainer)) {
-                playerList.first()
-            } else {
-                playerList.last()
-            }
-
+    fun playersRole(explainer: String, guesser: String) {
+        _explainer.value = explainer
+        _guesser.value = guesser
     }
 
 }

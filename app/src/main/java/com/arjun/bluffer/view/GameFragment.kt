@@ -54,11 +54,11 @@ class GameFragment : Fragment() {
             val time = it.toString().padStart(2, '0')
             binding.timer.text = "00:$time"
             if (it.equals(10)) {
+                Toast.makeText(activity, "$it sec remaining", Toast.LENGTH_SHORT).show()
+            } else if (it <= 10) {
                 if (!timeIncreased) {
-                    timeIncreased = true
                     binding.increaseTimeButton.visibility = View.VISIBLE
                 }
-                Toast.makeText(activity, "$it sec remaining", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -80,6 +80,7 @@ class GameFragment : Fragment() {
         }
 
         binding.increaseTimeButton.setOnClickListener {
+            timeIncreased = true
             binding.increaseTimeButton.visibility = View.GONE
             increaseTime()
         }
@@ -90,16 +91,14 @@ class GameFragment : Fragment() {
                 override fun handleOnBackPressed() {
                     findNavController().navigate(R.id.action_gameFragment_to_playFragment)
                 }
-            })
+            }
+        )
 
     }
 
     override fun onPause() {
         super.onPause()
-        viewModel.seconds.observe(viewLifecycleOwner) {
-            viewModel.timerValue.value = it * MILLIS
-        }
-        viewModel.stopTimer()
+        pauseTimer()
         showResumeCard()
     }
 
@@ -147,6 +146,13 @@ class GameFragment : Fragment() {
         binding.imageView.visibility = View.VISIBLE
     }
 
+    private fun pauseTimer() {
+        viewModel.seconds.observe(viewLifecycleOwner) {
+            viewModel.timerValue.value = it * MILLIS
+        }
+        viewModel.stopTimer()
+    }
+
     private fun increaseTime() {
         viewModel.stopTimer()
         viewModel.timerValue.value = (viewModel.seconds.value!! + TIMER_VALUE) * MILLIS
@@ -156,6 +162,7 @@ class GameFragment : Fragment() {
     private fun showResumeCard() {
         binding.imageView.visibility = View.INVISIBLE
         binding.resumeCardView.visibility = View.VISIBLE
+        binding.increaseTimeButton.visibility = View.GONE
     }
 
     private fun hideResumeCard() {

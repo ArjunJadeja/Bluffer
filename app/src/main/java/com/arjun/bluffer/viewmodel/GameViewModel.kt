@@ -11,12 +11,12 @@ class GameViewModel : ViewModel() {
 
     private var timer: CountDownTimer? = null
 
-    var timerValue = MutableLiveData<Long>()
+    val timerValue = MutableLiveData<Long>()
 
     private val _seconds = MutableLiveData<Int>()
     val seconds: LiveData<Int> = _seconds
 
-    private var _finished = MutableLiveData<Boolean>()
+    private val _finished = MutableLiveData<Boolean>()
     val finished: LiveData<Boolean> = _finished
 
     fun startTimer() {

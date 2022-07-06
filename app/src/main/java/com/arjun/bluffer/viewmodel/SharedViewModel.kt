@@ -28,7 +28,6 @@ class SharedViewModel : ViewModel() {
         }
     }
 
-
     //    Player Roles
     private var _explainer = MutableLiveData("")
     val explainer: LiveData<String> = _explainer
@@ -48,6 +47,5 @@ class SharedViewModel : ViewModel() {
             }
 
     }
-
 
 }

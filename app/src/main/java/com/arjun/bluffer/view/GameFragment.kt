@@ -143,9 +143,10 @@ class GameFragment : Fragment() {
             sharedViewModel.playerTwo.value.toString()
         )
         explainer = selectedPlayer(playerList)
-        guesser = if (playerList.first() == explainer) {
-            playerList.last()
-        } else playerList.first()
+        guesser =
+            if (playerList.first() == explainer) {
+                playerList.last()
+            } else playerList.first()
 
         binding.selectedPlayerName.text =
             "$explainer you will hold the phone and explain the context in the image to $guesser"
@@ -163,10 +164,10 @@ class GameFragment : Fragment() {
     }
 
     private fun pauseTimer() {
+        viewModel.stopTimer()
         viewModel.seconds.observe(viewLifecycleOwner) {
             viewModel.timerValue.value = it * MILLIS
         }
-        viewModel.stopTimer()
     }
 
     private fun increaseTime() {

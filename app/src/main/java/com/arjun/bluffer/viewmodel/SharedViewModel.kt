@@ -29,10 +29,10 @@ class SharedViewModel : ViewModel() {
     }
 
     //    Player Names
-    private var _playerOne = MutableLiveData("")
+    private val _playerOne = MutableLiveData("")
     val playerOne: LiveData<String> = _playerOne
 
-    private var _playerTwo = MutableLiveData("")
+    private val _playerTwo = MutableLiveData("")
     val playerTwo: LiveData<String> = _playerTwo
 
     fun playersName(playerOneName: String, playerTwoName: String) {
@@ -41,10 +41,10 @@ class SharedViewModel : ViewModel() {
     }
 
     //    Player Roles
-    private var _explainer = MutableLiveData("")
+    private val _explainer = MutableLiveData("")
     val explainer: LiveData<String> = _explainer
 
-    private var _guesser = MutableLiveData("")
+    private val _guesser = MutableLiveData("")
     val guesser: LiveData<String> = _guesser
 
     fun playersRole(explainer: String, guesser: String) {

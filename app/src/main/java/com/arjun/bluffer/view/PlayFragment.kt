@@ -83,7 +83,9 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
                         showExitCard()
                     }
                 }
-            })
+            }
+        )
+
     }
 
     private fun helperCardVisible(): Boolean {

@@ -129,9 +129,9 @@ class ResultFragment : Fragment() {
 
     private fun guesserCardGone() {
         binding.guesserCardView.visibility = View.GONE
-        binding.winnerCard.visibility = View.VISIBLE
         viewModel.playerResponse(explainedCorrectly, guessedCorrectly)
         binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
+        binding.winnerCard.visibility = View.VISIBLE
     }
 
     private fun loadGame() {

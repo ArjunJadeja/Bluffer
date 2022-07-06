@@ -81,7 +81,7 @@ class ResultFragment : Fragment() {
         }
 
         binding.playAgainButton.setOnClickListener {
-            findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
+            startGame()
         }
 
         binding.newGameButton.setOnClickListener {
@@ -133,6 +133,11 @@ class ResultFragment : Fragment() {
         binding.winnerCard.visibility = View.VISIBLE
         viewModel.playerResponse(explainedCorrectly, guessedCorrectly)
         binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
+    }
+
+    private fun startGame() {
+        sharedViewModel.getNewImage()
+        findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
     }
 
     private fun showExitCard() {

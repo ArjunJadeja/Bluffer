@@ -40,7 +40,7 @@ class SharedViewModel : ViewModel() {
         _playerTwo.value = playerTwoName
     }
 
-    //    Explainer and Guesser
+    //    Player Roles
     private var _explainer = MutableLiveData("")
     val explainer: LiveData<String> = _explainer
 

@@ -36,6 +36,7 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
         binding = FragmentPlayBinding.bind(view)
 
         binding.aboutGame.text = helper.aboutGame
+        binding.discretionAdvised.text = helper.discretionAdvised
         binding.rulesList.text = helper.rulesList
 
         binding.playButton.setOnClickListener {
@@ -54,7 +55,7 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
             if (invalidPlayerNames()) {
                 Toast.makeText(activity, R.string.toast_enter_names, Toast.LENGTH_SHORT).show()
             } else {
-                startGame()
+                loadGame()
             }
         }
 
@@ -132,11 +133,11 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
         binding.exitCard.visibility = View.GONE
     }
 
-    private fun startGame() {
+    private fun loadGame() {
         sharedViewModel.getNewImage()
         sharedViewModel.playersName(
-            binding.playerOneName.editText!!.text.toString(),
-            binding.playerTwoName.editText!!.text.toString()
+            binding.playerOneName.editText!!.text.toString().trim(),
+            binding.playerTwoName.editText!!.text.toString().trim()
         )
         binding.playerNamesCardView.visibility = View.GONE
         findNavController().navigate(R.id.action_playFragment_to_gameFragment)

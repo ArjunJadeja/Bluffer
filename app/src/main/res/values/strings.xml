@@ -5,8 +5,8 @@
     <string name="start">START</string>
     <string name="next">NEXT</string>
     <string name="help_button">How to play guide</string>
-    <string name="how_to_play">How To Play ?</string>
-    <string name="about">About Game</string>
+    <string name="how_to_play">How To Play?</string>
+    <string name="about_game">About Game</string>
     <string name="close_button">CLOSE</string>
     <string name="player_names">Player Names</string>
     <string name="required">Required*</string>
@@ -19,7 +19,7 @@
     <string name="resume_text">Resume Game ?</string>
     <string name="truth">TRUTH</string>
     <string name="bluff">BLUFFED</string>
-    <string name="check_result_1">DID YOU BLUFF ?</string>
+    <string name="check_result_1">DID YOU BLUFF?</string>
     <string name="check_result_2">WHAT DID THE OTHER PLAYER SAY ?</string>
     <string name="home">HOME</string>
     <string name="replay">REPLAY</string>

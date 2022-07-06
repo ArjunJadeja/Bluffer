@@ -20,9 +20,9 @@ import com.arjun.bluffer.databinding.FragmentGameBinding
 import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
-private const val TIMER_VALUE = 30
+private const val TIMER_VALUE = 45
+private const val INCREASE_TIMER_VALUE = 30
 private const val MILLIS = 1000L
-private const val INITIAL_DELAY = 1000L
 
 class GameFragment : Fragment() {
 
@@ -34,7 +34,6 @@ class GameFragment : Fragment() {
     private lateinit var explainer: String
     private lateinit var guesser: String
 
-    private var timeIncreased = false
     private var statusOk = true
 
     private var gameStarted = false
@@ -59,9 +58,7 @@ class GameFragment : Fragment() {
             val time = it.toString().padStart(2, '0')
             binding.timer.text = "00:$time"
             if (it <= 10) {
-                if (!timeIncreased) {
-                    binding.increaseTimeButton.visibility = View.VISIBLE
-                }
+                binding.increaseTimeButton.visibility = View.VISIBLE
             }
         }
 
@@ -73,7 +70,7 @@ class GameFragment : Fragment() {
 
         binding.startButton.setOnClickListener {
             sharedViewModel.playersRole(explainer, guesser)
-            loadGame()
+            startGame()
             gameStarted = true
             viewModel.timerValue.value = TIMER_VALUE * MILLIS
             viewModel.startTimer()
@@ -85,7 +82,6 @@ class GameFragment : Fragment() {
         }
 
         binding.increaseTimeButton.setOnClickListener {
-            timeIncreased = true
             binding.increaseTimeButton.visibility = View.GONE
             increaseTime()
         }
@@ -125,7 +121,7 @@ class GameFragment : Fragment() {
                 binding.progressBar.visibility = View.GONE
                 binding.playerRolesCardView.visibility = View.VISIBLE
             }
-        }, INITIAL_DELAY)
+        }, MILLIS)
     }
 
     private fun loadImage() {
@@ -159,7 +155,7 @@ class GameFragment : Fragment() {
         return playerList.random()
     }
 
-    private fun loadGame() {
+    private fun startGame() {
         binding.playerRolesCardView.visibility = View.GONE
         binding.progressBar.visibility = View.VISIBLE
         binding.timer.visibility = View.VISIBLE
@@ -175,7 +171,7 @@ class GameFragment : Fragment() {
 
     private fun increaseTime() {
         viewModel.stopTimer()
-        viewModel.timerValue.value = (viewModel.seconds.value!! + TIMER_VALUE) * MILLIS
+        viewModel.timerValue.value = (viewModel.seconds.value!! + INCREASE_TIMER_VALUE) * MILLIS
         viewModel.startTimer()
     }
 

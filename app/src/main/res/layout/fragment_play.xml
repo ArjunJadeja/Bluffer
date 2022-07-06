@@ -134,7 +134,7 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!--    How to Play-->
+    <!--    Helper Card-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/helper_card_view"
         style="@style/card_style"
@@ -143,6 +143,7 @@
         android:layout_margin="@dimen/margin_big"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_big"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/help_button">
@@ -158,7 +159,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
-                android:text="@string/about"
+                android:text="@string/about_game"
                 android:textAppearance="?attr/textAppearanceHeadline6"
                 android:textSize="@dimen/font_medium"
                 android:textStyle="bold" />
@@ -172,6 +173,20 @@
                 android:gravity="fill"
                 android:lineSpacingExtra="@dimen/line_spacing"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="@dimen/font_small"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/discretion_advised"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_big"
+                android:gravity="fill"
+                android:lineSpacingExtra="@dimen/line_spacing"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/red"
                 android:textSize="@dimen/font_small"
                 android:textStyle="italic" />
 

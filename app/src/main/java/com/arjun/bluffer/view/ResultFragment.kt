@@ -49,7 +49,7 @@ class ResultFragment : Fragment() {
 
         sharedViewModel.guesser.observe(viewLifecycleOwner) {
             guesser = it.uppercase()
-            binding.guesserQuestion.text = "WHAT DID $guesser SAY ?"
+            binding.guesserQuestion.text = "WHAT DID $guesser SAY?"
         }
 
         viewModel.result.observe(viewLifecycleOwner) {
@@ -81,7 +81,7 @@ class ResultFragment : Fragment() {
         }
 
         binding.playAgainButton.setOnClickListener {
-            startGame()
+            loadGame()
         }
 
         binding.newGameButton.setOnClickListener {
@@ -104,17 +104,16 @@ class ResultFragment : Fragment() {
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
-                    if (binding.exitCard.isVisible) {
-                        hideExitCard()
-                    } else if (binding.guesserCardView.isVisible) {
+                    if (binding.guesserCardView.isVisible) {
                         showExplainerCard()
-                    } else if (binding.explainerCardView.isVisible) {
-                        findNavController().navigate(R.id.action_resultFragment_to_playFragment)
+                    } else if (binding.exitCard.isVisible) {
+                        hideExitCard()
                     } else {
-                        showExitCard()
+                        findNavController().navigate(R.id.action_resultFragment_to_playFragment)
                     }
                 }
-            })
+            }
+        )
 
     }
 
@@ -135,7 +134,7 @@ class ResultFragment : Fragment() {
         binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
     }
 
-    private fun startGame() {
+    private fun loadGame() {
         sharedViewModel.getNewImage()
         findNavController().navigate(R.id.action_resultFragment_to_gameFragment)
     }

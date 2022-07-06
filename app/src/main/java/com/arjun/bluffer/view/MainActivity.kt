@@ -1,6 +1,7 @@
 package com.arjun.bluffer.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.ActivityMainBinding

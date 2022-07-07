@@ -133,7 +133,6 @@ class GameFragment : Fragment() {
                 transformations(RoundedCornersTransformation(50f))
                 error(R.drawable.ic_broken_image)
             }
-            binding.progressBar.visibility = View.GONE
         }
     }
 

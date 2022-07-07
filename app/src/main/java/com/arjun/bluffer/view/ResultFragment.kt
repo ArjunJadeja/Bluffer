@@ -1,5 +1,6 @@
 package com.arjun.bluffer.view
 
+import android.media.SoundPool
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +24,10 @@ class ResultFragment : Fragment() {
     private val viewModel: ResultViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
+    private val soundPool = SoundPool.Builder().setMaxStreams(2).build()
+    private var clickSound = R.integer.integer_zero
+    private var finishSound = R.integer.integer_zero
+
     private var explainedCorrectly = false
     private var guessedCorrectly = false
 
@@ -43,6 +48,9 @@ class ResultFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResultBinding.bind(view)
 
+        clickSound = soundPool.load(context, R.raw.click, 1)
+        finishSound = soundPool.load(context, R.raw.finish, 1)
+
         sharedViewModel.explainer.observe(viewLifecycleOwner) {
             explainer = it.uppercase()
         }
@@ -61,38 +69,46 @@ class ResultFragment : Fragment() {
         }
 
         binding.explainerBluffButton.setOnClickListener {
+            playClickSound()
             explainedCorrectly = false
             explainerCardGone()
         }
 
         binding.explainerTruthButton.setOnClickListener {
+            playClickSound()
             explainedCorrectly = true
             explainerCardGone()
         }
 
         binding.guesserBluffButton.setOnClickListener {
+            playFinishSound()
             guessedCorrectly = false
             guesserCardGone()
         }
 
         binding.guesserTruthButton.setOnClickListener {
+            playFinishSound()
             guessedCorrectly = true
             guesserCardGone()
         }
 
         binding.playAgainButton.setOnClickListener {
+            playClickSound()
             loadGame()
         }
 
         binding.newGameButton.setOnClickListener {
+            playClickSound()
             findNavController().navigate(R.id.action_resultFragment_to_playFragment)
         }
 
         binding.exitButton.setOnClickListener {
+            playClickSound()
             showExitCard()
         }
 
         binding.cancelButton.setOnClickListener {
+            playClickSound()
             hideExitCard()
         }
 
@@ -104,6 +120,7 @@ class ResultFragment : Fragment() {
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
+                    playClickSound()
                     if (binding.guesserCardView.isVisible) {
                         showExplainerCard()
                     } else if (binding.exitCard.isVisible) {
@@ -115,6 +132,19 @@ class ResultFragment : Fragment() {
             }
         )
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        soundPool.release()
+    }
+
+    private fun playClickSound() {
+        soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+    }
+
+    private fun playFinishSound() {
+        soundPool.play(finishSound, 1f, 1f, 1, 0, 1f)
     }
 
     private fun showExplainerCard() {

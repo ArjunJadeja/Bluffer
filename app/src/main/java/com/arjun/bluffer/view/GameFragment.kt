@@ -1,5 +1,6 @@
 package com.arjun.bluffer.view
 
+import android.media.SoundPool
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -31,6 +32,10 @@ class GameFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
+    private val soundPool = SoundPool.Builder().setMaxStreams(2).build()
+    private var clickSound = R.integer.integer_zero
+    private var alarmSound = R.integer.integer_zero
+
     private lateinit var explainer: String
     private lateinit var guesser: String
 
@@ -54,12 +59,14 @@ class GameFragment : Fragment() {
         loadImage()
         loadPlayerRoles()
 
+        clickSound = soundPool.load(context, R.raw.click, 1)
+        alarmSound = soundPool.load(context, R.raw.alarm, 1)
+
         viewModel.seconds.observe(viewLifecycleOwner) {
             val time = it.toString().padStart(2, '0')
             binding.timer.text = "00:$time"
-            if (it <= 10) {
-                binding.increaseTimeButton.visibility = View.VISIBLE
-            }
+            if (it <= 10) binding.increaseTimeButton.visibility = View.VISIBLE
+            if (it.equals(0)) playAlarmSound()
         }
 
         viewModel.finished.observe(viewLifecycleOwner) {
@@ -69,6 +76,7 @@ class GameFragment : Fragment() {
         }
 
         binding.startButton.setOnClickListener {
+            playClickSound()
             sharedViewModel.playersRole(explainer, guesser)
             startGame()
             gameStarted = true
@@ -77,11 +85,13 @@ class GameFragment : Fragment() {
         }
 
         binding.resumeButton.setOnClickListener {
+            playClickSound()
             hideResumeCard()
             viewModel.startTimer()
         }
 
         binding.increaseTimeButton.setOnClickListener {
+            playClickSound()
             binding.increaseTimeButton.visibility = View.GONE
             increaseTime()
         }
@@ -90,11 +100,17 @@ class GameFragment : Fragment() {
             viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
+                    playClickSound()
                     findNavController().navigate(R.id.action_gameFragment_to_playFragment)
                 }
             }
         )
 
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        soundPool.release()
     }
 
     override fun onPause() {
@@ -153,6 +169,14 @@ class GameFragment : Fragment() {
 
     private fun selectedPlayer(playerList: List<String>): String {
         return playerList.random()
+    }
+
+    private fun playClickSound() {
+        soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+    }
+
+    private fun playAlarmSound() {
+        soundPool.play(alarmSound, 1f, 1f, 1, 0, 1f)
     }
 
     private fun startGame() {

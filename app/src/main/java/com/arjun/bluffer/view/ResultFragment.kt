@@ -146,11 +146,15 @@ class ResultFragment : Fragment() {
     }
 
     private fun playClickSound() {
-        soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+        if (sharedViewModel.soundOn.value!!) {
+            soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+        }
     }
 
     private fun playFinishSound() {
-        soundPool.play(finishSound, 1f, 1f, 1, 0, 1f)
+        if (sharedViewModel.soundOn.value!!) {
+            soundPool.play(finishSound, 1f, 1f, 1, 0, 1f)
+        }
     }
 
     private fun showExplainerCard() {

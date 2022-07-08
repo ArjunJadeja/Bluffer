@@ -5,6 +5,7 @@
     <string name="start">START</string>
     <string name="next">NEXT</string>
     <string name="help_button">How to play guide</string>
+    <string name="sound_setting_button">Change sound setting</string>
     <string name="how_to_play">How To Play?</string>
     <string name="about_game">About Game</string>
     <string name="close_button">CLOSE</string>

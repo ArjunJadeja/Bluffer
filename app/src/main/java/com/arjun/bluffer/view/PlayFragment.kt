@@ -29,6 +29,8 @@ class PlayFragment : Fragment() {
     private var clickSound = R.integer.integer_zero
     private var wrongSound = R.integer.integer_zero
 
+    private var soundOn = true
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,6 +61,10 @@ class PlayFragment : Fragment() {
             } else {
                 showHelperCard()
             }
+        }
+
+        binding.soundSettingButton.setOnClickListener {
+            changeSoundSetting()
         }
 
         binding.nextButton.setOnClickListener {
@@ -108,12 +114,28 @@ class PlayFragment : Fragment() {
         soundPool.release()
     }
 
+    private fun changeSoundSetting() {
+        soundOn = if (soundOn) {
+            binding.soundSettingButton.setImageResource(R.drawable.ic_volume_off)
+            sharedViewModel.soundSetting(false)
+            false
+        } else {
+            binding.soundSettingButton.setImageResource(R.drawable.ic_volume_up)
+            sharedViewModel.soundSetting(true)
+            true
+        }
+    }
+
     private fun playClickSound() {
-        soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+        if (sharedViewModel.soundOn.value!!) {
+            soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+        }
     }
 
     private fun playWrongSound() {
-        soundPool.play(wrongSound, 1f, 1f, 1, 0, 1f)
+        if (sharedViewModel.soundOn.value!!) {
+            soundPool.play(wrongSound, 1f, 1f, 1, 0, 1f)
+        }
     }
 
     private fun helperCardVisible(): Boolean {
@@ -131,17 +153,20 @@ class PlayFragment : Fragment() {
 
     private fun showHelperCard() {
         binding.playButton.visibility = View.GONE
+        binding.soundSettingButton.visibility = View.GONE
         binding.helperCardView.visibility = View.VISIBLE
     }
 
     private fun hideHelperCard() {
         binding.helperCardView.visibility = View.GONE
         binding.playButton.visibility = View.VISIBLE
+        binding.soundSettingButton.visibility = View.VISIBLE
     }
 
     private fun showPlayerNamesCard() {
         binding.playButton.visibility = View.GONE
         binding.helpButton.visibility = View.GONE
+        binding.soundSettingButton.visibility = View.GONE
         binding.playerNamesCardView.visibility = View.VISIBLE
     }
 
@@ -149,17 +174,20 @@ class PlayFragment : Fragment() {
         binding.playerNamesCardView.visibility = View.GONE
         binding.playButton.visibility = View.VISIBLE
         binding.helpButton.visibility = View.VISIBLE
+        binding.soundSettingButton.visibility = View.VISIBLE
     }
 
     private fun showExitCard() {
         binding.playButton.visibility = View.GONE
         binding.helpButton.visibility = View.GONE
+        binding.soundSettingButton.visibility = View.GONE
         binding.exitCard.visibility = View.VISIBLE
     }
 
     private fun hideExitCard() {
         binding.playButton.visibility = View.VISIBLE
         binding.helpButton.visibility = View.VISIBLE
+        binding.soundSettingButton.visibility = View.VISIBLE
         binding.exitCard.visibility = View.GONE
     }
 

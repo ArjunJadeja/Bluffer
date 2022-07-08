@@ -52,4 +52,12 @@ class SharedViewModel : ViewModel() {
         _guesser.value = guesser
     }
 
+    //    Sound Setting
+    private val _soundOn = MutableLiveData(true)
+    val soundOn: LiveData<Boolean> = _soundOn
+
+    fun soundSetting(soundOn: Boolean) {
+        _soundOn.value = soundOn
+    }
+
 }

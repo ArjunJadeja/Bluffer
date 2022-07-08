@@ -64,7 +64,7 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!--    Guesser remarks-->
+    <!--    Guesser Remarks-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/guesser_card_view"
         style="@style/card_style"
@@ -123,7 +123,19 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!--    Winner-->
+    <!--    Result ProgressBar-->
+    <ProgressBar
+        android:id="@+id/result_progress_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    Result Card-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/winner_card"
         style="@style/card_style"

@@ -108,17 +108,17 @@ class GameFragment : Fragment() {
 
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        soundPool.release()
-    }
-
     override fun onPause() {
         super.onPause()
         if (gameStarted) {
             pauseTimer()
             showResumeCard()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        soundPool.release()
     }
 
     private fun checkNetwork() {
@@ -172,11 +172,15 @@ class GameFragment : Fragment() {
     }
 
     private fun playClickSound() {
-        soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+        if (sharedViewModel.soundOn.value!!) {
+            soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+        }
     }
 
     private fun playAlarmSound() {
-        soundPool.play(alarmSound, 1f, 1f, 1, 0, 1f)
+        if (sharedViewModel.soundOn.value!!) {
+            soundPool.play(alarmSound, 1f, 1f, 1, 0, 1f)
+        }
     }
 
     private fun startGame() {

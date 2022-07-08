@@ -2,6 +2,8 @@ package com.arjun.bluffer.view
 
 import android.media.SoundPool
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,6 +18,8 @@ import com.arjun.bluffer.databinding.FragmentResultBinding
 import com.arjun.bluffer.viewmodel.ResultViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 import kotlin.system.exitProcess
+
+private const val DELAY = 1000L
 
 class ResultFragment : Fragment() {
 
@@ -81,15 +85,17 @@ class ResultFragment : Fragment() {
         }
 
         binding.guesserBluffButton.setOnClickListener {
-            playFinishSound()
+            playClickSound()
             guessedCorrectly = false
             guesserCardGone()
+            showResultCard()
         }
 
         binding.guesserTruthButton.setOnClickListener {
-            playFinishSound()
+            playClickSound()
             guessedCorrectly = true
             guesserCardGone()
+            showResultCard()
         }
 
         binding.playAgainButton.setOnClickListener {
@@ -140,11 +146,15 @@ class ResultFragment : Fragment() {
     }
 
     private fun playClickSound() {
-        soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+        if (sharedViewModel.soundOn.value!!) {
+            soundPool.play(clickSound, 1f, 1f, 1, 0, 1f)
+        }
     }
 
     private fun playFinishSound() {
-        soundPool.play(finishSound, 1f, 1f, 1, 0, 1f)
+        if (sharedViewModel.soundOn.value!!) {
+            soundPool.play(finishSound, 1f, 1f, 1, 0, 1f)
+        }
     }
 
     private fun showExplainerCard() {
@@ -159,9 +169,17 @@ class ResultFragment : Fragment() {
 
     private fun guesserCardGone() {
         binding.guesserCardView.visibility = View.GONE
+        binding.resultProgressBar.visibility = View.VISIBLE
         viewModel.playerResponse(explainedCorrectly, guessedCorrectly)
-        binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
-        binding.winnerCard.visibility = View.VISIBLE
+    }
+
+    private fun showResultCard() {
+        Handler(Looper.getMainLooper()).postDelayed({
+            playFinishSound()
+            binding.resultProgressBar.visibility = View.GONE
+            binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
+            binding.winnerCard.visibility = View.VISIBLE
+        }, DELAY)
     }
 
     private fun loadGame() {

@@ -8,11 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import coil.load
+import coil.transform.RoundedCornersTransformation
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentResultBinding
 import com.arjun.bluffer.viewmodel.ResultViewModel
@@ -51,6 +54,8 @@ class ResultFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentResultBinding.bind(view)
+
+        loadImage()
 
         clickSound = soundPool.load(context, R.raw.click, 1)
         finishSound = soundPool.load(context, R.raw.finish, 1)
@@ -98,12 +103,22 @@ class ResultFragment : Fragment() {
             showResultCard()
         }
 
-        binding.playAgainButton.setOnClickListener {
+        binding.showImageButton.setOnClickListener {
+            playClickSound()
+            showImage()
+        }
+
+        binding.closeImageButton.setOnClickListener {
+            playClickSound()
+            closeImage()
+        }
+
+        binding.replayButton.setOnClickListener {
             playClickSound()
             loadGame()
         }
 
-        binding.newGameButton.setOnClickListener {
+        binding.homeButton.setOnClickListener {
             playClickSound()
             findNavController().navigate(R.id.action_resultFragment_to_playFragment)
         }
@@ -131,6 +146,8 @@ class ResultFragment : Fragment() {
                         showExplainerCard()
                     } else if (binding.exitCard.isVisible) {
                         hideExitCard()
+                    } else if (binding.imageView.isVisible) {
+                        closeImage()
                     } else {
                         findNavController().navigate(R.id.action_resultFragment_to_playFragment)
                     }
@@ -175,11 +192,35 @@ class ResultFragment : Fragment() {
 
     private fun showResultCard() {
         Handler(Looper.getMainLooper()).postDelayed({
-            playFinishSound()
             binding.resultProgressBar.visibility = View.GONE
+            playFinishSound()
             binding.greetText.text = "CONGRATULATIONS!\n$winner YOU WON"
             binding.winnerCard.visibility = View.VISIBLE
         }, DELAY)
+    }
+
+    private fun loadImage() {
+        sharedViewModel.image.observe(viewLifecycleOwner) {
+            val imgUri = it.imageUrl!!.toUri().buildUpon().scheme("https").build()
+            binding.imageView.load(imgUri) {
+                crossfade(true)
+                crossfade(500)
+                transformations(RoundedCornersTransformation(50f))
+                error(R.drawable.ic_broken_image)
+            }
+        }
+    }
+
+    private fun showImage() {
+        binding.winnerCard.visibility = View.GONE
+        binding.imageView.visibility = View.VISIBLE
+        binding.closeImageButton.visibility = View.VISIBLE
+    }
+
+    private fun closeImage() {
+        binding.winnerCard.visibility = View.VISIBLE
+        binding.imageView.visibility = View.GONE
+        binding.closeImageButton.visibility = View.GONE
     }
 
     private fun loadGame() {

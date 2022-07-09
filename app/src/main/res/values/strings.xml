@@ -22,6 +22,7 @@
     <string name="bluff">BLUFFED</string>
     <string name="check_result_1">DID YOU BLUFF?</string>
     <string name="check_result_2">WHAT DID THE OTHER PLAYER SAY ?</string>
+    <string name="show_image">SHOW IMAGE</string>
     <string name="home">HOME</string>
     <string name="replay">REPLAY</string>
     <string name="exit">EXIT</string>

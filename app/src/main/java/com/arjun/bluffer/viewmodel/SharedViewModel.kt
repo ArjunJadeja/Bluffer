@@ -11,19 +11,29 @@ import okio.IOException
 
 class SharedViewModel : ViewModel() {
 
+    //    Network Status
+    private val _isNetworkConnected = MutableLiveData<Boolean>()
+    val isNetworkConnected: LiveData<Boolean> = _isNetworkConnected
+
+    fun getNetwork(isNetworkConnected: Boolean) {
+        _isNetworkConnected.value = isNetworkConnected
+    }
+
     //    Image Data
     private val _image = MutableLiveData<Image>()
     val image: LiveData<Image> = _image
 
-    private val _status = MutableLiveData<Boolean>()
-    val status: LiveData<Boolean> = _status
+    private val _imageStatus = MutableLiveData<Boolean>()
+    val imageStatus: LiveData<Boolean> = _imageStatus
 
     fun getNewImage() {
-        viewModelScope.launch {
-            try {
-                _image.value = ImageApi.retrofitService.getRandomPhoto()
-            } catch (e: IOException) {
-                _status.value = false
+        if (isNetworkConnected.value == true) {
+            viewModelScope.launch {
+                try {
+                    _image.value = ImageApi.retrofitService.getRandomPhoto()
+                } catch (e: IOException) {
+                    _imageStatus.value = false
+                }
             }
         }
     }

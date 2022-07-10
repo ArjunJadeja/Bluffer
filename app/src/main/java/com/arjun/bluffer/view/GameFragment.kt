@@ -122,7 +122,7 @@ class GameFragment : Fragment() {
     }
 
     private fun checkNetwork() {
-        sharedViewModel.status.observe(viewLifecycleOwner) {
+        sharedViewModel.isNetworkConnected.observe(viewLifecycleOwner) {
             if (it == false) statusOk = false
         }
         Handler(Looper.getMainLooper()).postDelayed({
@@ -141,13 +141,15 @@ class GameFragment : Fragment() {
     }
 
     private fun loadImage() {
-        sharedViewModel.image.observe(viewLifecycleOwner) {
-            val imgUri = it.imageUrl!!.toUri().buildUpon().scheme("https").build()
-            binding.imageView.load(imgUri) {
-                crossfade(true)
-                crossfade(500)
-                transformations(RoundedCornersTransformation(50f))
-                error(R.drawable.ic_broken_image)
+        if (sharedViewModel.imageStatus.value != false) {
+            sharedViewModel.image.observe(viewLifecycleOwner) {
+                val imgUri = it.imageUrl!!.toUri().buildUpon().scheme("https").build()
+                binding.imageView.load(imgUri) {
+                    crossfade(true)
+                    crossfade(500)
+                    transformations(RoundedCornersTransformation(50f))
+                    error(R.drawable.ic_broken_image)
+                }
             }
         }
     }

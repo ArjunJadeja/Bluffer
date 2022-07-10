@@ -15,7 +15,6 @@ import androidx.navigation.fragment.findNavController
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentPlayBinding
 import com.arjun.bluffer.utils.Helper
-import com.arjun.bluffer.utils.NetworkConnected
 import com.arjun.bluffer.viewmodel.SharedViewModel
 import kotlin.system.exitProcess
 
@@ -43,11 +42,6 @@ class PlayFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPlayBinding.bind(view)
-
-        val networkConnected = NetworkConnected(requireContext())
-        networkConnected.observe(viewLifecycleOwner) {
-            sharedViewModel.getNetwork(it)
-        }
 
         binding.aboutGame.text = helper.aboutGame
         binding.discretionAdvised.text = helper.discretionAdvised

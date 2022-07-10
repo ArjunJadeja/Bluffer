@@ -39,7 +39,7 @@ class GameFragment : Fragment() {
     private lateinit var explainer: String
     private lateinit var guesser: String
 
-    private var statusOk = true
+    private var statusOk = false
 
     private var gameStarted = false
 
@@ -123,7 +123,7 @@ class GameFragment : Fragment() {
 
     private fun checkNetwork() {
         sharedViewModel.isNetworkConnected.observe(viewLifecycleOwner) {
-            if (it == false) statusOk = false
+            statusOk = it
         }
         Handler(Looper.getMainLooper()).postDelayed({
             if (!statusOk) {

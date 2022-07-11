@@ -4,6 +4,7 @@ import android.media.SoundPool
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +16,11 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
+import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentGameBinding
+import com.arjun.bluffer.utils.Helper
 import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
@@ -28,6 +31,8 @@ private const val MILLIS = 1000L
 class GameFragment : Fragment() {
 
     private lateinit var binding: FragmentGameBinding
+
+    private val helper: Helper = Helper()
 
     private val viewModel: GameViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
@@ -127,12 +132,7 @@ class GameFragment : Fragment() {
         }
         Handler(Looper.getMainLooper()).postDelayed({
             if (!statusOk) {
-                Toast.makeText(
-                    activity,
-                    "No internet connection",
-                    Toast.LENGTH_LONG
-                ).show()
-                findNavController().navigate(R.id.action_gameFragment_to_playFragment)
+                exitGame("No internet connection")
             } else {
                 binding.progressBar.visibility = View.GONE
                 binding.playerRolesCardView.visibility = View.VISIBLE
@@ -147,11 +147,16 @@ class GameFragment : Fragment() {
                 binding.imageView.load(imgUri) {
                     crossfade(true)
                     crossfade(500)
-                    transformations(RoundedCornersTransformation(50f))
-                    error(R.drawable.ic_broken_image)
+                    transformations(RoundedCornersTransformation(20f))
+                    listener(
+                        onError = { request: ImageRequest, throwable: Throwable ->
+                            Log.e("ImageResponse : ", "request: $request\nError: $throwable")
+                            exitGame(helper.networkErrorMsg)
+                        }
+                    )
                 }
             }
-        }
+        } else exitGame(helper.networkErrorMsg)
     }
 
     private fun loadPlayerRoles() {
@@ -167,6 +172,15 @@ class GameFragment : Fragment() {
 
         binding.selectedPlayerName.text =
             "$explainer you will hold the phone and explain the context in the image to $guesser"
+    }
+
+    private fun exitGame(errorMessage: String) {
+        Toast.makeText(
+            activity,
+            errorMessage,
+            Toast.LENGTH_LONG
+        ).show()
+        findNavController().navigate(R.id.action_gameFragment_to_playFragment)
     }
 
     private fun selectedPlayer(playerList: List<String>): String {

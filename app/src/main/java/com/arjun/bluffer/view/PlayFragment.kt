@@ -30,8 +30,6 @@ class PlayFragment : Fragment() {
     private var clickSound = R.integer.integer_zero
     private var wrongSound = R.integer.integer_zero
 
-    private var soundOn = true
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -47,13 +45,7 @@ class PlayFragment : Fragment() {
         binding.discretionAdvised.text = helper.discretionAdvised
         binding.rulesList.text = helper.rulesList
 
-        binding.soundSettingButton.setImageResource(
-            if (sharedViewModel.soundOn.value == true) {
-                R.drawable.ic_volume_up
-            } else {
-                R.drawable.ic_volume_off
-            }
-        )
+        setSoundSettingResource()
 
         clickSound = soundPool.load(context, R.raw.click, 1)
         wrongSound = soundPool.load(context, R.raw.wrong, 1)
@@ -124,15 +116,18 @@ class PlayFragment : Fragment() {
     }
 
     private fun changeSoundSetting() {
-        soundOn = if (soundOn) {
-            binding.soundSettingButton.setImageResource(R.drawable.ic_volume_off)
-            sharedViewModel.soundSetting(false)
-            false
-        } else {
-            binding.soundSettingButton.setImageResource(R.drawable.ic_volume_up)
-            sharedViewModel.soundSetting(true)
-            true
-        }
+        sharedViewModel.soundSetting(!sharedViewModel.soundOn.value!!)
+        setSoundSettingResource()
+    }
+
+    private fun setSoundSettingResource() {
+        binding.soundSettingButton.setImageResource(
+            if (sharedViewModel.soundOn.value == true) {
+                R.drawable.ic_volume_up
+            } else {
+                R.drawable.ic_volume_off
+            }
+        )
     }
 
     private fun playClickSound() {

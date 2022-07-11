@@ -16,4 +16,6 @@ class Helper {
     val discretionAdvised =
         "The images are loaded from subreddits which can sometimes be NSFW. So viewer discretion is advised."
 
+    val networkErrorMsg = "Network error!\nTry again later"
+
 }

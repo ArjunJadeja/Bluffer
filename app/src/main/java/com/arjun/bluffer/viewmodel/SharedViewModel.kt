@@ -31,6 +31,9 @@ class SharedViewModel : ViewModel() {
             viewModelScope.launch {
                 try {
                     _image.value = ImageApi.retrofitService.getRandomPhoto()
+                    if (image.value?.nsfw == true) {
+                        getNewImage()
+                    }
                 } catch (e: IOException) {
                     _imageStatus.value = false
                 }

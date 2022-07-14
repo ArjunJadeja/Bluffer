@@ -38,9 +38,6 @@ class ResultFragment : Fragment() {
     private var explainedCorrectly = false
     private var guessedCorrectly = false
 
-    private lateinit var explainer: String
-    private lateinit var guesser: String
-
     private lateinit var winner: String
 
     override fun onCreateView(
@@ -60,20 +57,14 @@ class ResultFragment : Fragment() {
         clickSound = soundPool.load(context, R.raw.click, 1)
         finishSound = soundPool.load(context, R.raw.finish, 1)
 
-        sharedViewModel.explainer.observe(viewLifecycleOwner) {
-            explainer = it.uppercase()
-        }
-
-        sharedViewModel.guesser.observe(viewLifecycleOwner) {
-            guesser = it.uppercase()
-            binding.guesserQuestion.text = "WHAT DID $guesser SAY?"
-        }
+        binding.guesserQuestion.text =
+            "WHAT DID ${sharedViewModel.guesser.value.toString().uppercase()} SAY?"
 
         viewModel.result.observe(viewLifecycleOwner) {
             winner = if (it == true) {
-                guesser
+                sharedViewModel.guesser.value.toString().uppercase()
             } else {
-                explainer
+                sharedViewModel.explainer.value.toString().uppercase()
             }
         }
 

@@ -60,9 +60,19 @@ class SharedViewModel : ViewModel() {
     private val _guesser = MutableLiveData("")
     val guesser: LiveData<String> = _guesser
 
-    fun playersRole(explainer: String, guesser: String) {
-        _explainer.value = explainer
-        _guesser.value = guesser
+    fun playersRole(playerOneName: String, playerTwoName: String) {
+        val playerList = listOf(playerOneName, playerTwoName)
+        _explainer.value = selectedPlayer(playerList)
+        _guesser.value =
+            if (playerList.first() == explainer.value) {
+                playerList.last()
+            } else {
+                playerList.first()
+            }
+    }
+
+    private fun selectedPlayer(playerList: List<String>): String {
+        return playerList.random()
     }
 
     //    Sound Setting

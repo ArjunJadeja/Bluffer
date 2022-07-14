@@ -20,7 +20,7 @@ import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentGameBinding
-import com.arjun.bluffer.utils.Helper
+import com.arjun.bluffer.utils.HelperStrings
 import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
@@ -32,7 +32,7 @@ class GameFragment : Fragment() {
 
     private lateinit var binding: FragmentGameBinding
 
-    private val helper: Helper = Helper()
+    private val helperStrings: HelperStrings = HelperStrings()
 
     private val viewModel: GameViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
@@ -40,9 +40,6 @@ class GameFragment : Fragment() {
     private val soundPool = SoundPool.Builder().setMaxStreams(2).build()
     private var clickSound = R.integer.integer_zero
     private var alarmSound = R.integer.integer_zero
-
-    private lateinit var explainer: String
-    private lateinit var guesser: String
 
     private var statusOk = false
 
@@ -82,7 +79,6 @@ class GameFragment : Fragment() {
 
         binding.startButton.setOnClickListener {
             playClickSound()
-            sharedViewModel.playersRole(explainer, guesser)
             startGame()
             gameStarted = true
             viewModel.timerValue.value = TIMER_VALUE * MILLIS
@@ -132,7 +128,7 @@ class GameFragment : Fragment() {
         }
         Handler(Looper.getMainLooper()).postDelayed({
             if (!statusOk) {
-                exitGame("No internet connection")
+                endGame("No internet connection")
             } else {
                 binding.progressBar.visibility = View.GONE
                 binding.playerRolesCardView.visibility = View.VISIBLE
@@ -151,40 +147,30 @@ class GameFragment : Fragment() {
                     listener(
                         onError = { request: ImageRequest, throwable: Throwable ->
                             Log.e("ImageResponse : ", "request: $request\nError: $throwable")
-                            exitGame(helper.networkErrorMsg)
+                            endGame(helperStrings.networkErrorMsg)
                         }
                     )
                 }
             }
-        } else exitGame(helper.networkErrorMsg)
+        } else endGame(helperStrings.networkErrorMsg)
     }
 
     private fun loadPlayerRoles() {
-        val playerList = listOf(
+        sharedViewModel.playersRole(
             sharedViewModel.playerOne.value.toString(),
             sharedViewModel.playerTwo.value.toString()
         )
-        explainer = selectedPlayer(playerList)
-        guesser =
-            if (playerList.first() == explainer) {
-                playerList.last()
-            } else playerList.first()
-
         binding.selectedPlayerName.text =
-            "$explainer you will hold the phone and explain the context in the image to $guesser"
+            "${sharedViewModel.explainer.value.toString()} you will hold the phone and explain the context in the image to ${sharedViewModel.guesser.value.toString()}"
     }
 
-    private fun exitGame(errorMessage: String) {
+    private fun endGame(errorMessage: String) {
         Toast.makeText(
             activity,
             errorMessage,
             Toast.LENGTH_LONG
         ).show()
         findNavController().navigate(R.id.action_gameFragment_to_playFragment)
-    }
-
-    private fun selectedPlayer(playerList: List<String>): String {
-        return playerList.random()
     }
 
     private fun playClickSound() {

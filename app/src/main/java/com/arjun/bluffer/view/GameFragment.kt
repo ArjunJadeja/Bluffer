@@ -41,9 +41,6 @@ class GameFragment : Fragment() {
     private var clickSound = R.integer.integer_zero
     private var alarmSound = R.integer.integer_zero
 
-    private lateinit var explainer: String
-    private lateinit var guesser: String
-
     private var statusOk = false
 
     private var gameStarted = false
@@ -82,7 +79,6 @@ class GameFragment : Fragment() {
 
         binding.startButton.setOnClickListener {
             playClickSound()
-            sharedViewModel.playersRole(explainer, guesser)
             startGame()
             gameStarted = true
             viewModel.timerValue.value = TIMER_VALUE * MILLIS
@@ -160,18 +156,12 @@ class GameFragment : Fragment() {
     }
 
     private fun loadPlayerRoles() {
-        val playerList = listOf(
+        sharedViewModel.playersRole(
             sharedViewModel.playerOne.value.toString(),
             sharedViewModel.playerTwo.value.toString()
         )
-        explainer = selectedPlayer(playerList)
-        guesser =
-            if (playerList.first() == explainer) {
-                playerList.last()
-            } else playerList.first()
-
         binding.selectedPlayerName.text =
-            "$explainer you will hold the phone and explain the context in the image to $guesser"
+            "${sharedViewModel.explainer.value.toString()} you will hold the phone and explain the context in the image to ${sharedViewModel.guesser.value.toString()}"
     }
 
     private fun endGame(errorMessage: String) {
@@ -181,10 +171,6 @@ class GameFragment : Fragment() {
             Toast.LENGTH_LONG
         ).show()
         findNavController().navigate(R.id.action_gameFragment_to_playFragment)
-    }
-
-    private fun selectedPlayer(playerList: List<String>): String {
-        return playerList.random()
     }
 
     private fun playClickSound() {

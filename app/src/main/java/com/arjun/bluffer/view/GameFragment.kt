@@ -16,6 +16,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
+import coil.request.ErrorResult
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.arjun.bluffer.R
@@ -37,7 +38,7 @@ class GameFragment : Fragment() {
     private val viewModel: GameViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
-    private val soundPool = SoundPool.Builder().setMaxStreams(2).build()
+    private val soundPool = SoundPool.Builder().setMaxStreams(3).build()
     private var clickSound = R.integer.integer_zero
     private var alarmSound = R.integer.integer_zero
 
@@ -57,9 +58,8 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentGameBinding.bind(view)
 
-        checkNetwork()
-        loadImage()
         loadPlayerRoles()
+        checkNetwork()
 
         clickSound = soundPool.load(context, R.raw.click, 1)
         alarmSound = soundPool.load(context, R.raw.alarm, 1)
@@ -122,6 +122,15 @@ class GameFragment : Fragment() {
         soundPool.release()
     }
 
+    private fun loadPlayerRoles() {
+        sharedViewModel.playersRole(
+            sharedViewModel.playerOne.value.toString(),
+            sharedViewModel.playerTwo.value.toString()
+        )
+        binding.selectedPlayerName.text =
+            "${sharedViewModel.explainer.value.toString()} you will hold the phone and explain the context in the image to ${sharedViewModel.guesser.value.toString()}"
+    }
+
     private fun checkNetwork() {
         sharedViewModel.isNetworkConnected.observe(viewLifecycleOwner) {
             statusOk = it
@@ -130,6 +139,7 @@ class GameFragment : Fragment() {
             if (!statusOk) {
                 endGame("No internet connection")
             } else {
+                loadImage()
                 binding.progressBar.visibility = View.GONE
                 binding.playerRolesCardView.visibility = View.VISIBLE
             }
@@ -145,23 +155,14 @@ class GameFragment : Fragment() {
                     crossfade(500)
                     transformations(RoundedCornersTransformation(20f))
                     listener(
-                        onError = { request: ImageRequest, throwable: Throwable ->
-                            Log.e("ImageResponse : ", "request: $request\nError: $throwable")
+                        onError = { request: ImageRequest, result: ErrorResult ->
+                            Log.e("ImageResponse : ", "request: $request\nError: $result")
                             endGame(helperStrings.networkErrorMsg)
                         }
                     )
                 }
             }
         } else endGame(helperStrings.networkErrorMsg)
-    }
-
-    private fun loadPlayerRoles() {
-        sharedViewModel.playersRole(
-            sharedViewModel.playerOne.value.toString(),
-            sharedViewModel.playerTwo.value.toString()
-        )
-        binding.selectedPlayerName.text =
-            "${sharedViewModel.explainer.value.toString()} you will hold the phone and explain the context in the image to ${sharedViewModel.guesser.value.toString()}"
     }
 
     private fun endGame(errorMessage: String) {

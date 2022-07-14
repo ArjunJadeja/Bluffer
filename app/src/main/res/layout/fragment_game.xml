@@ -119,6 +119,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_bigger"
+        android:backgroundTint="@color/light_yellow"
         android:padding="@dimen/padding_medium"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_medium"
@@ -139,7 +140,8 @@
                 android:layout_marginTop="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/resume_text"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/resume_button"

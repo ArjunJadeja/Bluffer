@@ -16,6 +16,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
+import coil.request.ErrorResult
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.arjun.bluffer.R
@@ -154,8 +155,8 @@ class GameFragment : Fragment() {
                     crossfade(500)
                     transformations(RoundedCornersTransformation(20f))
                     listener(
-                        onError = { request: ImageRequest, throwable: Throwable ->
-                            Log.e("ImageResponse : ", "request: $request\nError: $throwable")
+                        onError = { request: ImageRequest, result: ErrorResult ->
+                            Log.e("ImageResponse : ", "request: $request\nError: $result")
                             endGame(helperStrings.networkErrorMsg)
                         }
                     )

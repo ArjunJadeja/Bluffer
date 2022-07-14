@@ -41,6 +41,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_big"
+        android:backgroundTint="@color/light_blue"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_big"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -61,6 +62,7 @@
                 android:gravity="center"
                 android:text="@string/about_game"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_medium"
                 android:textStyle="bold" />
 
@@ -73,6 +75,7 @@
                 android:gravity="fill"
                 android:lineSpacingExtra="@dimen/line_spacing"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_small"
                 android:textStyle="italic" />
 
@@ -97,6 +100,7 @@
                 android:gravity="center"
                 android:text="@string/how_to_play"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_medium"
                 android:textStyle="bold" />
 
@@ -109,6 +113,7 @@
                 android:gravity="start"
                 android:lineSpacingExtra="@dimen/line_spacing"
                 android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
                 android:textSize="@dimen/font_small" />
 
             <com.google.android.material.button.MaterialButton

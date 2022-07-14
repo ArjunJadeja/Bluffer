@@ -189,7 +189,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_big"
-                    android:layout_marginEnd="@dimen/margin_small"
                     android:layout_weight="@integer/weight_equal"
                     android:backgroundTint="@color/green"
                     android:text="@string/home" />

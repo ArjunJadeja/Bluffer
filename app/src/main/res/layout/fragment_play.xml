@@ -34,6 +34,97 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!--    Helper Card-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/helper_card_view"
+        style="@style/card_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_big"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/corner_big"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/help_button">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:gravity="center"
+                android:text="@string/about_game"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="@dimen/font_medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/about_game"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginEnd="@dimen/margin_big"
+                android:gravity="fill"
+                android:lineSpacingExtra="@dimen/line_spacing"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="@dimen/font_small"
+                android:textStyle="italic" />
+
+            <TextView
+                android:id="@+id/discretion_advised"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_big"
+                android:gravity="fill"
+                android:lineSpacingExtra="@dimen/line_spacing"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/red"
+                android:textSize="@dimen/font_small"
+                android:textStyle="italic" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_medium"
+                android:gravity="center"
+                android:text="@string/how_to_play"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="@dimen/font_medium"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rules_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_big"
+                android:layout_marginEnd="@dimen/margin_big"
+                android:gravity="start"
+                android:lineSpacingExtra="@dimen/line_spacing"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textSize="@dimen/font_small" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/close_button"
+                style="@style/button_style"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_medium"
+                android:backgroundTint="@color/green"
+                android:text="@string/close_button" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
     <!--    Sound Setting Button-->
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/sound_setting_button"
@@ -46,7 +137,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/help_button" />
 
-    <!--    Player Names-->
+    <!--    Player Names Card-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/player_names_card_view"
         style="@style/card_style"
@@ -150,104 +241,14 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <!--    Helper Card-->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/helper_card_view"
-        style="@style/card_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_big"
-        android:visibility="gone"
-        app:cardCornerRadius="@dimen/corner_big"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/help_button">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:gravity="center"
-                android:text="@string/about_game"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textSize="@dimen/font_medium"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/about_game"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginEnd="@dimen/margin_big"
-                android:gravity="fill"
-                android:lineSpacingExtra="@dimen/line_spacing"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textSize="@dimen/font_small"
-                android:textStyle="italic" />
-
-            <TextView
-                android:id="@+id/discretion_advised"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginEnd="@dimen/margin_big"
-                android:gravity="fill"
-                android:lineSpacingExtra="@dimen/line_spacing"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/red"
-                android:textSize="@dimen/font_small"
-                android:textStyle="italic" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:gravity="center"
-                android:text="@string/how_to_play"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textSize="@dimen/font_medium"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/rules_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginEnd="@dimen/margin_big"
-                android:gravity="start"
-                android:lineSpacingExtra="@dimen/line_spacing"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textSize="@dimen/font_small" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/close_button"
-                style="@style/button_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/margin_medium"
-                android:backgroundTint="@color/green"
-                android:text="@string/close_button" />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
-    <!--    Exit Game CardView-->
+    <!--    Exit Game Card-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/exit_card"
         style="@style/card_style"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_bigger"
+        android:backgroundTint="@color/light_yellow"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_medium"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -269,7 +270,8 @@
                 android:layout_margin="@dimen/margin_medium"
                 android:gravity="center"
                 android:text="@string/ask_to_exit"
-                android:textAppearance="?attr/textAppearanceHeadline6" />
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black" />
 
             <LinearLayout
                 android:layout_width="match_parent"

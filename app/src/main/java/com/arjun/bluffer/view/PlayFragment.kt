@@ -14,7 +14,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentPlayBinding
-import com.arjun.bluffer.utils.Helper
+import com.arjun.bluffer.utils.HelperStrings
 import com.arjun.bluffer.viewmodel.SharedViewModel
 import kotlin.system.exitProcess
 
@@ -24,7 +24,7 @@ class PlayFragment : Fragment() {
 
     private val sharedViewModel: SharedViewModel by activityViewModels()
 
-    private val helper: Helper = Helper()
+    private val helperStrings: HelperStrings = HelperStrings()
 
     private val soundPool = SoundPool.Builder().setMaxStreams(2).build()
     private var clickSound = R.integer.integer_zero
@@ -41,9 +41,9 @@ class PlayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentPlayBinding.bind(view)
 
-        binding.aboutGame.text = helper.aboutGame
-        binding.discretionAdvised.text = helper.discretionAdvised
-        binding.rulesList.text = helper.rulesList
+        binding.aboutGame.text = helperStrings.aboutGame
+        binding.discretionAdvised.text = helperStrings.discretionAdvised
+        binding.rulesList.text = helperStrings.rulesList
 
         setSoundSettingResource()
 
@@ -57,7 +57,7 @@ class PlayFragment : Fragment() {
 
         binding.helpButton.setOnClickListener {
             playClickSound()
-            if (helperCardVisible()) {
+            if (binding.helperCardView.isVisible) {
                 hideHelperCard()
             } else {
                 showHelperCard()
@@ -97,10 +97,12 @@ class PlayFragment : Fragment() {
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     playClickSound()
-                    if (playerNamesCardVisible()) {
+                    if (binding.playerNamesCardView.isVisible) {
                         hidePlayerNamesCard()
-                    } else if (helperCardVisible()) {
+                    } else if (binding.helperCardView.isVisible) {
                         hideHelperCard()
+                    } else if (binding.exitCard.isVisible) {
+                        hideExitCard()
                     } else {
                         showExitCard()
                     }
@@ -140,14 +142,6 @@ class PlayFragment : Fragment() {
         if (sharedViewModel.soundOn.value!!) {
             soundPool.play(wrongSound, 1f, 1f, 1, 0, 1f)
         }
-    }
-
-    private fun helperCardVisible(): Boolean {
-        return binding.helperCardView.isVisible
-    }
-
-    private fun playerNamesCardVisible(): Boolean {
-        return binding.playerNamesCardView.isVisible
     }
 
     private fun invalidPlayerNames(): Boolean {

@@ -20,7 +20,7 @@ import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
 import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentGameBinding
-import com.arjun.bluffer.utils.Helper
+import com.arjun.bluffer.utils.HelperStrings
 import com.arjun.bluffer.viewmodel.GameViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
 
@@ -32,7 +32,7 @@ class GameFragment : Fragment() {
 
     private lateinit var binding: FragmentGameBinding
 
-    private val helper: Helper = Helper()
+    private val helperStrings: HelperStrings = HelperStrings()
 
     private val viewModel: GameViewModel by viewModels()
     private val sharedViewModel: SharedViewModel by activityViewModels()
@@ -132,7 +132,7 @@ class GameFragment : Fragment() {
         }
         Handler(Looper.getMainLooper()).postDelayed({
             if (!statusOk) {
-                exitGame("No internet connection")
+                endGame("No internet connection")
             } else {
                 binding.progressBar.visibility = View.GONE
                 binding.playerRolesCardView.visibility = View.VISIBLE
@@ -151,12 +151,12 @@ class GameFragment : Fragment() {
                     listener(
                         onError = { request: ImageRequest, throwable: Throwable ->
                             Log.e("ImageResponse : ", "request: $request\nError: $throwable")
-                            exitGame(helper.networkErrorMsg)
+                            endGame(helperStrings.networkErrorMsg)
                         }
                     )
                 }
             }
-        } else exitGame(helper.networkErrorMsg)
+        } else endGame(helperStrings.networkErrorMsg)
     }
 
     private fun loadPlayerRoles() {
@@ -174,7 +174,7 @@ class GameFragment : Fragment() {
             "$explainer you will hold the phone and explain the context in the image to $guesser"
     }
 
-    private fun exitGame(errorMessage: String) {
+    private fun endGame(errorMessage: String) {
         Toast.makeText(
             activity,
             errorMessage,

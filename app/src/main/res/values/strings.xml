@@ -9,6 +9,7 @@
     <string name="how_to_play">How To Play?</string>
     <string name="about_game">About Game</string>
     <string name="close_button">CLOSE</string>
+    <string name="internet_connectivity">No internet connection</string>
     <string name="player_names">Player Names</string>
     <string name="required">Required*</string>
     <string name="player_one">Player 1</string>

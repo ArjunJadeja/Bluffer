@@ -3,9 +3,8 @@
 
     <!--    Fonts   -->
     <dimen name="font_small">16sp</dimen>
-    <dimen name="font_medium">24sp</dimen>
-    <dimen name="font_big">28sp</dimen>
-    <dimen name="font_bigger">32sp</dimen>
+    <dimen name="font_medium">22sp</dimen>
+    <dimen name="font_big">32sp</dimen>
 
     <!--    Margins -->
     <dimen name="margin_much_smaller">8dp</dimen>
@@ -16,6 +15,7 @@
     <dimen name="margin_too_big">64dp</dimen>
 
     <!--    Padding -->
+    <dimen name="padding_small">6dp</dimen>
     <dimen name="padding_medium">12dp</dimen>
 
     <!--    Line Spacing-->

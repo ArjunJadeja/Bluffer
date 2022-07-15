@@ -13,9 +13,6 @@ class HelperStrings {
             "6. Hurray! You finished the game.\n" +
             "7. Click REPLAY to play again."
 
-    val discretionAdvised =
-        "The images are loaded from the internet, which can sometimes be NSFW. So viewer discretion is advised."
-
     val networkErrorMsg = "Network error!\nTry again later"
 
 }

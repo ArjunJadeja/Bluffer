@@ -11,11 +11,11 @@
         android:id="@+id/play_button"
         style="@style/button_style"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/button_height"
+        android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_too_big"
         android:backgroundTint="@color/green"
         android:text="@string/play"
-        android:textSize="@dimen/font_bigger"
+        android:textSize="@dimen/font_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -44,89 +44,81 @@
         android:backgroundTint="@color/light_blue"
         android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_big"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/network_error"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/help_button">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
+            android:layout_height="wrap_content">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:gravity="center"
-                android:text="@string/about_game"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_medium"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:padding="@dimen/padding_small">
 
-            <TextView
-                android:id="@+id/about_game"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginEnd="@dimen/margin_big"
-                android:gravity="fill"
-                android:lineSpacingExtra="@dimen/line_spacing"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_small"
-                android:textStyle="italic" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:gravity="center"
+                    android:text="@string/about_game"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/discretion_advised"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginTop="@dimen/margin_medium"
-                android:layout_marginEnd="@dimen/margin_big"
-                android:gravity="fill"
-                android:lineSpacingExtra="@dimen/line_spacing"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/red"
-                android:textSize="@dimen/font_small"
-                android:textStyle="italic" />
+                <TextView
+                    android:id="@+id/about_game"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big"
+                    android:layout_marginEnd="@dimen/margin_big"
+                    android:gravity="fill"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_small"
+                    android:textStyle="italic" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/margin_medium"
-                android:gravity="center"
-                android:text="@string/how_to_play"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_medium"
-                android:textStyle="bold" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:gravity="center"
+                    android:text="@string/how_to_play"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_medium"
+                    android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/rules_list"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="@dimen/margin_big"
-                android:layout_marginEnd="@dimen/margin_big"
-                android:gravity="start"
-                android:lineSpacingExtra="@dimen/line_spacing"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_small" />
+                <TextView
+                    android:id="@+id/rules_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/margin_big"
+                    android:layout_marginEnd="@dimen/margin_big"
+                    android:gravity="start"
+                    android:lineSpacingExtra="@dimen/line_spacing"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/font_small" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/close_button"
-                style="@style/button_style"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/margin_medium"
-                android:backgroundTint="@color/green"
-                android:text="@string/close_button" />
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/close_button"
+                    style="@style/button_style"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:backgroundTint="@color/green"
+                    android:text="@string/close_button" />
 
-        </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
 
     </com.google.android.material.card.MaterialCardView>
 
@@ -141,6 +133,22 @@
         android:contentDescription="@string/sound_setting_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/help_button" />
+
+    <!--    Internet Connectivity Text-->
+    <TextView
+        android:id="@+id/network_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/red"
+        android:gravity="center"
+        android:padding="@dimen/padding_small"
+        android:text="@string/internet_connectivity"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_small"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!--    Player Names Card-->
     <com.google.android.material.card.MaterialCardView

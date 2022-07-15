@@ -42,13 +42,20 @@ class PlayFragment : Fragment() {
         binding = FragmentPlayBinding.bind(view)
 
         binding.aboutGame.text = helperStrings.aboutGame
-        binding.discretionAdvised.text = helperStrings.discretionAdvised
         binding.rulesList.text = helperStrings.rulesList
 
         setSoundSettingResource()
 
         clickSound = soundPool.load(context, R.raw.click, 1)
         wrongSound = soundPool.load(context, R.raw.wrong, 1)
+
+        sharedViewModel.isNetworkConnected.observe(viewLifecycleOwner) {
+            if (it == true) {
+                binding.networkError.visibility = View.GONE
+            } else {
+                binding.networkError.visibility = View.VISIBLE
+            }
+        }
 
         binding.playButton.setOnClickListener {
             playClickSound()
@@ -150,6 +157,7 @@ class PlayFragment : Fragment() {
     }
 
     private fun showHelperCard() {
+        binding.helpButton.visibility = View.GONE
         binding.playButton.visibility = View.GONE
         binding.soundSettingButton.visibility = View.GONE
         binding.helperCardView.visibility = View.VISIBLE
@@ -157,6 +165,7 @@ class PlayFragment : Fragment() {
 
     private fun hideHelperCard() {
         binding.helperCardView.visibility = View.GONE
+        binding.helpButton.visibility = View.VISIBLE
         binding.playButton.visibility = View.VISIBLE
         binding.soundSettingButton.visibility = View.VISIBLE
     }

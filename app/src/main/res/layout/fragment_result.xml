@@ -226,7 +226,7 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/image_height"
+        android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_margin="@dimen/margin_medium"
         android:contentDescription="@string/image"
@@ -234,6 +234,7 @@
         android:scaleType="fitXY"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"

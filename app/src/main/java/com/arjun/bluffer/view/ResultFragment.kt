@@ -196,7 +196,7 @@ class ResultFragment : Fragment() {
             binding.imageView.load(imgUri) {
                 crossfade(true)
                 crossfade(500)
-                transformations(RoundedCornersTransformation(50f))
+                transformations(RoundedCornersTransformation(20f))
             }
         }
     }

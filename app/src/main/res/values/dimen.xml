@@ -16,6 +16,7 @@
     <dimen name="margin_too_big">64dp</dimen>
 
     <!--    Padding -->
+    <dimen name="padding_small">6dp</dimen>
     <dimen name="padding_medium">12dp</dimen>
 
     <!--    Line Spacing-->

@@ -1,25 +1,23 @@
 <h1 align="center">Bluffer</h1>
 
 <p align="center">  
-Bluffer demonstrates modern Android development with Coroutines, Jetpack Libraries, and Material Design based on MVVM architecture.
+🎭Bluffer is a two-player game in which one player looks at some weird image on the screen and explains it to the other player. The other player has to guess whether it is true or not🎭
 </p>
-
-
-![Bluffer_Poster](https://user-images.githubusercontent.com/81246797/176945231-e672db11-78c7-4a76-bae5-2705f62241d2.png)
 
 ## Preview
 
 <p float="left">
-  <img src="assets/Screenshot_20220716-004415.jpg" width="200" />
-  <img src="assets/Screenshot_20220716-004422.jpg" width="200" /> 
-  <img src="assets/Screenshot_20220716-004439.jpg" width="200" />
-  <img src="assets/Screenshot_20220716-004447.jpg" width="200" />
-  <img src="assets/Screenshot_20220715-195316.jpg" width="200" /> 
-  <img src="assets/Screenshot_20220716-004537.jpg" width="200" />
-  <img src="assets/Screenshot_20220716-004543.jpg" width="200" />
-  <img src="assets/Screenshot_20220716-004549.jpg" width="200" /> 
-  <img src="assets/Screenshot_20220716-004603.jpg" width="200" />
+  <img src="assets/Screenshot_20220716-004415.jpg" width="160" />
+  <img src="assets/Screenshot_20220716-004422.jpg" width="160" /> 
+  <img src="assets/Screenshot_20220716-004439.jpg" width="160" />
+  <img src="assets/Screenshot_20220716-004447.jpg" width="160" />
+  <img src="assets/Screenshot_20220715-195316.jpg" width="160" /> 
+  <img src="assets/Screenshot_20220716-004537.jpg" width="160" />
+  <img src="assets/Screenshot_20220716-004543.jpg" width="160" />
+  <img src="assets/Screenshot_20220716-004549.jpg" width="160" /> 
+  <img src="assets/Screenshot_20220716-004603.jpg" width="160" />
 </p>
+
 
 ## Tech stack & Open-source libraries
 
@@ -38,13 +36,6 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 - [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
 - [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
-
-
-## Architecture
-
-Bluffer is based on the MVVM architecture pattern.
-
-<img width="400" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/176947096-e1ba74e8-0bbf-4a8a-a530-363f08d9fd25.png">
 
 
 ## MAD Score

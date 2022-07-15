@@ -10,9 +10,15 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 ## Preview
 
 <p float="left">
-  <img src="assets/Screenshot_20220716-004415.jpg" width="100" />
-  <img src="assets/Screenshot_20220716-004422.jpg" width="100" /> 
-  <img src="assets/Screenshot_20220716-004439.jpg" width="100" />
+  <img src="assets/Screenshot_20220716-004415.jpg" width="200" />
+  <img src="assets/Screenshot_20220716-004422.jpg" width="200" /> 
+  <img src="assets/Screenshot_20220716-004439.jpg" width="200" />
+  <img src="assets/Screenshot_20220716-004447.jpg" width="200" />
+  <img src="assets/Screenshot_20220715-195316.jpg" width="200" /> 
+  <img src="assets/Screenshot_20220716-004537.jpg" width="200" />
+  <img src="assets/Screenshot_20220716-004543.jpg" width="200" />
+  <img src="assets/Screenshot_20220716-004549.jpg" width="200" /> 
+  <img src="assets/Screenshot_20220716-004603.jpg" width="200" />
 </p>
 
 ## Tech stack & Open-source libraries
@@ -38,7 +44,7 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 
 Bluffer is based on the MVVM architecture pattern.
 
-<img width="500" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/176947096-e1ba74e8-0bbf-4a8a-a530-363f08d9fd25.png">
+<img width="400" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/176947096-e1ba74e8-0bbf-4a8a-a530-363f08d9fd25.png">
 
 
 ## MAD Score
@@ -55,11 +61,27 @@ Bluffer is based on the MVVM architecture pattern.
 - Github repository of author - [Github](https://github.com/D3vd/Meme_Api)
 
 
-## Contribution
-
-Contributions are always welcome! You are just a pull request away.
-
-
 ## License
+```xml
+MIT License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+Copyright (c) 2022 Arjun Jadeja
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```

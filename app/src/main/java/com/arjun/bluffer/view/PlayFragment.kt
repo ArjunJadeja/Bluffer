@@ -49,6 +49,14 @@ class PlayFragment : Fragment() {
         clickSound = soundPool.load(context, R.raw.click, 1)
         wrongSound = soundPool.load(context, R.raw.wrong, 1)
 
+        sharedViewModel.isNetworkConnected.observe(viewLifecycleOwner) {
+            if (it == true) {
+                binding.networkError.visibility = View.GONE
+            } else {
+                binding.networkError.visibility = View.VISIBLE
+            }
+        }
+
         binding.playButton.setOnClickListener {
             playClickSound()
             showPlayerNamesCard()

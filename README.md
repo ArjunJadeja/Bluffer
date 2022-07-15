@@ -7,8 +7,20 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 
 ![Bluffer_Poster](https://user-images.githubusercontent.com/81246797/176945231-e672db11-78c7-4a76-bae5-2705f62241d2.png)
 
+## Preview
+![Screenshot_20220716-004415](https://user-images.githubusercontent.com/81246797/179296854-fad72aac-8943-4a58-80a1-a0ca0ac1e824.jpg)
+
+![Screenshot_20220716-004422](https://user-images.githubusercontent.com/81246797/179296864-8579e63c-1427-4cbb-8f0b-abb2356825ff.jpg)
+![Screenshot_20220716-004439](https://user-images.githubusercontent.com/81246797/179296911-7f190120-bc0c-4b92-9862-01ea8507883a.jpg)
+![Screenshot_20220716-004447](https://user-images.githubusercontent.com/81246797/179296956-4c262626-70c5-4aee-aaec-a520302c398e.jpg)
+![Screenshot_20220715-195316](https://user-images.githubusercontent.com/81246797/179296975-556001d1-19fd-461c-9e2c-4c5ff43cb06a.jpg)
+![Screenshot_20220716-004537](https://user-images.githubusercontent.com/81246797/179296991-2067e0c1-ac46-4c3c-bbc2-47b5a97552bb.jpg)
+![Screenshot_20220716-004543](https://user-images.githubusercontent.com/81246797/179296995-c67694ae-946b-452a-b397-2a3e50c887cd.jpg)
+![Screenshot_20220716-004549](https://user-images.githubusercontent.com/81246797/179297013-48ec5fa2-6345-4d5a-abb9-5021b44c3b6a.jpg)
+![Screenshot_20220716-004603](https://user-images.githubusercontent.com/81246797/179297055-62a6844a-c13a-4228-b871-cbc876995307.jpg)
 
 ## Tech stack & Open-source libraries
+
 - Minimum SDK level 21
 - [Kotlin](https://kotlinlang.org/) - Modern, concise and safe programming language
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) - A concurrency design pattern to execute code asynchronously.
@@ -27,6 +39,7 @@ Bluffer demonstrates modern Android development with Coroutines, Jetpack Librari
 
 
 ## Architecture
+
 Bluffer is based on the MVVM architecture pattern.
 
 <img width="500" alt="MVVM Architecture" src="https://user-images.githubusercontent.com/81246797/176947096-e1ba74e8-0bbf-4a8a-a530-363f08d9fd25.png">
@@ -34,7 +47,7 @@ Bluffer is based on the MVVM architecture pattern.
 
 ## MAD Score
 
-![summary](https://user-images.githubusercontent.com/81246797/175074332-21e64a45-88b6-4ec0-a005-92e7969e6035.png)
+![summary](https://user-images.githubusercontent.com/81246797/179294198-7beb2b9a-773e-4177-930a-b5cf824ab756.png)
 
 
 ## Open API

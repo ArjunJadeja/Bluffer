@@ -1,21 +1,21 @@
 <h1 align="center">Bluffer</h1>
 
 <p align="center">  
-🎭Bluffer is a two-player game in which one player looks at some weird image on the screen and explains it to the other player. The other player has to guess whether it is true or not🎭
+🎭 Bluffer is a two-player game in which one player looks at some weird image on the screen and explains it to the other player. The other player has to guess whether it is true or not. 🎭
 </p>
 
 ## Preview
 
 <p float="left">
-  <img src="assets/Screenshot_20220716-004415.jpg" width="160" />
-  <img src="assets/Screenshot_20220716-004422.jpg" width="160" /> 
-  <img src="assets/Screenshot_20220716-004439.jpg" width="160" />
-  <img src="assets/Screenshot_20220716-004447.jpg" width="160" />
-  <img src="assets/Screenshot_20220715-195316.jpg" width="160" /> 
-  <img src="assets/Screenshot_20220716-004537.jpg" width="160" />
-  <img src="assets/Screenshot_20220716-004543.jpg" width="160" />
-  <img src="assets/Screenshot_20220716-004549.jpg" width="160" /> 
-  <img src="assets/Screenshot_20220716-004603.jpg" width="160" />
+  <img src="assets/Screenshot_20220716-004415.jpg" width="250" />
+  <img src="assets/Screenshot_20220716-004422.jpg" width="250" /> 
+  <img src="assets/Screenshot_20220716-004439.jpg" width="250" />
+  <img src="assets/Screenshot_20220716-004447.jpg" width="250" />
+  <img src="assets/Screenshot_20220715-195316.jpg" width="250" /> 
+  <img src="assets/Screenshot_20220716-004537.jpg" width="250" />
+  <img src="assets/Screenshot_20220716-004543.jpg" width="250" />
+  <img src="assets/Screenshot_20220716-004549.jpg" width="250" /> 
+  <img src="assets/Screenshot_20220716-004603.jpg" width="250" />
 </p>
 
 
@@ -36,6 +36,10 @@
 - [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
 - [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
+
+
+## Download
+Go to the [Releases](https://github.com/ArjunJadeja/Bluffer/releases) to download the latest APK.
 
 
 ## MAD Score

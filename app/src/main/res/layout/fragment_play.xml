@@ -15,7 +15,7 @@
         android:layout_margin="@dimen/margin_too_big"
         android:backgroundTint="@color/green"
         android:text="@string/play"
-        android:textSize="@dimen/font_bigger"
+        android:textSize="@dimen/font_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -51,14 +51,11 @@
 
         <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true">
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:isScrollContainer="true"
                 android:orientation="vertical"
                 android:padding="@dimen/padding_small">
 

@@ -5,9 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
 import androidx.core.net.toUri
@@ -29,7 +27,7 @@ private const val TIMER_VALUE = 45
 private const val INCREASE_TIMER_VALUE = 30
 private const val MILLIS = 1000L
 
-class GameFragment : Fragment() {
+class GameFragment : Fragment(R.layout.fragment_game) {
 
     private lateinit var binding: FragmentGameBinding
 
@@ -45,14 +43,6 @@ class GameFragment : Fragment() {
     private var statusOk = false
 
     private var gameStarted = false
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.fragment_game, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

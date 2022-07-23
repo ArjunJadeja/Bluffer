@@ -2,9 +2,7 @@ package com.arjun.bluffer.view
 
 import android.media.SoundPool
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.activity.OnBackPressedCallback
@@ -18,7 +16,7 @@ import com.arjun.bluffer.utils.HelperStrings
 import com.arjun.bluffer.viewmodel.SharedViewModel
 import kotlin.system.exitProcess
 
-class PlayFragment : Fragment() {
+class PlayFragment : Fragment(R.layout.fragment_play) {
 
     private lateinit var binding: FragmentPlayBinding
 
@@ -29,13 +27,6 @@ class PlayFragment : Fragment() {
     private val soundPool = SoundPool.Builder().setMaxStreams(2).build()
     private var clickSound = R.integer.integer_zero
     private var wrongSound = R.integer.integer_zero
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_play, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

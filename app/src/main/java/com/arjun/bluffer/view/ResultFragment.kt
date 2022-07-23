@@ -4,9 +4,7 @@ import android.media.SoundPool
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
@@ -24,7 +22,7 @@ import kotlin.system.exitProcess
 
 private const val DELAY = 1000L
 
-class ResultFragment : Fragment() {
+class ResultFragment : Fragment(R.layout.fragment_result) {
 
     private lateinit var binding: FragmentResultBinding
 
@@ -39,14 +37,6 @@ class ResultFragment : Fragment() {
     private var guessedCorrectly = false
 
     private lateinit var winner: String
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_result, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

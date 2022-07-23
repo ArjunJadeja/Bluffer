@@ -13,7 +13,11 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="462ebad9-5122-4c5e-9fe9-36dbcf4b6284" name="Changes" comment="Removed navigation backstack" />
+    <list default="true" id="462ebad9-5122-4c5e-9fe9-36dbcf4b6284" name="Changes" comment="Removed navigation backstack">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/arjun/bluffer/view/GameFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/arjun/bluffer/view/GameFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/arjun/bluffer/view/PlayFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/arjun/bluffer/view/PlayFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/arjun/bluffer/view/ResultFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/arjun/bluffer/view/ResultFragment.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

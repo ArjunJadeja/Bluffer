@@ -13,7 +13,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="462ebad9-5122-4c5e-9fe9-36dbcf4b6284" name="Changes" comment="" />
+    <list default="true" id="462ebad9-5122-4c5e-9fe9-36dbcf4b6284" name="Changes" comment="Removed navigation backstack" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -193,6 +193,14 @@
       <option name="presentableId" value="Default" />
       <updated>1654277744282</updated>
     </task>
+    <task id="LOCAL-00001" summary="Removed navigation backstack">
+      <created>1658590941035</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1658590941035</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,5 +214,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Removed navigation backstack" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed navigation backstack" />
   </component>
 </project>

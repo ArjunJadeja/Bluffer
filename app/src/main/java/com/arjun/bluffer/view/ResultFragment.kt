@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.app.ActivityCompat
 import androidx.core.net.toUri
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
@@ -18,7 +19,6 @@ import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentResultBinding
 import com.arjun.bluffer.viewmodel.ResultViewModel
 import com.arjun.bluffer.viewmodel.SharedViewModel
-import kotlin.system.exitProcess
 
 private const val DELAY = 1000L
 
@@ -115,7 +115,7 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
         }
 
         binding.exitConfirmButton.setOnClickListener {
-            exitProcess(R.integer.integer_zero)
+            ActivityCompat.finishAffinity(requireActivity())
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(

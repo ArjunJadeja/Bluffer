@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.Toast
 import android.widget.Toast.makeText
 import androidx.activity.OnBackPressedCallback
+import androidx.core.app.ActivityCompat.finishAffinity
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -14,7 +15,6 @@ import com.arjun.bluffer.R
 import com.arjun.bluffer.databinding.FragmentPlayBinding
 import com.arjun.bluffer.utils.HelperStrings
 import com.arjun.bluffer.viewmodel.SharedViewModel
-import kotlin.system.exitProcess
 
 class PlayFragment : Fragment(R.layout.fragment_play) {
 
@@ -87,7 +87,7 @@ class PlayFragment : Fragment(R.layout.fragment_play) {
         }
 
         binding.exitConfirmButton.setOnClickListener {
-            exitProcess(R.integer.integer_zero)
+            finishAffinity(requireActivity())
         }
 
         requireActivity().onBackPressedDispatcher.addCallback(

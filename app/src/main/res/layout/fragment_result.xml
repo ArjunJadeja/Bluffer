@@ -6,64 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".view.ResultFragment">
 
-    <!--    Explainer Remarks Card-->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/explainer_card_view"
-        style="@style/card_style"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_big"
-        android:backgroundTint="@color/yellow"
-        app:cardCornerRadius="@dimen/corner_big"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_margin="@dimen/margin_big"
-                android:gravity="center"
-                android:text="@string/check_result_1"
-                android:textAppearance="?attr/textAppearanceHeadline6"
-                android:textColor="@color/black"
-                android:textSize="@dimen/font_medium" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/explainer_bluff_button"
-                style="@style/button_style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin_bigger"
-                android:layout_marginEnd="@dimen/margin_bigger"
-                android:backgroundTint="@color/green"
-                android:text="@string/yes" />
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/explainer_truth_button"
-                style="@style/button_style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="@dimen/margin_bigger"
-                android:layout_marginEnd="@dimen/margin_bigger"
-                android:layout_marginBottom="@dimen/margin_big"
-                android:backgroundTint="@color/green"
-                android:text="@string/no" />
-
-        </LinearLayout>
-
-    </com.google.android.material.card.MaterialCardView>
-
     <!--    Guesser Remarks Card-->
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/guesser_card_view"
@@ -72,7 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_big"
         android:backgroundTint="@color/yellow"
-        android:visibility="gone"
         app:cardCornerRadius="@dimen/corner_big"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,6 +59,65 @@
                 android:layout_marginBottom="@dimen/margin_big"
                 android:backgroundTint="@color/green"
                 android:text="@string/truth" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!--    Explainer Remarks Card-->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/explainer_card_view"
+        style="@style/card_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_big"
+        android:backgroundTint="@color/yellow"
+        android:visibility="gone"
+        app:cardCornerRadius="@dimen/corner_big"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_big"
+                android:gravity="center"
+                android:text="@string/check_result_1"
+                android:textAppearance="?attr/textAppearanceHeadline6"
+                android:textColor="@color/black"
+                android:textSize="@dimen/font_medium" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/explainer_bluff_button"
+                style="@style/button_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_bigger"
+                android:layout_marginEnd="@dimen/margin_bigger"
+                android:backgroundTint="@color/green"
+                android:text="@string/yes" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/explainer_truth_button"
+                style="@style/button_style"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_bigger"
+                android:layout_marginEnd="@dimen/margin_bigger"
+                android:layout_marginBottom="@dimen/margin_big"
+                android:backgroundTint="@color/green"
+                android:text="@string/no" />
 
         </LinearLayout>
 

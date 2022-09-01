@@ -58,29 +58,29 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
             }
         }
 
-        binding.explainerBluffButton.setOnClickListener {
-            playClickSound()
-            explainedCorrectly = false
-            explainerCardGone()
-        }
-
-        binding.explainerTruthButton.setOnClickListener {
-            playClickSound()
-            explainedCorrectly = true
-            explainerCardGone()
-        }
-
         binding.guesserBluffButton.setOnClickListener {
             playClickSound()
             guessedCorrectly = false
             guesserCardGone()
-            showResultCard()
         }
 
         binding.guesserTruthButton.setOnClickListener {
             playClickSound()
             guessedCorrectly = true
             guesserCardGone()
+        }
+
+        binding.explainerBluffButton.setOnClickListener {
+            playClickSound()
+            explainedCorrectly = false
+            explainerCardGone()
+            showResultCard()
+        }
+
+        binding.explainerTruthButton.setOnClickListener {
+            playClickSound()
+            explainedCorrectly = true
+            explainerCardGone()
             showResultCard()
         }
 
@@ -123,8 +123,8 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {
                     playClickSound()
-                    if (binding.guesserCardView.isVisible) {
-                        showExplainerCard()
+                    if (binding.explainerCardView.isVisible) {
+                        showGuesserCard()
                     } else if (binding.exitCard.isVisible) {
                         hideExitCard()
                     } else if (binding.imageView.isVisible) {
@@ -155,18 +155,18 @@ class ResultFragment : Fragment(R.layout.fragment_result) {
         }
     }
 
-    private fun showExplainerCard() {
+    private fun guesserCardGone() {
         binding.guesserCardView.visibility = View.GONE
         binding.explainerCardView.visibility = View.VISIBLE
     }
 
-    private fun explainerCardGone() {
+    private fun showGuesserCard() {
         binding.explainerCardView.visibility = View.GONE
         binding.guesserCardView.visibility = View.VISIBLE
     }
 
-    private fun guesserCardGone() {
-        binding.guesserCardView.visibility = View.GONE
+    private fun explainerCardGone() {
+        binding.explainerCardView.visibility = View.GONE
         binding.resultProgressBar.visibility = View.VISIBLE
         viewModel.playerResponse(explainedCorrectly, guessedCorrectly)
     }

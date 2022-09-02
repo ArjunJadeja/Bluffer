@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.arjun.bluffer.network.Image
-import com.arjun.bluffer.network.ImageApi
+import com.arjun.bluffer.network.ImageRepository
 import kotlinx.coroutines.launch
 import okio.IOException
 
@@ -26,11 +26,13 @@ class SharedViewModel : ViewModel() {
     private val _imageStatus = MutableLiveData<Boolean>()
     val imageStatus: LiveData<Boolean> = _imageStatus
 
+    private val repository: ImageRepository = ImageRepository()
+
     fun getNewImage() {
         if (isNetworkConnected.value == true) {
             viewModelScope.launch {
                 try {
-                    _image.value = ImageApi.retrofitService.getRandomPhoto()
+                    _image.value = repository.getRandomImage()
                     if (image.value?.nsfw == true) {
                         getNewImage()
                     }

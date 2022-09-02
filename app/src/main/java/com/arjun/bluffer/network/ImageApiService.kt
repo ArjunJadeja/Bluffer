@@ -19,7 +19,7 @@ private val retrofit = Retrofit.Builder()
 
 interface ImageApiService {
     @GET("hmmm")
-    suspend fun getRandomPhoto(): Image
+    suspend fun getRandomImage(): Image
 }
 
 object ImageApi {

@@ -5,7 +5,6 @@
 </p>
 
 ## Preview
-
 <p float="left">
   <img src="assets/Screenshot_20220716-004422.jpg" width="200" /> 
   <img src="assets/Screenshot_20220716-004415.jpg" width="200" />
@@ -17,11 +16,16 @@
   <img src="assets/Screenshot_20220716-004549.jpg" width="200" /> 
 </p>
 
+## Demo
+<a href="https://www.youtube.com/watch?v=EPL7oZbjGvs" target="blank"><img align="center" src="https://user-images.githubusercontent.com/81246797/188264595-93ea237d-9423-42da-ae8a-10f4ce5d5615.png" alt="arjun-jadeja" height="30" width="40" /></a>
+</p>
+
+## Download
+Go to the [Releases](https://github.com/ArjunJadeja/Bluffer/releases) to download the latest APK.
 
 ## Tech stack & Open-source libraries
-
 - Minimum SDK level 21
-- [Kotlin](https://kotlinlang.org/) - Modern, concise and safe programming language
+- [Kotlin](https://kotlinlang.org/) - Modern, concise and safe programming language.
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) - A concurrency design pattern to execute code asynchronously.
 - Jetpack
   - Lifecycle - Observe Android lifecycles and handle UI states upon the lifecycle changes.
@@ -33,27 +37,24 @@
   - MVVM Architecture (View - ViewModel - Network)
 - [Retrofit2](https://github.com/square/retrofit) - Construct the REST APIs.
 - [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
-- [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines
+- [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines.
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
 
-
-## Download
-Go to the [Releases](https://github.com/ArjunJadeja/Bluffer/releases) to download the latest APK.
-
+## App Architecture
+**Bluffer** is based on the MVVM architecture and the Repository pattern.
+<p float="left">
+  <img src="assets/BlufferArchitecture.png" width="600"/> 
+</p>
 
 ## MAD Score
-
 ![summary](https://user-images.githubusercontent.com/81246797/179294198-7beb2b9a-773e-4177-930a-b5cf824ab756.png)
 
-
 ## Open API
-
 - Bluffer using the [SubredditApi](https://meme-api.herokuapp.com/gimme/hmmm) for constructing RESTful API.<br>
 
 - This API provides a RESTful API interface for any subreddit. All the data is fetched from [/hmmm](https://www.reddit.com/r/hmmm/) subreddit.
 
 - Github repository of author - [Github](https://github.com/D3vd/Meme_Api)
-
 
 ## License
 ```xml

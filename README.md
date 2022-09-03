@@ -25,7 +25,7 @@ Go to the [Releases](https://github.com/ArjunJadeja/Bluffer/releases) to downloa
 
 ## Tech stack & Open-source libraries
 - Minimum SDK level 21
-- [Kotlin](https://kotlinlang.org/) - Modern, concise and safe programming language
+- [Kotlin](https://kotlinlang.org/) - Modern, concise and safe programming language.
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) - A concurrency design pattern to execute code asynchronously.
 - Jetpack
   - Lifecycle - Observe Android lifecycles and handle UI states upon the lifecycle changes.
@@ -37,13 +37,13 @@ Go to the [Releases](https://github.com/ArjunJadeja/Bluffer/releases) to downloa
   - MVVM Architecture (View - ViewModel - Network)
 - [Retrofit2](https://github.com/square/retrofit) - Construct the REST APIs.
 - [Moshi](https://github.com/square/moshi/) - A modern JSON library for Kotlin and Java.
-- [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines
+- [Coil](https://github.com/coil-kt/coil) - An image loading library for Android backed by Kotlin Coroutines.
 - [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building View layouts and Animations.
 
 ## App Architecture
-**Bluffer** is based on the MVVM architecture and the Repository pattern
+**Bluffer** is based on the MVVM architecture and the Repository pattern.
 <p float="left">
-  <img src="assets/BlufferArchitecture.png" width="400"/> 
+  <img src="assets/BlufferArchitecture.png" width="600"/> 
 </p>
 
 ## MAD Score

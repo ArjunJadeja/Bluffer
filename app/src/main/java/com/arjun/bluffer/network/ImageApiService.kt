@@ -6,7 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://meme-api.herokuapp.com/gimme/"
+private const val BASE_URL = "https://meme-api.com/gimme/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())

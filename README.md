@@ -17,7 +17,7 @@
 </p>
 
 ## Demo
-<a href="https://www.youtube.com/watch?v=EPL7oZbjGvs" target="blank"><img align="center" src="https://user-images.githubusercontent.com/81246797/188264595-93ea237d-9423-42da-ae8a-10f4ce5d5615.png" alt="arjun-jadeja" height="30" width="40" /></a>
+<a href="https://www.youtube.com/watch?v=EPL7oZbjGvs" target="blank"><img align="center" src="https://user-images.githubusercontent.com/81246797/188264595-93ea237d-9423-42da-ae8a-10f4ce5d5615.png" alt="arjunjadeja" height="30" width="40" /></a>
 </p>
 
 ## Download

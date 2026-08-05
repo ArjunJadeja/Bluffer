@@ -1,4 +1,4 @@
-package com.arjun.bluffer.network
+package com.arjunjadeja.bluffer.network
 
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory

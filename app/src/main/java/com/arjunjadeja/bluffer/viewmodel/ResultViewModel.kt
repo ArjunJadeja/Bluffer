@@ -1,4 +1,4 @@
-package com.arjun.bluffer.viewmodel
+package com.arjunjadeja.bluffer.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

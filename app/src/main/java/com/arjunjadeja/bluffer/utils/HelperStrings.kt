@@ -1,4 +1,4 @@
-package com.arjun.bluffer.utils
+package com.arjunjadeja.bluffer.utils
 
 class HelperStrings {
 

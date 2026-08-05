@@ -1,4 +1,4 @@
-package com.arjun.bluffer.viewmodel
+package com.arjunjadeja.bluffer.viewmodel
 
 import android.os.CountDownTimer
 import androidx.lifecycle.LiveData

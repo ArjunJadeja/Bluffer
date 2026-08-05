@@ -1,4 +1,4 @@
-package com.arjun.bluffer
+package com.arjunjadeja.bluffer
 
 import org.junit.Test
 

@@ -1,4 +1,4 @@
-package com.arjun.bluffer.view
+package com.arjunjadeja.bluffer.view
 
 import android.media.SoundPool
 import android.os.Bundle
@@ -17,11 +17,11 @@ import coil.load
 import coil.request.ErrorResult
 import coil.request.ImageRequest
 import coil.transform.RoundedCornersTransformation
-import com.arjun.bluffer.R
-import com.arjun.bluffer.databinding.FragmentGameBinding
-import com.arjun.bluffer.utils.HelperStrings
-import com.arjun.bluffer.viewmodel.GameViewModel
-import com.arjun.bluffer.viewmodel.SharedViewModel
+import com.arjunjadeja.bluffer.R
+import com.arjunjadeja.bluffer.databinding.FragmentGameBinding
+import com.arjunjadeja.bluffer.utils.HelperStrings
+import com.arjunjadeja.bluffer.viewmodel.GameViewModel
+import com.arjunjadeja.bluffer.viewmodel.SharedViewModel
 
 private const val TIMER_VALUE = 45
 private const val INCREASE_TIMER_VALUE = 30

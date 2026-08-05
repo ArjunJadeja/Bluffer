@@ -1,4 +1,4 @@
-package com.arjun.bluffer.view
+package com.arjunjadeja.bluffer.view
 
 import android.media.SoundPool
 import android.os.Bundle
@@ -15,10 +15,10 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import com.arjun.bluffer.R
-import com.arjun.bluffer.databinding.FragmentResultBinding
-import com.arjun.bluffer.viewmodel.ResultViewModel
-import com.arjun.bluffer.viewmodel.SharedViewModel
+import com.arjunjadeja.bluffer.R
+import com.arjunjadeja.bluffer.databinding.FragmentResultBinding
+import com.arjunjadeja.bluffer.viewmodel.ResultViewModel
+import com.arjunjadeja.bluffer.viewmodel.SharedViewModel
 
 private const val DELAY = 1000L
 

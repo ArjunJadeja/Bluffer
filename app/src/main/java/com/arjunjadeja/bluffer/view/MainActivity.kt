@@ -1,12 +1,12 @@
-package com.arjun.bluffer.view
+package com.arjunjadeja.bluffer.view
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.arjun.bluffer.R
-import com.arjun.bluffer.databinding.ActivityMainBinding
-import com.arjun.bluffer.utils.NetworkConnected
-import com.arjun.bluffer.viewmodel.SharedViewModel
+import com.arjunjadeja.bluffer.R
+import com.arjunjadeja.bluffer.databinding.ActivityMainBinding
+import com.arjunjadeja.bluffer.utils.NetworkConnected
+import com.arjunjadeja.bluffer.viewmodel.SharedViewModel
 
 class MainActivity : AppCompatActivity() {
 

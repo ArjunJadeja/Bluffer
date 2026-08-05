@@ -1,4 +1,4 @@
-package com.arjun.bluffer.network
+package com.arjunjadeja.bluffer.network
 
 import androidx.annotation.Keep
 import com.squareup.moshi.Json

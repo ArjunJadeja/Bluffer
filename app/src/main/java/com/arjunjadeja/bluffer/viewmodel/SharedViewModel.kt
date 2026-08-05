@@ -1,11 +1,11 @@
-package com.arjun.bluffer.viewmodel
+package com.arjunjadeja.bluffer.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.arjun.bluffer.network.Image
-import com.arjun.bluffer.network.ImageRepository
+import com.arjunjadeja.bluffer.network.Image
+import com.arjunjadeja.bluffer.network.ImageRepository
 import kotlinx.coroutines.launch
 import okio.IOException
 

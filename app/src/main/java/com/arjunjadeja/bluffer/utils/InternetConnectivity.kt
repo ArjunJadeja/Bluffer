@@ -1,4 +1,4 @@
-package com.arjun.bluffer.utils
+package com.arjunjadeja.bluffer.utils
 
 import android.util.Log
 import java.io.IOException
